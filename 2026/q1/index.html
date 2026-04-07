@@ -5,10 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ASG SHOP — Q1 2026 Performance Report</title>
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
-    />
+    /> -->
+    <link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <style>
       :root {
@@ -48,7 +52,8 @@
         background: var(--bg);
         color: var(--txt);
         font-family:
-          'Instrument Sans',
+          /* 'Instrument Sans', */
+          'Inter',
           sans-serif;
         font-size: 14px;
         line-height: 1.6;
@@ -122,7 +127,8 @@
         background: var(--a1);
       }
       .hero-title {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: clamp(52px, 7vw, 96px);
         font-weight: 800;
         line-height: 0.95;
@@ -134,7 +140,8 @@
         color: var(--a1);
       }
       .hero-subtitle {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: clamp(24px, 3vw, 42px);
         font-weight: 600;
         color: var(--txt-secondary);
@@ -197,7 +204,8 @@
         background: var(--border2);
       }
       .section-title {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: clamp(28px, 4vw, 44px);
         font-weight: 700;
         letter-spacing: -0.02em;
@@ -253,7 +261,8 @@
         background: var(--a6);
       }
       .kpi-value {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: 32px;
         font-weight: 800;
         letter-spacing: -0.03em;
@@ -284,7 +293,8 @@
         margin-bottom: 24px;
       }
       .chart-title {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: 16px;
         font-weight: 700;
         color: var(--txt);
@@ -421,7 +431,8 @@
         border-left-color: var(--a2);
       }
       .insight-title {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: 14px;
         font-weight: 700;
         color: var(--txt);
@@ -467,7 +478,8 @@
         gap: 24px;
       }
       .footer-name {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: 20px;
         font-weight: 700;
         color: var(--txt);
@@ -514,12 +526,19 @@
         height: 56px;
       }
       .nav-brand {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: 15px;
         font-weight: 700;
         color: var(--txt);
         letter-spacing: -0.02em;
       }
+      .nav-logo {
+  height: 90px;       
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
       .nav-brand span {
         color: var(--a1);
       }
@@ -569,7 +588,8 @@
         padding: 20px;
       }
       .zone-name {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: 13px;
         font-weight: 700;
         color: var(--txt-secondary);
@@ -580,7 +600,8 @@
         margin-bottom: 12px;
       }
       .zone-stat-val {
-        font-family: 'Syne', sans-serif;
+        /* font-family: 'Syne', sans-serif; */
+        font-family: 'Inter', sans-serif;
         font-size: 24px;
         font-weight: 800;
         letter-spacing: -0.02em;
@@ -639,7 +660,10 @@
 
     <nav class="nav">
       <div class="nav-inner">
-        <div class="nav-brand">ASG <span>SHOP™</span></div>
+        <!-- <div class="nav-brand">ASG <span>SHOP™</span></div> -->
+        <div class="nav-brand">
+          <img src="asgshop.png" alt="ASG SHOP" class="nav-logo" />
+        </div>
         <div class="nav-links">
           <a href="#analytics" class="nav-link">Analytics</a>
           <a href="#content" class="nav-link">Content</a>
