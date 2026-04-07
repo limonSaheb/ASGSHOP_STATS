@@ -12,23 +12,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <style>
       :root {
-        --bg: #080c10;
-        --surface: #0e1419;
-        --card: #131a22;
-        --border: #1e2a36;
-        --border2: #243040;
+        --bg: #0a0e13;
+        --surface: #0f141b;
+        --card: #151d27;
+        --border: #232f3d;
+        --border2: #2d3d4d;
         --a1: #2f81f7;
         --a2: #3fb950;
         --a3: #f78166;
         --a4: #c397f5;
         --a5: #ffa657;
         --a6: #58c8ff;
-        --txt: #e6edf3;
-        --muted: #7d8ea0;
+        --txt: #f0f5fa;
+        --txt-secondary: #c5cfd9;
+        --muted: #8b96a4;
         --dim: #3a4a5c;
-        --grid: rgba(255, 255, 255, 0.04);
-        --glow1: rgba(47, 129, 247, 0.12);
-        --glow2: rgba(63, 185, 80, 0.1);
+        --grid: rgba(255, 255, 255, 0.05);
+        --glow1: rgba(47, 129, 247, 0.15);
+        --glow2: rgba(63, 185, 80, 0.12);
       }
 
       *,
@@ -44,10 +45,10 @@
       }
 
       body {
-        background: var(–bg);
-        color: var(–txt);
+        background: var(--bg);
+        color: var(--txt);
         font-family:
-          ‘Instrument Sans’,
+          'Instrument Sans',
           sans-serif;
         font-size: 14px;
         line-height: 1.6;
@@ -56,14 +57,14 @@
 
       /* ── NOISE OVERLAY ── */
       body::before {
-        content: ‘’;
+        content: '';
         position: fixed;
         inset: 0;
         background-image: url(
-          “data:image/svg + xml,
-          %3CsvgviewBox=‘00256256’xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilterid=‘noise’%3E%3CfeTurbulencetype=‘fractalNoise’baseFrequency=‘0.9’numOctaves=‘4’stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crectwidth=‘100%25’height=‘100%25’filter=‘url(
+          "data:image/svg + xml,
+          %3CsvgviewBox='00256256'xmlns='http://www.w3.org/2000/svg'%3E%3Cfilterid='noise'%3E%3CfeTurbulencetype='fractalNoise'baseFrequency='0.9'numOctaves='4'stitchTiles='stitch'/%3E%3C/filter%3E%3Crectwidth='100%25'height='100%25'filter='url(
               %23noise
-            )’opacity=‘0.03’/%3E%3C/svg%3E”
+            )'opacity='0.03'/%3E%3C/svg%3E"
         );
         pointer-events: none;
         z-index: 0;
@@ -87,26 +88,26 @@
         justify-content: center;
         padding: 80px 0 60px;
         position: relative;
-        border-bottom: 1px solid var(–border);
+        border-bottom: 1px solid var(--border);
       }
       .hero::after {
-        content: ‘’;
+        content: '';
         position: absolute;
         top: -200px;
         right: -200px;
         width: 600px;
         height: 600px;
-        background: radial-gradient(circle, var(–glow1) 0%, transparent 70%);
+        background: radial-gradient(circle, var(--glow1) 0%, transparent 70%);
         pointer-events: none;
       }
       .hero-eyebrow {
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 11px;
         font-weight: 500;
         letter-spacing: 0.15em;
-        color: var(–a1);
+        color: var(--a1);
         text-transform: uppercase;
         margin-bottom: 24px;
         display: flex;
@@ -114,29 +115,29 @@
         gap: 12px;
       }
       .hero-eyebrow::before {
-        content: ‘’;
+        content: '';
         display: inline-block;
         width: 32px;
         height: 1px;
-        background: var(–a1);
+        background: var(--a1);
       }
       .hero-title {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: clamp(52px, 7vw, 96px);
         font-weight: 800;
         line-height: 0.95;
         letter-spacing: -0.03em;
-        color: var(–txt);
+        color: var(--txt);
         margin-bottom: 8px;
       }
       .hero-title span {
-        color: var(–a1);
+        color: var(--a1);
       }
       .hero-subtitle {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: clamp(24px, 3vw, 42px);
         font-weight: 600;
-        color: var(–muted);
+        color: var(--txt-secondary);
         letter-spacing: -0.02em;
         margin-bottom: 40px;
       }
@@ -144,7 +145,7 @@
         display: flex;
         gap: 40px;
         flex-wrap: wrap;
-        border-top: 1px solid var(–border);
+        border-top: 1px solid var(--border);
         padding-top: 32px;
         margin-top: 8px;
       }
@@ -155,33 +156,33 @@
       }
       .hero-meta-label {
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 10px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(–muted);
+        color: var(--muted);
       }
       .hero-meta-value {
         font-size: 13px;
         font-weight: 600;
-        color: var(–txt);
+        color: var(--txt-secondary);
       }
 
       /* ── SECTION ── */
       .section {
         padding: 80px 0;
-        border-bottom: 1px solid var(–border);
+        border-bottom: 1px solid var(--border);
       }
       .section-header {
         margin-bottom: 48px;
       }
       .section-num {
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 11px;
-        color: var(–a1);
+        color: var(--a1);
         letter-spacing: 0.15em;
         text-transform: uppercase;
         margin-bottom: 12px;
@@ -190,17 +191,17 @@
         gap: 10px;
       }
       .section-num::after {
-        content: ‘’;
+        content: '';
         flex: 1;
         height: 1px;
-        background: var(–border2);
+        background: var(--border2);
       }
       .section-title {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: clamp(28px, 4vw, 44px);
         font-weight: 700;
         letter-spacing: -0.02em;
-        color: var(–txt);
+        color: var(--txt);
       }
 
       /* ── KPI GRID ── */
@@ -211,8 +212,8 @@
         margin-bottom: 48px;
       }
       .kpi {
-        background: var(–card);
-        border: 1px solid var(–border);
+        background: var(--card);
+        border: 1px solid var(--border);
         border-radius: 12px;
         padding: 24px 20px;
         position: relative;
@@ -222,11 +223,11 @@
           transform 0.2s;
       }
       .kpi:hover {
-        border-color: var(–border2);
+        border-color: var(--border2);
         transform: translateY(-2px);
       }
       .kpi::before {
-        content: ‘’;
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -234,64 +235,64 @@
         height: 2px;
       }
       .kpi.blue::before {
-        background: var(–a1);
+        background: var(--a1);
       }
       .kpi.green::before {
-        background: var(–a2);
+        background: var(--a2);
       }
       .kpi.coral::before {
-        background: var(–a3);
+        background: var(--a3);
       }
       .kpi.purple::before {
-        background: var(–a4);
+        background: var(--a4);
       }
       .kpi.amber::before {
-        background: var(–a5);
+        background: var(--a5);
       }
       .kpi.cyan::before {
-        background: var(–a6);
+        background: var(--a6);
       }
       .kpi-value {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: 32px;
         font-weight: 800;
         letter-spacing: -0.03em;
-        color: var(–txt);
+        color: var(--txt);
         line-height: 1;
         margin-bottom: 8px;
       }
       .kpi-label {
         font-size: 12px;
-        color: var(–muted);
+        color: var(--txt-secondary);
         font-weight: 500;
       }
       .kpi-sub {
         font-size: 11px;
-        color: var(–a2);
+        color: var(--a2);
         margin-top: 4px;
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
       }
 
       /* ── CHART CARD ── */
       .chart-card {
-        background: var(–card);
-        border: 1px solid var(–border);
+        background: var(--card);
+        border: 1px solid var(--border);
         border-radius: 16px;
         padding: 28px;
         margin-bottom: 24px;
       }
       .chart-title {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: 16px;
         font-weight: 700;
-        color: var(–txt);
+        color: var(--txt);
         margin-bottom: 4px;
       }
       .chart-desc {
         font-size: 12px;
-        color: var(–muted);
+        color: var(--muted);
         margin-bottom: 24px;
       }
       .chart-wrap {
@@ -323,40 +324,40 @@
         text-align: left;
         padding: 10px 14px;
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 10px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: var(–muted);
-        border-bottom: 1px solid var(–border);
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
         font-weight: 500;
       }
       .data-table td {
         padding: 11px 14px;
-        border-bottom: 1px solid var(–border);
-        color: var(–txt);
+        border-bottom: 1px solid var(--border);
+        color: var(--txt-secondary);
       }
       .data-table tr:last-child td {
         border-bottom: none;
       }
       .data-table tr:hover td {
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255, 255, 255, 0.03);
       }
       .data-table td.num {
         text-align: right;
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 12px;
       }
       .data-table td.pct {
         text-align: right;
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 12px;
-        color: var(–a2);
+        color: var(--a2);
       }
       .data-table td.tag {
         font-size: 11px;
@@ -367,10 +368,10 @@
       }
       .rank {
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 11px;
-        color: var(–dim);
+        color: var(--dim);
       }
       .page-bar {
         display: flex;
@@ -380,7 +381,7 @@
       .bar-fill {
         height: 4px;
         border-radius: 2px;
-        background: var(–a1);
+        background: var(--a1);
         min-width: 2px;
       }
 
@@ -391,44 +392,44 @@
         gap: 16px;
       }
       .insight {
-        background: var(–card);
-        border: 1px solid var(–border);
+        background: var(--card);
+        border: 1px solid var(--border);
         border-radius: 12px;
         padding: 20px;
-        border-left: 3px solid var(–a1);
+        border-left: 3px solid var(--a1);
         transition: border-color 0.2s;
       }
       .insight:nth-child(2) {
-        border-left-color: var(–a2);
+        border-left-color: var(--a2);
       }
       .insight:nth-child(3) {
-        border-left-color: var(–a3);
+        border-left-color: var(--a3);
       }
       .insight:nth-child(4) {
-        border-left-color: var(–a4);
+        border-left-color: var(--a4);
       }
       .insight:nth-child(5) {
-        border-left-color: var(–a5);
+        border-left-color: var(--a5);
       }
       .insight:nth-child(6) {
-        border-left-color: var(–a6);
+        border-left-color: var(--a6);
       }
       .insight:nth-child(7) {
-        border-left-color: var(–a1);
+        border-left-color: var(--a1);
       }
       .insight:nth-child(8) {
-        border-left-color: var(–a2);
+        border-left-color: var(--a2);
       }
       .insight-title {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: 14px;
         font-weight: 700;
-        color: var(–txt);
+        color: var(--txt);
         margin-bottom: 8px;
       }
       .insight-body {
         font-size: 12px;
-        color: var(–muted);
+        color: var(--txt-secondary);
         line-height: 1.65;
       }
       .badge {
@@ -440,20 +441,20 @@
         margin-left: 8px;
         vertical-align: middle;
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
       }
       .badge-green {
         background: rgba(63, 185, 80, 0.15);
-        color: var(–a2);
+        color: var(--a2);
       }
       .badge-amber {
         background: rgba(255, 166, 87, 0.15);
-        color: var(–a5);
+        color: var(--a5);
       }
       .badge-red {
         background: rgba(247, 129, 102, 0.15);
-        color: var(–a3);
+        color: var(--a3);
       }
 
       /* ── FOOTER ── */
@@ -466,14 +467,14 @@
         gap: 24px;
       }
       .footer-name {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: 20px;
         font-weight: 700;
-        color: var(–txt);
+        color: var(--txt);
       }
       .footer-role {
         font-size: 12px;
-        color: var(–muted);
+        color: var(--muted);
         margin-top: 4px;
       }
       .footer-links {
@@ -482,14 +483,14 @@
       }
       .footer-link {
         font-size: 12px;
-        color: var(–muted);
+        color: var(--muted);
         text-decoration: none;
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
       }
       .footer-link:hover {
-        color: var(–a1);
+        color: var(--a1);
       }
 
       /* ── NAV ── */
@@ -499,9 +500,9 @@
         left: 0;
         right: 0;
         z-index: 100;
-        background: rgba(8, 12, 16, 0.85);
+        background: var(--bg);
         backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(–border);
+        border-bottom: 1px solid var(--border);
         padding: 0 32px;
       }
       .nav-inner {
@@ -513,14 +514,14 @@
         height: 56px;
       }
       .nav-brand {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: 15px;
         font-weight: 700;
-        color: var(–txt);
+        color: var(--txt);
         letter-spacing: -0.02em;
       }
       .nav-brand span {
-        color: var(–a1);
+        color: var(--a1);
       }
       .nav-links {
         display: flex;
@@ -528,28 +529,30 @@
       }
       .nav-link {
         font-size: 12px;
-        color: var(–muted);
+        color: var(--txt-secondary);
         text-decoration: none;
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         letter-spacing: 0.05em;
         transition: color 0.2s;
+        font-weight: 500;
       }
       .nav-link:hover {
-        color: var(–txt);
+        color: var(--a1);
       }
       .nav-pill {
         font-family:
-          ‘JetBrains Mono’,
+          'JetBrains Mono',
           monospace;
         font-size: 10px;
-        padding: 4px 12px;
+        padding: 6px 14px;
         border-radius: 20px;
-        background: rgba(47, 129, 247, 0.15);
-        color: var(–a1);
-        border: 1px solid rgba(47, 129, 247, 0.3);
+        background: var(--a1);
+        color: var(--bg);
+        border: 1px solid var(--a1);
         letter-spacing: 0.08em;
+        font-weight: 600;
       }
 
       /* ── CDN ZONE CARDS ── */
@@ -560,16 +563,16 @@
         margin-bottom: 24px;
       }
       .zone-card {
-        background: var(–card);
-        border: 1px solid var(–border);
+        background: var(--card);
+        border: 1px solid var(--border);
         border-radius: 12px;
         padding: 20px;
       }
       .zone-name {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: 13px;
         font-weight: 700;
-        color: var(–muted);
+        color: var(--txt-secondary);
         margin-bottom: 16px;
         letter-spacing: 0.05em;
       }
@@ -577,19 +580,19 @@
         margin-bottom: 12px;
       }
       .zone-stat-val {
-        font-family: ‘Syne’, sans-serif;
+        font-family: 'Syne', sans-serif;
         font-size: 24px;
         font-weight: 800;
         letter-spacing: -0.02em;
-        color: var(–txt);
+        color: var(--txt);
       }
       .zone-stat-label {
         font-size: 11px;
-        color: var(–muted);
+        color: var(--muted);
       }
       .zone-bar {
         height: 6px;
-        background: var(–border2);
+        background: var(--border2);
         border-radius: 3px;
         margin-top: 6px;
         overflow: hidden;
@@ -1221,12 +1224,12 @@
         a4: "#C397F5",
         a5: "#FFA657",
         a6: "#58C8FF",
-        txt: "#E6EDF3",
-        muted: "#7D8EA0",
-        grid: "rgba(255,255,255,0.04)",
-        card: "#131A22",
-        bg: "#080C10",
-        border: "#1E2A36",
+        txt: "#F0F5FA",
+        muted: "#8B96A4",
+        grid: "rgba(255,255,255,0.05)",
+        card: "#151D27",
+        bg: "#0A0E13",
+        border: "#232F3D",
       };
 
       Chart.defaults.color = C.muted;
@@ -1566,7 +1569,7 @@
                 C.muted,
               ],
               borderWidth: 2,
-              borderColor: "#131A22",
+              borderColor: "#151D27",
               hoverOffset: 6,
             },
           ],
