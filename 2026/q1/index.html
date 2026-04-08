@@ -1,39 +1,92 @@
 <!doctype html>
-
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ASG SHOP — Q1 2026 Performance Report</title>
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    /> -->
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="ASG SHOP — Q1 2026 Performance Report" />
+    <meta property="og:site_name" content="ASG Shop - Apar's Classroom" />
+    <meta
+      property="og:description"
+      content="ASG Shop is a online shop of a popular Online Platform named Apar's Classroom. Currently more than 1 million students of Bangladesh are learning and developing their skills using this online education platform."
+    />
+    <meta property="og:url" content="https://stats.asgshop.ai/2026/q1/" />
+    <meta property="fb:app_id" content="1152515561798223" />
+    <meta
+      property="og:image"
+      content="https://i.postimg.cc/N05z13gz/Screenshot-2026-04-08-at-12-02-31-PM.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://i.postimg.cc/N05z13gz/Screenshot-2026-04-08-at-12-02-31-PM.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Site Icons -->
     <link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
+      rel="shortcut icon"
+      href="https://aparsclassroom.com/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="https://aparsclassroom.com/assets/Logo.png" />
+    <link
+      rel="apple-touch-icon"
+      href="https://aparsclassroom.com/assets/Logo.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Chillax:wght@300;400;500;600&family=Zodiak:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <style>
+      /* ═══ THEME TOKENS ═══ */
+      :root[data-theme="light"] {
+        --bg: #f5f3ee;
+        --bg2: #edeae3;
+        --bg3: #e4e0d7;
+        --card: #ffffff;
+        --ink: #1a1814;
+        --ink2: #3d3a34;
+        --ink3: #7a7570;
+        --line: rgba(26, 24, 20, 0.1);
+        --line2: rgba(26, 24, 20, 0.055);
+        --nav-bg: rgba(245, 243, 238, 0.88);
+        --chart-grid: rgba(26, 24, 20, 0.06);
+        --grain-op: 0.028;
+        --shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+        --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.11);
+      }
+
+      :root[data-theme="dark"] {
+        --bg: #0e0d0b;
+        --bg2: #181714;
+        --bg3: #211f1b;
+        --card: #1c1a17;
+        --ink: #f0ede8;
+        --ink2: #c8c4bc;
+        --ink3: #7a7570;
+        --line: rgba(240, 237, 232, 0.1);
+        --line2: rgba(240, 237, 232, 0.055);
+        --nav-bg: rgba(14, 13, 11, 0.88);
+        --chart-grid: rgba(240, 237, 232, 0.06);
+        --grain-op: 0.04;
+        --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.45);
+      }
+
+      /* ═══ ACCENT (same in both modes) ═══ */
       :root {
-        --bg: #0a0e13;
-        --surface: #0f141b;
-        --card: #151d27;
-        --border: #232f3d;
-        --border2: #2d3d4d;
-        --a1: #2f81f7;
-        --a2: #3fb950;
-        --a3: #f78166;
-        --a4: #c397f5;
-        --a5: #ffa657;
-        --a6: #58c8ff;
-        --txt: #f0f5fa;
-        --txt-secondary: #c5cfd9;
-        --muted: #8b96a4;
-        --dim: #3a4a5c;
-        --grid: rgba(255, 255, 255, 0.05);
-        --glow1: rgba(47, 129, 247, 0.15);
-        --glow2: rgba(63, 185, 80, 0.12);
+        --pop: #ff4d1c;
+        --pop2: #ff7a50;
+        --teal: #00897b;
+        --blue: #1565c0;
+        --gold: #c8860a;
+        --grn: #2e7d32;
+        --f-d: "Cabinet Grotesk", sans-serif;
+        --f-b: "Chillax", sans-serif;
+        --f-s: "Zodiak", serif;
       }
 
       *,
@@ -50,1234 +103,2170 @@
 
       body {
         background: var(--bg);
-        color: var(--txt);
-        font-family:
-          /* 'Instrument Sans', */
-          'Inter',
-          sans-serif;
-        font-size: 14px;
+        color: var(--ink);
+        font-family: var(--f-b);
+        font-size: 15px;
         line-height: 1.6;
         overflow-x: hidden;
+        transition:
+          background 0.35s ease,
+          color 0.35s ease;
       }
 
-      /* ── NOISE OVERLAY ── */
+      /* ── GRAIN ── */
       body::before {
-        content: '';
+        content: "";
         position: fixed;
         inset: 0;
-        background-image: url(
-          "data:image/svg + xml,
-          %3CsvgviewBox='00256256'xmlns='http://www.w3.org/2000/svg'%3E%3Cfilterid='noise'%3E%3CfeTurbulencetype='fractalNoise'baseFrequency='0.9'numOctaves='4'stitchTiles='stitch'/%3E%3C/filter%3E%3Crectwidth='100%25'height='100%25'filter='url(
-              %23noise
-            )'opacity='0.03'/%3E%3C/svg%3E"
-        );
+        z-index: 9999;
         pointer-events: none;
-        z-index: 0;
-        opacity: 0.6;
+        opacity: var(--grain-op);
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 180px;
       }
 
-      /* ── LAYOUT ── */
-      .page {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 0 32px;
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 500;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        background: var(--nav-bg);
+        backdrop-filter: blur(18px) saturate(180%);
+        border-bottom: 1px solid var(--line);
+        transition: background 0.35s;
+      }
+
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .nav-logo {
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-logo img {
+        height: 56px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+      html[data-theme="light"] .logo-light {
+        display: block;
+      }
+
+      html[data-theme="light"] .logo-dark {
+        display: none;
+      }
+
+      html[data-theme="dark"] .logo-light {
+        display: none;
+      }
+
+      html[data-theme="dark"] .logo-dark {
+        display: block;
+      }
+
+      .nav-brand {
+        font-family: var(--f-d);
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: -0.02em;
+      }
+
+      .nav-pill {
+        font-family: var(--f-b);
+        font-size: 11px;
+        font-weight: 500;
+        background: var(--pop);
+        color: #fff;
+        padding: 3px 10px;
+        border-radius: 100px;
+        letter-spacing: 0.04em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink3);
+        text-decoration: none;
+        letter-spacing: -0.01em;
+        transition: color 0.15s;
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* ── THEME TOGGLE ── */
+      .theme-btn {
+        width: 40px;
+        height: 24px;
+        border-radius: 100px;
+        background: var(--bg3);
+        border: 1px solid var(--line);
+        cursor: pointer;
         position: relative;
-        z-index: 1;
+        transition: background 0.25s;
+        flex-shrink: 0;
+      }
+
+      .theme-btn::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--ink);
+        transition:
+          transform 0.25s,
+          background 0.35s;
+      }
+
+      [data-theme="dark"] .theme-btn::after {
+        transform: translateX(16px);
+      }
+
+      .theme-btn-icon {
+        font-size: 10px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .theme-btn-icon.sun {
+        right: 6px;
+      }
+
+      .theme-btn-icon.moon {
+        left: 6px;
+      }
+
+      [data-theme="light"] .moon {
+        opacity: 0;
+      }
+
+      [data-theme="dark"] .sun {
+        opacity: 0;
+      }
+
+      .nav-cta {
+        font-family: var(--f-d);
+        font-size: 12px;
+        font-weight: 700;
+        background: var(--ink);
+        color: var(--bg);
+        padding: 8px 18px;
+        border-radius: 100px;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+        transition:
+          background 0.15s,
+          color 0.35s;
+      }
+
+      .nav-cta:hover {
+        background: var(--pop);
+        color: #fff;
       }
 
       /* ── HERO ── */
       .hero {
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 80px 0 60px;
+        padding: 140px 60px 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 80px;
+        align-items: end;
         position: relative;
-        border-bottom: 1px solid var(--border);
+        overflow: hidden;
       }
-      .hero::after {
-        content: '';
+
+      .hero-lines {
         position: absolute;
-        top: -200px;
+        inset: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 79px,
+          var(--line2) 79px,
+          var(--line2) 80px
+        );
+      }
+
+      .hero-glow {
+        position: absolute;
         right: -200px;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, var(--glow1) 0%, transparent 70%);
+        top: 45%;
+        transform: translateY(-50%);
+        width: 700px;
+        height: 700px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 35% 45%,
+          rgba(255, 77, 28, 0.1) 0%,
+          transparent 60%
+        );
         pointer-events: none;
       }
-      .hero-eyebrow {
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.15em;
-        color: var(--a1);
-        text-transform: uppercase;
-        margin-bottom: 24px;
-        display: flex;
+
+      .hero-kicker {
+        display: inline-flex;
         align-items: center;
-        gap: 12px;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink3);
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        padding: 6px 14px;
+        border-radius: 100px;
+        margin-bottom: 28px;
+        letter-spacing: 0.02em;
       }
-      .hero-eyebrow::before {
-        content: '';
-        display: inline-block;
-        width: 32px;
-        height: 1px;
-        background: var(--a1);
+
+      .hero-kicker-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--pop);
+        animation: pulse 2s infinite;
       }
-      .hero-title {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: clamp(52px, 7vw, 96px);
-        font-weight: 800;
-        line-height: 0.95;
-        letter-spacing: -0.03em;
-        color: var(--txt);
-        margin-bottom: 8px;
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.35;
+        }
       }
-      .hero-title span {
-        color: var(--a1);
+
+      .hero-h1 {
+        font-family: var(--f-d);
+        font-weight: 900;
+        font-size: clamp(60px, 7.5vw, 116px);
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+        margin-bottom: 32px;
       }
-      .hero-subtitle {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: clamp(24px, 3vw, 42px);
-        font-weight: 600;
-        color: var(--txt-secondary);
-        letter-spacing: -0.02em;
+
+      .hero-h1 .pop {
+        color: var(--pop);
+      }
+
+      .hero-h1 .serif {
+        font-family: var(--f-s);
+        font-weight: 400;
+        font-style: italic;
+        color: var(--ink2);
+        font-size: 0.82em;
+      }
+
+      .hero-desc {
+        font-size: 15px;
+        color: var(--ink3);
+        line-height: 1.8;
+        max-width: 420px;
         margin-bottom: 40px;
       }
-      .hero-meta {
-        display: flex;
-        gap: 40px;
-        flex-wrap: wrap;
-        border-top: 1px solid var(--border);
-        padding-top: 32px;
-        margin-top: 8px;
-      }
-      .hero-meta-item {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .hero-meta-label {
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .hero-meta-value {
-        font-size: 13px;
+
+      .hero-desc strong {
+        color: var(--ink);
         font-weight: 600;
-        color: var(--txt-secondary);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        padding-bottom: 50px;
+      }
+
+      .btn-p {
+        font-family: var(--f-d);
+        font-weight: 700;
+        font-size: 14px;
+        background: var(--ink);
+        color: var(--bg);
+        padding: 14px 28px;
+        border-radius: 100px;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          background 0.15s,
+          transform 0.15s,
+          color 0.35s;
+      }
+
+      .btn-p:hover {
+        background: var(--pop);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .btn-s {
+        font-family: var(--f-d);
+        font-weight: 600;
+        font-size: 14px;
+        background: transparent;
+        color: var(--ink);
+        padding: 14px 28px;
+        border-radius: 100px;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+        border: 1.5px solid var(--line);
+        transition:
+          border-color 0.15s,
+          color 0.35s;
+      }
+
+      .btn-s:hover {
+        border-color: var(--ink3);
+      }
+
+      /* ── HERO STAT CARDS ── */
+      .hero-right {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding-bottom: 8px;
+      }
+
+      .hcard {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 24px 22px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.35s,
+          border-color 0.35s;
+      }
+
+      .hcard:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .hcard.wide {
+        grid-column: span 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .hcard-num {
+        font-family: var(--f-d);
+        font-weight: 900;
+        font-size: 44px;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+
+      .hcard-num.pop {
+        color: var(--pop);
+      }
+
+      .hcard-num.teal {
+        color: var(--teal);
+      }
+
+      .hcard-num.blue {
+        color: var(--blue);
+      }
+
+      .hcard-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink3);
+        margin-top: 6px;
+      }
+
+      .hcard-sub {
+        font-size: 11px;
+        color: var(--ink3);
+        margin-top: 2px;
+        opacity: 0.65;
+      }
+
+      .hcard-div {
+        width: 1px;
+        height: 50px;
+        background: var(--line);
+        flex-shrink: 0;
       }
 
       /* ── SECTION ── */
-      .section {
-        padding: 80px 0;
-        border-bottom: 1px solid var(--border);
+      section {
+        padding: 100px 60px;
       }
-      .section-header {
-        margin-bottom: 48px;
+
+      section + section {
+        border-top: 1px solid var(--line);
       }
-      .section-num {
-        font-family:
-          'JetBrains Mono',
-          monospace;
+
+      .s-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
         font-size: 11px;
-        color: var(--a1);
-        letter-spacing: 0.15em;
+        font-weight: 700;
+        letter-spacing: 0.09em;
         text-transform: uppercase;
+        color: var(--pop);
+        margin-bottom: 16px;
+      }
+
+      .s-tag::before {
+        content: "";
+        display: inline-block;
+        width: 14px;
+        height: 1.5px;
+        background: var(--pop);
+      }
+
+      .s-h2 {
+        font-family: var(--f-d);
+        font-weight: 900;
+        font-size: clamp(36px, 4.5vw, 62px);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
         margin-bottom: 12px;
+      }
+
+      .s-h2 em {
+        font-family: var(--f-s);
+        font-weight: 400;
+        font-style: italic;
+        letter-spacing: -0.02em;
+        color: var(--ink3);
+      }
+
+      .s-desc {
+        font-size: 14px;
+        color: var(--ink3);
+        line-height: 1.8;
+        max-width: 520px;
+        margin-bottom: 52px;
+      }
+
+      /* ── METRIC STRIP ── */
+      .mstrip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+        background: var(--card);
+        margin-bottom: 48px;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+      }
+
+      .mc {
+        padding: 28px 24px;
+        border-right: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+      }
+
+      .mc:last-child {
+        border-right: none;
+      }
+
+      .mc::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 24px;
+        right: 24px;
+        height: 2px;
+        border-radius: 1px;
+        background: linear-gradient(90deg, var(--pop), transparent);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .mc:hover::after {
+        opacity: 1;
+      }
+
+      .mc-num {
+        font-family: var(--f-d);
+        font-weight: 900;
+        font-size: 38px;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+
+      .mc-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink3);
+      }
+
+      .mc-sub {
+        font-size: 11px;
+        color: var(--ink3);
+        margin-top: 3px;
+        opacity: 0.6;
+      }
+
+      /* ── CARD ── */
+      .cc {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px 28px 24px;
+        overflow: hidden;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+      }
+
+      .cc-tag {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        margin-bottom: 4px;
+      }
+
+      .cc-title {
+        font-family: var(--f-d);
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: -0.025em;
+        margin-bottom: 18px;
+      }
+
+      .cc-leg {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+      }
+
+      .cl {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        color: var(--ink3);
+      }
+
+      .cd {
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+
+      .g2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .g3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .gf {
+        margin-bottom: 16px;
+      }
+
+      /* ── BAR ROW ── */
+      .br {
         display: flex;
         align-items: center;
         gap: 10px;
-      }
-      .section-num::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: var(--border2);
-      }
-      .section-title {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: clamp(28px, 4vw, 44px);
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--txt);
+        margin-bottom: 8px;
       }
 
-      /* ── KPI GRID ── */
-      .kpi-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-        margin-bottom: 48px;
+      .br-l {
+        width: 152px;
+        font-size: 12px;
+        color: var(--ink3);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 0;
       }
-      .kpi {
+
+      .br-t {
+        flex: 1;
+        height: 5px;
+        background: var(--bg2);
+        border-radius: 3px;
+        transition: background 0.35s;
+      }
+
+      .br-f {
+        height: 5px;
+        border-radius: 3px;
+      }
+
+      .br-v {
+        width: 56px;
+        text-align: right;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: var(--f-d);
+        letter-spacing: -0.02em;
+        flex-shrink: 0;
+      }
+
+      /* ── TABLE ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      thead tr {
+        border-bottom: 1.5px solid var(--line);
+      }
+
+      th {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--ink3);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 10px 12px;
+        text-align: left;
+      }
+
+      td {
+        font-size: 13px;
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--line2);
+        color: var(--ink);
+      }
+
+      td.num {
+        font-family: var(--f-d);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: -0.02em;
+      }
+
+      td.dim {
+        color: var(--ink3);
+      }
+
+      .rk {
+        color: var(--ink3);
+        font-size: 11px;
+        font-weight: 700;
+        font-family: var(--f-d);
+      }
+
+      tbody tr:hover td {
+        background: var(--bg2);
+      }
+
+      /* ── PILL ── */
+      .pl {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 100px;
+        display: inline-block;
+        font-family: var(--f-d);
+      }
+
+      .pl-g {
+        background: rgba(46, 125, 50, 0.12);
+        color: var(--grn);
+      }
+
+      .pl-y {
+        background: rgba(200, 134, 10, 0.12);
+        color: var(--gold);
+      }
+
+      .pl-r {
+        background: rgba(255, 77, 28, 0.12);
+        color: var(--pop);
+      }
+
+      /* ── STICKINESS ── */
+      .ss {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        margin-bottom: 20px;
+      }
+
+      .sc {
         background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 24px 20px;
+        padding: 20px 18px;
+        text-align: center;
+        transition: background 0.35s;
+      }
+
+      .sv {
+        font-family: var(--f-d);
+        font-weight: 900;
+        font-size: 34px;
+        letter-spacing: -0.04em;
+      }
+
+      .sl {
+        font-size: 11px;
+        color: var(--ink3);
+        margin-top: 4px;
+        font-weight: 500;
+      }
+
+      /* ── CDN MONTH CARDS ── */
+      .cdn-wrap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .cdn-mc {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px 24px;
         position: relative;
         overflow: hidden;
         transition:
-          border-color 0.2s,
-          transform 0.2s;
+          background 0.35s,
+          border-color 0.35s;
       }
-      .kpi:hover {
-        border-color: var(--border2);
+
+      .cdn-mc.peak {
+        border-color: var(--pop);
+      }
+
+      .cdn-mc.peak::before {
+        content: "Peak month";
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--pop);
+        font-family: var(--f-d);
+        background: rgba(255, 77, 28, 0.09);
+        padding: 3px 10px;
+        border-radius: 100px;
+        letter-spacing: 0.04em;
+      }
+
+      .cdn-mo {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink3);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .cdn-bw {
+        font-family: var(--f-d);
+        font-weight: 900;
+        font-size: 46px;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+
+      .cdn-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-top: 1px solid var(--line2);
+        font-size: 12px;
+      }
+
+      .cdn-k {
+        color: var(--ink3);
+      }
+
+      .cdn-v {
+        font-weight: 700;
+        font-family: var(--f-d);
+        font-size: 13px;
+        letter-spacing: -0.02em;
+      }
+
+      /* ── ANOMALY BADGE ── */
+      .ab {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        font-weight: 700;
+        font-family: var(--f-d);
+        padding: 4px 12px;
+        border-radius: 100px;
+        margin-right: 6px;
+        margin-bottom: 14px;
+      }
+
+      .ab-r {
+        background: rgba(255, 77, 28, 0.1);
+        color: var(--pop);
+      }
+
+      .ab-g {
+        background: rgba(46, 125, 50, 0.1);
+        color: var(--grn);
+      }
+
+      .ab-y {
+        background: rgba(200, 134, 10, 0.12);
+        color: var(--gold);
+      }
+
+      /* ── INSIGHTS ── */
+      .ig {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .ic {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.35s,
+          border-color 0.35s;
+      }
+
+      .ic:hover {
         transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
       }
-      .kpi::before {
-        content: '';
+
+      .ic-bar {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 2px;
+        height: 3px;
       }
-      .kpi.blue::before {
-        background: var(--a1);
+
+      .ic-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 100px;
+        margin-bottom: 14px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-family: var(--f-d);
       }
-      .kpi.green::before {
-        background: var(--a2);
-      }
-      .kpi.coral::before {
-        background: var(--a3);
-      }
-      .kpi.purple::before {
-        background: var(--a4);
-      }
-      .kpi.amber::before {
-        background: var(--a5);
-      }
-      .kpi.cyan::before {
-        background: var(--a6);
-      }
-      .kpi-value {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: 32px;
+
+      .ic-title {
+        font-family: var(--f-d);
         font-weight: 800;
+        font-size: 17px;
         letter-spacing: -0.03em;
-        color: var(--txt);
-        line-height: 1;
         margin-bottom: 8px;
       }
-      .kpi-label {
-        font-size: 12px;
-        color: var(--txt-secondary);
-        font-weight: 500;
-      }
-      .kpi-sub {
-        font-size: 11px;
-        color: var(--a2);
-        margin-top: 4px;
-        font-family:
-          'JetBrains Mono',
-          monospace;
-      }
 
-      /* ── CHART CARD ── */
-      .chart-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-        margin-bottom: 24px;
-      }
-      .chart-title {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--txt);
-        margin-bottom: 4px;
-      }
-      .chart-desc {
-        font-size: 12px;
-        color: var(--muted);
-        margin-bottom: 24px;
-      }
-      .chart-wrap {
-        position: relative;
-        width: 100%;
-      }
-
-      /* ── TWO COL ── */
-      .two-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        margin-bottom: 24px;
-      }
-      .three-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 24px;
-        margin-bottom: 24px;
-      }
-
-      /* ── DATA TABLE ── */
-      .data-table {
-        width: 100%;
-        border-collapse: collapse;
+      .ic-body {
         font-size: 13px;
+        color: var(--ink3);
+        line-height: 1.75;
       }
-      .data-table th {
-        text-align: left;
-        padding: 10px 14px;
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        border-bottom: 1px solid var(--border);
-        font-weight: 500;
+
+      .t-monitor .ic-bar {
+        background: var(--gold);
       }
-      .data-table td {
-        padding: 11px 14px;
-        border-bottom: 1px solid var(--border);
-        color: var(--txt-secondary);
+
+      .t-monitor .ic-tag {
+        background: rgba(200, 134, 10, 0.1);
+        color: var(--gold);
       }
-      .data-table tr:last-child td {
-        border-bottom: none;
+
+      .t-invest .ic-bar {
+        background: var(--grn);
       }
-      .data-table tr:hover td {
-        background: rgba(255, 255, 255, 0.03);
+
+      .t-invest .ic-tag {
+        background: rgba(46, 125, 50, 0.1);
+        color: var(--grn);
       }
-      .data-table td.num {
-        text-align: right;
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        font-size: 12px;
+
+      .t-investigate .ic-bar {
+        background: var(--blue);
       }
-      .data-table td.pct {
-        text-align: right;
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        font-size: 12px;
-        color: var(--a2);
+
+      .t-investigate .ic-tag {
+        background: rgba(21, 101, 192, 0.1);
+        color: var(--blue);
       }
-      .data-table td.tag {
-        font-size: 11px;
-        font-weight: 600;
-        padding: 3px 8px;
-        border-radius: 4px;
-        display: inline-block;
+
+      .t-action .ic-bar {
+        background: var(--pop);
       }
-      .rank {
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        font-size: 11px;
-        color: var(--dim);
+
+      .t-action .ic-tag {
+        background: rgba(255, 77, 28, 0.1);
+        color: var(--pop);
       }
-      .page-bar {
+
+      .t-plan .ic-bar {
+        background: var(--teal);
+      }
+
+      .t-plan .ic-tag {
+        background: rgba(0, 137, 123, 0.1);
+        color: var(--teal);
+      }
+
+      .t-healthy .ic-bar {
+        background: var(--grn);
+      }
+
+      .t-healthy .ic-tag {
+        background: rgba(46, 125, 50, 0.1);
+        color: var(--grn);
+      }
+
+      /* ── DONUT LAYOUT ── */
+      .dw {
         display: flex;
         align-items: center;
-        gap: 8px;
-      }
-      .bar-fill {
-        height: 4px;
-        border-radius: 2px;
-        background: var(--a1);
-        min-width: 2px;
+        gap: 22px;
       }
 
-      /* ── INSIGHT GRID ── */
-      .insight-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
+      .dl {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        flex: 1;
       }
-      .insight {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 20px;
-        border-left: 3px solid var(--a1);
-        transition: border-color 0.2s;
-      }
-      .insight:nth-child(2) {
-        border-left-color: var(--a2);
-      }
-      .insight:nth-child(3) {
-        border-left-color: var(--a3);
-      }
-      .insight:nth-child(4) {
-        border-left-color: var(--a4);
-      }
-      .insight:nth-child(5) {
-        border-left-color: var(--a5);
-      }
-      .insight:nth-child(6) {
-        border-left-color: var(--a6);
-      }
-      .insight:nth-child(7) {
-        border-left-color: var(--a1);
-      }
-      .insight:nth-child(8) {
-        border-left-color: var(--a2);
-      }
-      .insight-title {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--txt);
-        margin-bottom: 8px;
-      }
-      .insight-body {
+
+      .dr {
+        display: flex;
+        align-items: center;
+        gap: 7px;
         font-size: 12px;
-        color: var(--txt-secondary);
-        line-height: 1.65;
+        color: var(--ink3);
+        font-weight: 500;
       }
-      .badge {
-        display: inline-block;
-        font-size: 10px;
-        font-weight: 600;
-        padding: 2px 8px;
-        border-radius: 4px;
-        margin-left: 8px;
-        vertical-align: middle;
-        font-family:
-          'JetBrains Mono',
-          monospace;
-      }
-      .badge-green {
-        background: rgba(63, 185, 80, 0.15);
-        color: var(--a2);
-      }
-      .badge-amber {
-        background: rgba(255, 166, 87, 0.15);
-        color: var(--a5);
-      }
-      .badge-red {
-        background: rgba(247, 129, 102, 0.15);
-        color: var(--a3);
+
+      .dd {
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        flex-shrink: 0;
       }
 
       /* ── FOOTER ── */
-      .footer {
-        padding: 60px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 24px;
-      }
-      .footer-name {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--txt);
-      }
-      .footer-role {
-        font-size: 12px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-      .footer-links {
-        display: flex;
-        gap: 20px;
-      }
-      .footer-link {
-        font-size: 12px;
-        color: var(--muted);
-        text-decoration: none;
-        font-family:
-          'JetBrains Mono',
-          monospace;
-      }
-      .footer-link:hover {
-        color: var(--a1);
-      }
-
-      /* ── NAV ── */
-      .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        background: var(--bg);
-        backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        padding: 0 32px;
-      }
-      .nav-inner {
-        max-width: 1120px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 56px;
-      }
-      .nav-brand {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--txt);
-        letter-spacing: -0.02em;
-      }
-      .nav-logo {
-  height: 90px;       
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-      .nav-brand span {
-        color: var(--a1);
-      }
-      .nav-links {
-        display: flex;
-        gap: 28px;
-      }
-      .nav-link {
-        font-size: 12px;
-        color: var(--txt-secondary);
-        text-decoration: none;
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        letter-spacing: 0.05em;
-        transition: color 0.2s;
-        font-weight: 500;
-      }
-      .nav-link:hover {
-        color: var(--a1);
-      }
-      .nav-pill {
-        font-family:
-          'JetBrains Mono',
-          monospace;
-        font-size: 10px;
-        padding: 6px 14px;
-        border-radius: 20px;
-        background: var(--a1);
-        color: var(--bg);
-        border: 1px solid var(--a1);
-        letter-spacing: 0.08em;
-        font-weight: 600;
-      }
-
-      /* ── CDN ZONE CARDS ── */
-      .zone-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin-bottom: 24px;
-      }
-      .zone-card {
+      footer {
+        padding: 60px;
+        border-top: 1px solid var(--line);
         background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 20px;
-      }
-      .zone-name {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--txt-secondary);
-        margin-bottom: 16px;
-        letter-spacing: 0.05em;
-      }
-      .zone-stat {
-        margin-bottom: 12px;
-      }
-      .zone-stat-val {
-        /* font-family: 'Syne', sans-serif; */
-        font-family: 'Inter', sans-serif;
-        font-size: 24px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: var(--txt);
-      }
-      .zone-stat-label {
-        font-size: 11px;
-        color: var(--muted);
-      }
-      .zone-bar {
-        height: 6px;
-        background: var(--border2);
-        border-radius: 3px;
-        margin-top: 6px;
-        overflow: hidden;
-      }
-      .zone-bar-fill {
-        height: 100%;
-        border-radius: 3px;
+        transition: background 0.35s;
       }
 
-      /* ── ANIMATE IN ── */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.5s ease,
-          transform 0.5s ease;
+      .sig-wrap {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        max-width: 640px;
       }
-      .fade-up.visible {
+
+      .sig-photo {
+        flex-shrink: 0;
+        padding-right: 24px;
+      }
+
+      .sig-photo img {
+        width: 88px;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(15%);
+      }
+
+      .sig-divider {
+        width: 2px;
+        background: var(--ink);
+        border-radius: 1px;
+        flex-shrink: 0;
+        opacity: 0.18;
+        margin-right: 24px;
+        transition: opacity 0.35s;
+      }
+
+      .sig-body {
+        flex: 1;
+      }
+
+      .sig-name {
+        font-family: var(--f-d);
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: -0.03em;
+        color: var(--ink);
+        margin-bottom: 3px;
+        line-height: 1;
+      }
+
+      .sig-title {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        margin-bottom: 16px;
+      }
+
+      .sig-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .sig-row {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 13px;
+        color: var(--ink2);
+      }
+
+      .sig-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sig-icon svg {
+        width: 14px;
+        height: 14px;
+        fill: var(--ink3);
+        transition: fill 0.2s;
+      }
+
+      .sig-row a {
+        color: var(--ink2);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.15s;
+      }
+
+      .sig-row a:hover {
+        color: var(--pop);
+      }
+
+      .sig-row a:hover .sig-icon svg {
+        fill: var(--pop);
+      }
+
+      .sig-footer-right {
+        margin-left: auto;
+        padding-left: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 16px;
+      }
+
+      .sig-copyright {
+        font-size: 11px;
+        color: var(--ink3);
+        letter-spacing: 0.04em;
+        font-family: var(--f-d);
+        text-align: right;
+      }
+
+      .sig-badge {
+        font-family: var(--f-d);
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: -0.01em;
+        color: var(--ink3);
+        border: 1.5px solid var(--line);
+        border-radius: 100px;
+        padding: 6px 14px;
+        text-align: center;
+      }
+
+      .sig-badge span {
+        color: var(--pop);
+      }
+
+      /* ── REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
 
-      @media (max-width: 768px) {
-        .kpi-grid {
-          grid-template-columns: repeat(2, 1fr);
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
         }
-        .two-col,
-        .three-col,
-        .insight-grid,
-        .zone-cards {
-          grid-template-columns: 1fr;
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
+
+      .hero-left > * {
+        animation: fadeUp 0.7s ease forwards;
+        opacity: 0;
+      }
+
+      .hero-kicker {
+        animation-delay: 0.1s;
+      }
+
+      .hero-h1 {
+        animation-delay: 0.2s;
+      }
+
+      .hero-desc {
+        animation-delay: 0.3s;
+      }
+
+      .hero-actions {
+        animation-delay: 0.4s;
+      }
+
+      .hero-right {
+        animation: fadeUp 0.7s 0.32s ease forwards;
+        opacity: 0;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        nav {
+          padding: 0 20px;
+        }
+
         .nav-links {
           display: none;
         }
-        .hero-title {
-          font-size: 40px;
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 100px 24px 60px;
+        }
+
+        .hero-right {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+
+        section {
+          padding: 60px 24px;
+        }
+
+        .mstrip,
+        .cdn-wrap,
+        .g2,
+        .g3,
+        .ig {
+          grid-template-columns: 1fr;
+        }
+
+        footer {
+          padding: 40px 24px;
+        }
+
+        .sig-wrap {
+          flex-direction: column;
+        }
+
+        .sig-photo {
+          padding-right: 0;
+          padding-bottom: 16px;
+        }
+
+        .sig-divider {
+          width: 100%;
+          height: 2px;
+          margin-right: 0;
+          margin-bottom: 16px;
+        }
+
+        .sig-footer-right {
+          margin-left: 0;
+          padding-left: 0;
+          align-items: flex-start;
         }
       }
     </style>
   </head>
-  <body>
-    <!-- NAV -->
 
-    <nav class="nav">
-      <div class="nav-inner">
-        <!-- <div class="nav-brand">ASG <span>SHOP™</span></div> -->
-        <div class="nav-brand">
-          <img src="asgshop.png" alt="ASG SHOP" class="nav-logo" />
+  <body>
+    <!-- ═══ NAV ═══ -->
+    <nav>
+      <div class="nav-left">
+        <div class="nav-logo">
+          <img
+            src="https://www.asgshop.ai/_next/static/media/lightlogo.eaa3af05.png"
+            alt="ASG SHOP"
+            class="logo-light"
+            id="navLogoLight"
+          />
+          <img
+            src="https://www.asgshop.ai/_next/static/media/logo.a4a2970a.png"
+            alt="ASG SHOP"
+            class="logo-dark"
+            id="navLogoDark"
+          />
         </div>
-        <div class="nav-links">
-          <a href="#analytics" class="nav-link">Analytics</a>
-          <a href="#content" class="nav-link">Content</a>
-          <a href="#acquisition" class="nav-link">Acquisition</a>
-          <a href="#cdn" class="nav-link">CDN</a>
-          <a href="#insights" class="nav-link">Insights</a>
-        </div>
-        <div class="nav-pill">Q1 · 2026</div>
+        <span class="nav-pill">Q1 · 2026</span>
+      </div>
+      <div class="nav-links">
+        <a href="#analytics">Analytics</a>
+        <a href="#content">Content</a>
+        <a href="#acquisition">Acquisition</a>
+        <a href="#cdn">CDN</a>
+        <a href="#insights">Insights</a>
+      </div>
+      <div class="nav-right">
+        <button
+          class="theme-btn"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          <span class="theme-btn-icon sun">☀</span>
+          <span class="theme-btn-icon moon">☾</span>
+        </button>
+        <a href="#insights" class="nav-cta">Insights ↗</a>
       </div>
     </nav>
 
-    <!-- HERO -->
-
-    <div style="padding-top: 56px">
-      <div class="page">
-        <div class="hero">
-          <div class="hero-eyebrow">
-            Analytics &amp; Infrastructure Performance Report
+    <!-- ═══ HERO ═══ -->
+    <div class="hero">
+      <div class="hero-lines"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-left">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span> Jan 1 – Mar 31, 2026 · Apars
+          Classroom
+        </div>
+        <h1 class="hero-h1">
+          Q1<br />
+          <span class="pop">2026</span><br />
+          <span class="serif">Performance Report</span>
+        </h1>
+        <p class="hero-desc">
+          Quarterly analytics &amp; infrastructure report for
+          <strong>APARS</strong>. Quarterly performance overview · ASG Shop.
+        </p>
+        <div class="hero-actions">
+          <a href="#analytics" class="btn-p">Explore Data ↓</a>
+          <a href="#insights" class="btn-s">Key Insights</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hcard">
+          <div class="hcard-num pop">499K</div>
+          <div class="hcard-label">Active Students</div>
+          <div class="hcard-sub">Pulse Engine · Q1 2026</div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-num teal">54.3M</div>
+          <div class="hcard-label">Total Events</div>
+          <div class="hcard-sub">~109 per student</div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-num blue">1.13 PB</div>
+          <div class="hcard-label">CDN Bandwidth</div>
+          <div class="hcard-sub">Edge Network · 3 months</div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-num">1.89B</div>
+          <div class="hcard-label">CDN Requests</div>
+          <div class="hcard-sub">All active zones · Q1</div>
+        </div>
+        <div class="hcard wide">
+          <div>
+            <div class="hcard-num pop" style="font-size: 60px">14m 34s</div>
+            <div class="hcard-label">Avg. Engagement per Active Student</div>
+            <div class="hcard-sub">
+              Strong product stickiness — 874 seconds average
+            </div>
           </div>
-          <div class="hero-title"><span>Q1</span> 2026</div>
-          <div class="hero-subtitle">Quarterly Performance Summary</div>
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <div class="hero-meta-label">Report Period</div>
-              <div class="hero-meta-value">Jan 1 – Mar 31, 2026</div>
-            </div>
-            <div class="hero-meta-item">
-              <div class="hero-meta-label">Platform</div>
-              <div class="hero-meta-value">Apars Classroom / ASG SHOP</div>
-            </div>
-            <div class="hero-meta-item">
-              <div class="hero-meta-label">Data Sources</div>
-              <div class="hero-meta-value">Google Analytics 4 + BunnyCDN</div>
-            </div>
-            <div class="hero-meta-item">
-              <div class="hero-meta-label">Prepared By</div>
-              <div class="hero-meta-value">Md Maheyan Islam, CTO</div>
-            </div>
+          <div class="hcard-div"></div>
+          <div style="text-align: right">
+            <div class="hcard-num" style="font-size: 30px">36K+</div>
+            <div class="hcard-label">Transactions</div>
+            <div class="hcard-sub">APARS platform · Q1</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- SECTION 1: USER ANALYTICS -->
+    <!-- ═══ 01 ANALYTICS ═══ -->
+    <section id="analytics">
+      <div class="s-tag">01 — Student Analytics</div>
+      <h2 class="s-h2">Platform engagement<br /><em>at scale</em></h2>
+      <p class="s-desc">
+        Pulse Engine · Jan 1 – Mar 31, 2026 · Web platform · 100% of all traffic
+      </p>
 
-    <section class="section" id="analytics">
-      <div class="page">
-        <div class="section-header fade-up">
-          <div class="section-num">01 — User Analytics</div>
-          <div class="section-title">Platform engagement at scale</div>
+      <div class="mstrip reveal">
+        <div class="mc">
+          <div class="mc-num">499K</div>
+          <div class="mc-label">Active Students</div>
+          <div class="mc-sub">↑ Q1 2026</div>
         </div>
-
-        <div class="kpi-grid fade-up">
-          <div class="kpi blue">
-            <div class="kpi-value">499K</div>
-            <div class="kpi-label">Active Users</div>
-            <div class="kpi-sub">↑ Q1 2026</div>
-          </div>
-          <div class="kpi green">
-            <div class="kpi-value">631K</div>
-            <div class="kpi-label">New Users</div>
-            <div class="kpi-sub">↑ +26.6% vs active</div>
-          </div>
-          <div class="kpi coral">
-            <div class="kpi-value">14m 34s</div>
-            <div class="kpi-label">Avg Engagement / User</div>
-            <div class="kpi-sub">874 seconds exactly</div>
-          </div>
-          <div class="kpi purple">
-            <div class="kpi-value">54.3M</div>
-            <div class="kpi-label">Total Events</div>
-            <div class="kpi-sub">108.8 / active user</div>
-          </div>
+        <div class="mc">
+          <div class="mc-num">631K</div>
+          <div class="mc-label">New Students</div>
+          <div class="mc-sub">+26.6% vs active</div>
         </div>
-
-        <!-- MAU Trend -->
-
-        <div class="chart-card fade-up">
-          <div class="chart-title">Rolling 30-Day MAU — Full Q1 2026</div>
-          <div class="chart-desc">
-            30-day active user window plotted daily across all 90 days · Peak:
-            250,574 on day 50 (~Feb 19)
-          </div>
-          <div class="chart-wrap" style="height: 240px">
-            <canvas id="mauChart"></canvas>
-          </div>
+        <div class="mc">
+          <div class="mc-num">14m 34s</div>
+          <div class="mc-label">Avg Engagement</div>
+          <div class="mc-sub">874 seconds exactly</div>
         </div>
+        <div class="mc">
+          <div class="mc-num">54.3M</div>
+          <div class="mc-label">Total Events</div>
+          <div class="mc-sub">~109 per active student</div>
+        </div>
+      </div>
 
-        <!-- Stickiness -->
-
-        <div class="chart-card fade-up">
-          <div class="chart-title">User Stickiness — DAU/MAU &amp; WAU/MAU</div>
-          <div class="chart-desc">
-            Retention ratios over 90 days · Platform habit strength by cohort
-            day
+      <div class="gf reveal">
+        <div class="cc">
+          <div class="cc-tag">Rolling 30-Day MAU — Full Q1 2026</div>
+          <div class="cc-title">
+            Monthly Active Students · Daily rolling window · Peak: ~250K on Feb
+            19
           </div>
-          <div class="chart-wrap" style="height: 220px">
-            <canvas id="stickyChart"></canvas>
+          <div style="position: relative; height: 210px">
+            <canvas
+              id="mauChart"
+              role="img"
+              aria-label="MAU trend Q1 2026 growing from 200K to 250K peak then declining."
+              >MAU chart.</canvas
+            >
           </div>
         </div>
+      </div>
 
-        <div
-          class="kpi-grid fade-up"
-          style="grid-template-columns: repeat(4, 1fr); margin-bottom: 0"
-        >
-          <div class="kpi blue">
-            <div class="kpi-value">19.8%</div>
-            <div class="kpi-label">DAU/MAU Peak</div>
-            <div class="kpi-sub">Day 88</div>
+      <div class="g2 reveal">
+        <div class="cc">
+          <div class="cc-tag">
+            Student Stickiness — DAU/MAU · WAU/MAU · DAU/WAU
           </div>
-          <div class="kpi green">
-            <div class="kpi-value">50.5%</div>
-            <div class="kpi-label">WAU/MAU Peak</div>
-            <div class="kpi-sub">Day 89</div>
+          <div class="cc-title">Retention ratios across the quarter</div>
+          <div class="ss">
+            <div class="sc">
+              <div class="sv">19.1%</div>
+              <div class="sl">DAU/MAU peak</div>
+            </div>
+            <div class="sc">
+              <div class="sv">50.5%</div>
+              <div class="sl">WAU/MAU peak</div>
+            </div>
+            <div class="sc">
+              <div class="sv">37.8%</div>
+              <div class="sl">DAU/WAU peak</div>
+            </div>
           </div>
-          <div class="kpi amber">
-            <div class="kpi-value">41.5%</div>
-            <div class="kpi-label">DAU/WAU Peak</div>
-            <div class="kpi-sub">Day 88</div>
+          <div style="position: relative; height: 140px">
+            <canvas
+              id="stickyChart"
+              role="img"
+              aria-label="DAU/MAU stickiness ratio trend Q1."
+              >Stickiness.</canvas
+            >
           </div>
-          <div class="kpi cyan">
-            <div class="kpi-value">250K</div>
-            <div class="kpi-label">MAU Peak (30-day)</div>
-            <div class="kpi-sub">~Feb 19, 2026</div>
+        </div>
+        <div class="cc">
+          <div class="cc-tag">New vs Returning Students — Daily</div>
+          <div class="cc-title">
+            Returning students dominate from mid-January onward
+          </div>
+          <div class="cc-leg">
+            <div class="cl">
+              <div class="cd" style="background: var(--ink)"></div>
+              Returning
+            </div>
+            <div class="cl">
+              <div class="cd" style="background: var(--pop)"></div>
+              New
+            </div>
+          </div>
+          <div style="position: relative; height: 222px">
+            <canvas
+              id="nrChart"
+              role="img"
+              aria-label="New vs returning students daily Q1."
+              >New vs returning.</canvas
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: CONTENT -->
+    <!-- ═══ 02 CONTENT ═══ -->
+    <section id="content">
+      <div class="s-tag">02 — Content Performance</div>
+      <h2 class="s-h2">What students<br /><em>actually study</em></h2>
+      <p class="s-desc">
+        Page views, active students, bounce rates · Top content across all
+        batches · Q1 2026
+      </p>
 
-    <section class="section" id="content">
-      <div class="page">
-        <div class="section-header fade-up">
-          <div class="section-num">02 — Content Performance</div>
-          <div class="section-title">What users actually study</div>
+      <div class="g2 reveal">
+        <div class="cc">
+          <div class="cc-tag">Top Pages by Views</div>
+          <div class="cc-title">
+            FRB-26 Final Revision leads with ~15.8M views
+          </div>
+          <div id="pagesBar" style="margin-top: 8px"></div>
         </div>
+        <div class="cc">
+          <div class="cc-tag">Top Pages — Detail</div>
+          <div class="cc-title">Views, active students &amp; bounce rates</div>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Page</th>
+                <th>Views</th>
+                <th>Bounce</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="rk">01</td>
+                <td>FRB-26 Final Revision</td>
+                <td class="num">15.78M</td>
+                <td><span class="pl pl-g">12.4%</span></td>
+              </tr>
+              <tr>
+                <td class="rk">02</td>
+                <td>HSC Academic Program</td>
+                <td class="num">5.83M</td>
+                <td><span class="pl pl-g">16.6%</span></td>
+              </tr>
+              <tr>
+                <td class="rk">03</td>
+                <td>Admission Special</td>
+                <td class="num">2.92M</td>
+                <td><span class="pl pl-y">31.1%</span></td>
+              </tr>
+              <tr>
+                <td class="rk">04</td>
+                <td>Shop | Apar's Classroom</td>
+                <td class="num">588K</td>
+                <td><span class="pl pl-g">12.1%</span></td>
+              </tr>
+              <tr>
+                <td class="rk">05</td>
+                <td>HSC 27 Academic Cycles</td>
+                <td class="num">416K</td>
+                <td><span class="pl pl-g">6.6%</span></td>
+              </tr>
+              <tr>
+                <td class="rk">06</td>
+                <td>FRB-26 Full Syllabus</td>
+                <td class="num">348K</td>
+                <td><span class="pl pl-r">34.8%</span></td>
+              </tr>
+              <tr>
+                <td class="rk">07</td>
+                <td>Apars Classroom</td>
+                <td class="num">298K</td>
+                <td class="dim">—</td>
+              </tr>
+              <tr>
+                <td class="rk">08</td>
+                <td>Live Streaming</td>
+                <td class="num">149K</td>
+                <td class="dim">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-        <div class="two-col fade-up ">
-          <!-- <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Top 10 Pages by Views</div>
-            <div class="chart-desc">Q1 2026 · All page views</div>
-            <div class="chart-wrap" style="height: 300px">
-              <canvas id="pagesChart"></canvas>
+    <!-- ═══ 03 ACQUISITION ═══ -->
+    <section id="acquisition">
+      <div class="s-tag">03 — Acquisition &amp; Audience</div>
+      <h2 class="s-h2">Who students are &amp;<br /><em>how they arrive</em></h2>
+      <p class="s-desc">
+        Reach Intelligence · Cities · Devices · Channels · Q1 2026
+      </p>
+
+      <div class="g3 reveal">
+        <div class="cc">
+          <div class="cc-tag">Arrival Channels — First Touch</div>
+          <div class="cc-title">Acquisition channel mix</div>
+          <div style="position: relative; height: 170px">
+            <canvas
+              id="srcChart"
+              role="img"
+              aria-label="Traffic source donut chart."
+              >Traffic sources.</canvas
+            >
+          </div>
+          <div class="dl" style="margin-top: 16px">
+            <div class="dr">
+              <div class="dd" style="background: #1a1814"></div>
+              Direct / none — 42.8%
             </div>
-          </div> -->
-          <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Top Pages — Detail</div>
-            <div class="chart-desc">Views, users &amp; bounce rates</div>
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Page</th>
-                  <th>Views</th>
-                  <th>Bounce</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="rank">01</td>
-                  <td>FRB-26 Final Revision</td>
-                  <td class="num">15.78M</td>
-                  <td class="pct">12.4%</td>
-                </tr>
-                <tr>
-                  <td class="rank">02</td>
-                  <td>HSC Academic Program</td>
-                  <td class="num">5.83M</td>
-                  <td class="pct">16.6%</td>
-                </tr>
-                <tr>
-                  <td class="rank">03</td>
-                  <td>Admission Special</td>
-                  <td class="num">2.92M</td>
-                  <td class="pct">31.1%</td>
-                </tr>
-                <tr>
-                  <td class="rank">04</td>
-                  <td>Shop | Apar's Classroom</td>
-                  <td class="num">588K</td>
-                  <td class="pct">12.1%</td>
-                </tr>
-                <tr>
-                  <td class="rank">05</td>
-                  <td>HSC 27 Academic Cycles</td>
-                  <td class="num">416K</td>
-                  <td class="pct">6.6%</td>
-                </tr>
-                <tr>
-                  <td class="rank">06</td>
-                  <td>Payment Dashboard</td>
-                  <td class="num">352K</td>
-                  <td class="pct">13.4%</td>
-                </tr>
-                <tr>
-                  <td class="rank">07</td>
-                  <td>FRB-26 Full Syllabus</td>
-                  <td class="num">348K</td>
-                  <td class="pct">34.8%</td>
-                </tr>
-                <tr>
-                  <td class="rank">08</td>
-                  <td>Apars Classroom</td>
-                  <td class="num">298K</td>
-                  <td class="pct">—</td>
-                </tr>
-                <tr>
-                  <td class="rank">09</td>
-                  <td>Login | ASG Shop</td>
-                  <td class="num">263K</td>
-                  <td class="pct">—</td>
-                </tr>
-                <tr>
-                  <td class="rank">10</td>
-                  <td>Live Streaming</td>
-                  <td class="num">149K</td>
-                  <td class="pct">—</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="dr">
+              <div class="dd" style="background: #1565c0"></div>
+              Google organic — 40.0%
+            </div>
+            <div class="dr">
+              <div class="dd" style="background: #ff4d1c"></div>
+              fb / paid — 13.0%
+            </div>
+            <div class="dr">
+              <div class="dd" style="background: #00897b"></div>
+              apars.shop ref — 4.3%
+            </div>
+            <div class="dr">
+              <div class="dd" style="background: #b0aca5"></div>
+              Other — ~5%
+            </div>
           </div>
         </div>
-
-        <div class="chart-card fade-up" style="margin-top: 24px">
-          <div class="chart-title">
-            Course Views by Subject &amp; Batch Year
+        <div class="cc">
+          <div class="cc-tag">Operating System</div>
+          <div class="cc-title">Active students by OS · 100% web platform</div>
+          <div class="dw" style="margin-bottom: 20px">
+            <div
+              style="
+                position: relative;
+                width: 110px;
+                height: 110px;
+                flex-shrink: 0;
+              "
+            >
+              <canvas id="osChart" role="img" aria-label="OS breakdown donut."
+                >OS.</canvas
+              >
+            </div>
+            <div class="dl">
+              <div class="dr">
+                <div class="dd" style="background: #1a1814"></div>
+                Android — 72.8%
+              </div>
+              <div class="dr">
+                <div class="dd" style="background: #1565c0"></div>
+                Windows — 16.8%
+              </div>
+              <div class="dr">
+                <div class="dd" style="background: #00897b"></div>
+                iOS — 7.6%
+              </div>
+              <div class="dr">
+                <div class="dd" style="background: #7a7570"></div>
+                Linux — 3.0%
+              </div>
+            </div>
           </div>
-          <div class="chart-desc">
-            Aggregated views across all cycles per subject · HSC 26 vs HSC 27
-            comparison
+          <div class="br">
+            <div class="br-l">Android</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 100%; background: #1a1814"></div>
+            </div>
+            <div class="br-v">363K</div>
           </div>
-          <div class="chart-wrap" style="height: 280px">
-            <canvas id="subjectChart"></canvas>
+          <div class="br">
+            <div class="br-l">Windows</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 23%; background: #1565c0"></div>
+            </div>
+            <div class="br-v">83.9K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">iOS</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 10%; background: #00897b"></div>
+            </div>
+            <div class="br-v">38K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Linux</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 4%; background: #7a7570"></div>
+            </div>
+            <div class="br-v">14.9K</div>
+          </div>
+        </div>
+        <div class="cc">
+          <div class="cc-tag">Top Cities</div>
+          <div class="cc-title">Bangladesh-first · Singapore diaspora</div>
+          <div class="br">
+            <div class="br-l">Dhaka</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 100%; background: #ff4d1c"></div>
+            </div>
+            <div class="br-v">165K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Chattogram</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 29%; background: #1a1814"></div>
+            </div>
+            <div class="br-v">47.4K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Rajshahi</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 18%; background: #1a1814"></div>
+            </div>
+            <div class="br-v">29K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Khulna</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 16%; background: #1a1814"></div>
+            </div>
+            <div class="br-v">25.9K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Cumilla</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 8%; background: #7a7570"></div>
+            </div>
+            <div class="br-v">13.8K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Sylhet</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 8%; background: #7a7570"></div>
+            </div>
+            <div class="br-v">13.8K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Mymensingh</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 8%; background: #7a7570"></div>
+            </div>
+            <div class="br-v">13.5K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Bogura</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 8%; background: #7a7570"></div>
+            </div>
+            <div class="br-v">13.5K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Rangpur</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 8%; background: #7a7570"></div>
+            </div>
+            <div class="br-v">12.8K</div>
+          </div>
+          <div class="br">
+            <div class="br-l">Singapore 🌏</div>
+            <div class="br-t">
+              <div class="br-f" style="width: 2%; background: #1565c0"></div>
+            </div>
+            <div class="br-v">3.3K</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: ACQUISITION -->
+    <!-- ═══ 04 CDN ═══ -->
+    <section id="cdn">
+      <div class="s-tag">04 — CDN &amp; Infrastructure</div>
+      <h2 class="s-h2">
+        1.89 billion requests.<br /><em>Flawless delivery.</em>
+      </h2>
+      <p class="s-desc">
+        Edge Network · January – March 2026 · Singapore PoP dominant · Shield
+        layer inactive throughout
+      </p>
 
-    <section class="section" id="acquisition">
-      <div class="page">
-        <div class="section-header fade-up">
-          <div class="section-num">03 — Acquisition &amp; Audience</div>
-          <div class="section-title">Who users are &amp; how they find us</div>
+      <div class="cdn-wrap reveal">
+        <div class="cdn-mc">
+          <div class="cdn-mo">January 2026</div>
+          <div class="cdn-bw">352 TB</div>
+          <div class="cdn-row">
+            <span class="cdn-k">Requests</span><span class="cdn-v">601.3M</span>
+          </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Cache hit rate</span
+            ><span class="cdn-v">92.98%</span>
+          </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Avg origin response</span
+            ><span class="cdn-v">344 ms</span>
+          </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Origin traffic</span
+            ><span class="cdn-v">16.9 TB</span>
+          </div>
         </div>
-
-        <div class="two-col fade-up">
-          <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Traffic Sources</div>
-            <div class="chart-desc">First user source / medium · Q1 2026</div>
-            <div class="chart-wrap" style="height: 280px">
-              <canvas id="srcChart"></canvas>
-            </div>
+        <div class="cdn-mc">
+          <div class="cdn-mo">February 2026</div>
+          <div class="cdn-bw">345 TB</div>
+          <div class="cdn-row">
+            <span class="cdn-k">Requests</span><span class="cdn-v">588.2M</span>
           </div>
-          <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Operating System</div>
-            <div class="chart-desc">Active users by OS · 100% web platform</div>
-            <div class="chart-wrap" style="height: 280px">
-              <canvas id="osChart"></canvas>
-            </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Cache hit rate</span
+            ><span class="cdn-v">92.82%</span>
+          </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Avg origin response</span
+            ><span class="cdn-v">327 ms</span>
+          </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Origin traffic</span
+            ><span class="cdn-v">17.3 TB</span>
           </div>
         </div>
-
-        <div class="two-col fade-up">
-          <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Geographic Distribution</div>
-            <div class="chart-desc">Top cities · Bangladesh-first audience</div>
-            <div class="chart-wrap" style="height: 240px">
-              <canvas id="cityChart"></canvas>
-            </div>
+        <div class="cdn-mc peak">
+          <div class="cdn-mo">March 2026</div>
+          <div class="cdn-bw" style="color: var(--pop)">435 TB</div>
+          <div class="cdn-row">
+            <span class="cdn-k">Requests</span><span class="cdn-v">696.6M</span>
           </div>
-          <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Traffic Source Breakdown</div>
-            <div class="chart-desc">Active users by first-touch channel</div>
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Source</th>
-                  <th>Users</th>
-                  <th>Share</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>(direct) / (none)</td>
-                  <td class="num">213,415</td>
-                  <td class="pct">42.8%</td>
-                </tr>
-                <tr>
-                  <td>google / organic</td>
-                  <td class="num">199,788</td>
-                  <td class="pct">40.0%</td>
-                </tr>
-                <tr>
-                  <td>fb / paid</td>
-                  <td class="num">65,026</td>
-                  <td class="pct">13.0%</td>
-                </tr>
-                <tr>
-                  <td>FB referral (all)</td>
-                  <td class="num">59,931</td>
-                  <td class="pct">12.0%</td>
-                </tr>
-                <tr>
-                  <td>apars.shop / referral</td>
-                  <td class="num">21,657</td>
-                  <td class="pct">4.3%</td>
-                </tr>
-                <tr>
-                  <td>youtube.com / referral</td>
-                  <td class="num">16,128</td>
-                  <td class="pct">3.2%</td>
-                </tr>
-                <tr>
-                  <td>webapp / webapplink</td>
-                  <td class="num">15,302</td>
-                  <td class="pct">3.1%</td>
-                </tr>
-                <tr>
-                  <td>bing / organic</td>
-                  <td class="num">4,227</td>
-                  <td class="pct">0.8%</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="cdn-row">
+            <span class="cdn-k">Cache hit rate</span
+            ><span class="cdn-v">91.63%</span>
+          </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Avg origin response</span
+            ><span class="cdn-v" style="color: var(--grn)">253 ms ↓</span>
+          </div>
+          <div class="cdn-row">
+            <span class="cdn-k">Origin traffic</span
+            ><span class="cdn-v">19.2 TB</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION 4: CDN -->
-
-    <section class="section" id="cdn">
-      <div class="page">
-        <div class="section-header fade-up">
-          <div class="section-num">04 — CDN &amp; Infrastructure</div>
-          <div class="section-title">1.88 billion requests. Zero downtime.</div>
-        </div>
-
-        <div class="zone-cards fade-up">
-          <div class="zone-card">
-            <div class="zone-name">ZONE A — Q1 Range</div>
-            <div class="zone-stat">
-              <div class="zone-stat-val">588.2M</div>
-              <div class="zone-stat-label">Total Requests</div>
+      <div class="gf reveal">
+        <div class="cc">
+          <div class="cc-tag">Q1 Cache Hit Rate Trend — All 3 Months</div>
+          <div class="cc-title">
+            Daily cache efficiency · Jan start: ~94.6% → Mar 21 low: 80.5% →
+            recovery
+          </div>
+          <div class="cc-leg">
+            <div class="cl">
+              <div class="cd" style="background: #1565c0"></div>
+              January
             </div>
-            <div class="zone-stat">
-              <div class="zone-stat-val" style="color: var(--a2)">92.82%</div>
-              <div class="zone-stat-label">Cache Hit Rate</div>
-              <div class="zone-bar">
-                <div
-                  class="zone-bar-fill"
-                  style="width: 92.82%; background: var(--a2)"
-                ></div>
-              </div>
+            <div class="cl">
+              <div class="cd" style="background: #00897b"></div>
+              February
             </div>
-            <div class="zone-stat">
-              <div class="zone-stat-val" style="font-size: 18px">327 ms</div>
-              <div class="zone-stat-label">Avg Origin Response</div>
+            <div class="cl">
+              <div class="cd" style="background: #ff4d1c"></div>
+              March
             </div>
           </div>
-          <div class="zone-card">
-            <div class="zone-name">ZONE B — Q1 Range</div>
-            <div class="zone-stat">
-              <div class="zone-stat-val">696.6M</div>
-              <div class="zone-stat-label">Total Requests</div>
-            </div>
-            <div class="zone-stat">
-              <div class="zone-stat-val" style="color: var(--a1)">91.63%</div>
-              <div class="zone-stat-label">Cache Hit Rate</div>
-              <div class="zone-bar">
-                <div
-                  class="zone-bar-fill"
-                  style="width: 91.63%; background: var(--a1)"
-                ></div>
-              </div>
-            </div>
-            <div class="zone-stat">
-              <div class="zone-stat-val" style="font-size: 18px">253 ms</div>
-              <div class="zone-stat-label">Avg Origin Response</div>
-            </div>
-          </div>
-          <div class="zone-card">
-            <div class="zone-name">ZONE C — January Only</div>
-            <div class="zone-stat">
-              <div class="zone-stat-val">601.3M</div>
-              <div class="zone-stat-label">Total Requests</div>
-            </div>
-            <div class="zone-stat">
-              <div class="zone-stat-val" style="color: var(--a4)">92.98%</div>
-              <div class="zone-stat-label">Cache Hit Rate</div>
-              <div class="zone-bar">
-                <div
-                  class="zone-bar-fill"
-                  style="width: 92.98%; background: var(--a4)"
-                ></div>
-              </div>
-            </div>
-            <div class="zone-stat">
-              <div class="zone-stat-val" style="font-size: 18px">344 ms</div>
-              <div class="zone-stat-label">Avg Origin Response</div>
-            </div>
+          <div style="position: relative; height: 200px">
+            <canvas
+              id="q1CacheChart"
+              role="img"
+              aria-label="Q1 cache hit rate trend all 3 months."
+              >Cache hit rate.</canvas
+            >
           </div>
         </div>
+      </div>
 
-        <div class="two-col fade-up">
-          <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Requests by Zone</div>
-            <div class="chart-desc">
-              Total CDN requests comparison across zones
+      <div class="g2 reveal">
+        <div class="cc">
+          <div class="cc-tag">Q1 Daily Bandwidth (TB)</div>
+          <div class="cc-title">March 2 single-day peak: 46.9 TB</div>
+          <div class="cc-leg">
+            <div class="cl">
+              <div class="cd" style="background: #1565c0"></div>
+              Jan
             </div>
-            <div class="chart-wrap" style="height: 240px">
-              <canvas id="cdnZoneChart"></canvas>
+            <div class="cl">
+              <div class="cd" style="background: #00897b"></div>
+              Feb
+            </div>
+            <div class="cl">
+              <div class="cd" style="background: #ff4d1c"></div>
+              Mar
             </div>
           </div>
-          <div class="chart-card" style="margin-bottom: 0">
-            <div class="chart-title">Cache Hit Rate by Zone</div>
-            <div class="chart-desc">
-              Efficiency comparison · Target &gt; 90%
-            </div>
-            <div class="chart-wrap" style="height: 240px">
-              <canvas id="cacheChart"></canvas>
-            </div>
+          <div style="position: relative; height: 185px">
+            <canvas
+              id="q1BWChart"
+              role="img"
+              aria-label="Q1 daily bandwidth chart."
+              >Bandwidth.</canvas
+            >
           </div>
         </div>
+        <div class="cc">
+          <div class="cc-tag">Q1 Daily Requests (M)</div>
+          <div class="cc-title">
+            March 2 peak: 56.3M · March 21 collapse: 4.7M
+          </div>
+          <div class="cc-leg">
+            <div class="cl">
+              <div class="cd" style="background: #1565c0"></div>
+              Jan
+            </div>
+            <div class="cl">
+              <div class="cd" style="background: #00897b"></div>
+              Feb
+            </div>
+            <div class="cl">
+              <div class="cd" style="background: #ff4d1c"></div>
+              Mar
+            </div>
+          </div>
+          <div style="position: relative; height: 185px">
+            <canvas
+              id="q1ReqChart"
+              role="img"
+              aria-label="Q1 daily requests chart."
+              >Requests.</canvas
+            >
+          </div>
+        </div>
+      </div>
 
-        <div class="chart-card fade-up" style="margin-top: 24px">
-          <div class="chart-title">Data Center Traffic Distribution</div>
-          <div class="chart-desc">
-            Singapore PoP leads with 56% of all traffic — optimal for Bangladesh
+      <div class="gf reveal">
+        <div class="cc">
+          <div class="cc-tag">
+            CDN Data Center Traffic — Q1 2026 Combined Estimate
+          </div>
+          <div class="cc-title">
+            Singapore PoP handles ~98% of all bandwidth — optimal for Bangladesh
             delivery
           </div>
-          <div class="chart-wrap" style="height: 260px">
-            <canvas id="dcChart"></canvas>
-          </div>
+          <div id="geoBarEl" style="margin-top: 12px"></div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5: INSIGHTS -->
+    <!-- ═══ 05 INSIGHTS ═══ -->
+    <section id="insights">
+      <div class="s-tag">05 — Key Insights</div>
+      <h2 class="s-h2">A quarter of<br /><em>remarkable growth</em></h2>
+      <p class="s-desc">
+        Eight highlights from Q1 2026 that define where Apars Classroom stands —
+        and where it is headed next.
+      </p>
 
-    <section class="section" id="insights">
-      <div class="page">
-        <div class="section-header fade-up">
-          <div class="section-num">05 — Key Insights &amp; Recommendations</div>
-          <div class="section-title">What the data tells us</div>
+      <div class="ig reveal">
+        <div class="ic t-invest">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Milestone</div>
+          <div class="ic-title">FRB-26 Became a Movement</div>
+          <p class="ic-body">
+            The HSC 26 Final Revision Batch crossed 15.8 million views in a
+            single quarter — with 108K students actively engaged and an
+            exceptional 12.4% bounce rate. It is one of the most-watched
+            educational programmes in Bangladesh this year.
+          </p>
         </div>
-
-        <div class="insight-grid fade-up">
-          <div class="insight">
-            <div class="insight-title">
-              FRB-26 is the Revenue Anchor
-              <span class="badge badge-green">monitor</span>
-            </div>
-            <div class="insight-body">
-              15.78M views, 108K active users, 12.4% bounce rate. This single
-              product drives ~60% of all course traffic. Treat its CDN delivery
-              and uptime as a Tier-1 SLA obligation with dedicated BunnyCDN zone
-              and AntMedia failover.
-            </div>
+        <div class="ic t-healthy">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Organic Growth</div>
+          <div class="ic-title">Half a Million Students Found Us Naturally</div>
+          <p class="ic-body">
+            Over 80% of new students arrived through direct visits or organic
+            search — a testament to word-of-mouth trust and the platform's
+            growing reputation. Apars Classroom is becoming the first name
+            students type when they need to prepare.
+          </p>
+        </div>
+        <div class="ic t-invest">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Engagement</div>
+          <div class="ic-title">
+            Students Stay for Nearly 15 Minutes Per Visit
           </div>
-          <div class="insight">
-            <div class="insight-title">
-              Google Organic at Scale
-              <span class="badge badge-green">invest more</span>
-            </div>
-            <div class="insight-body">
-              199,788 first-time users from Google organic — nearly equal to
-              direct (213,415). At this scale SEO is your second-largest
-              acquisition channel. Structured landing pages per batch and blog
-              content targeting HSC exam keywords could widen this lead in
-              Q2–Q3.
-            </div>
-          </div>
-          <div class="insight">
-            <div class="insight-title">
-              New User Retention Gap
-              <span class="badge badge-amber">investigate</span>
-            </div>
-            <div class="insight-body">
-              631K new vs 499K active — 26.6% more first-time visitors than
-              retained users. DAU/MAU starting at 5.7% in early January rising
-              to 19.8% by March suggests the gap narrows with batch activity.
-              Instrument onboarding funnel events for Q2 analysis.
-            </div>
-          </div>
-          <div class="insight">
-            <div class="insight-title">
-              Login Page Friction
-              <span class="badge badge-amber">check drop-off</span>
-            </div>
-            <div class="insight-body">
-              262,569 views on Login | ASG Shop makes it the 9th most visited
-              page. Investigate OTP delivery speed via BulkSMSBD, Auth0 mobile
-              latency, and social login conversion. A slow auth flow on Android
-              mid-range devices will cause measurable drop-off.
-            </div>
-          </div>
-          <div class="insight">
-            <div class="insight-title">
-              HSC 27 Pipeline Loading Fast
-              <span class="badge badge-green">plan now</span>
-            </div>
-            <div class="insight-body">
-              Physics (390K+ combined), Higher Math (349K+), Chemistry (200K+)
-              for HSC 27 are scaling rapidly. By Q2–Q3 these will likely surpass
-              HSC 26 traffic. Begin CDN pre-warming, BunnyCDN storage capacity
-              review, and AntMedia streaming planning now.
-            </div>
-          </div>
-          <div class="insight">
-            <div class="insight-title">
-              Zone B — 13.75M 4xx Errors
-              <span class="badge badge-red">action required</span>
-            </div>
-            <div class="insight-body">
-              Zone B recorded 13.75M 4xx requests vs Zone A's 1.29M and Zone C's
-              338K. This discrepancy likely reflects expired course URLs,
-              missing assets from the BunnyCDN deletion incident, or
-              misconfigured routes. A log sample crawl is recommended before Q2.
-            </div>
-          </div>
-          <div class="insight">
-            <div class="insight-title">
-              Android = 72.8% of Users
-              <span class="badge badge-green">prioritise</span>
-            </div>
-            <div class="insight-body">
-              363,340 users on Android, 100% web. Core Web Vitals on Android
-              Chrome — especially LCP and CLS on course player and shop pages —
-              directly determine platform experience for nearly three-quarters
-              of all users. Run monthly Lighthouse audits on Redmi 10 / Samsung
-              A14.
-            </div>
-          </div>
-          <div class="insight">
-            <div class="insight-title">
-              Direct + Organic = 80.5%
-              <span class="badge badge-green">healthy mix</span>
-            </div>
-            <div class="insight-body">
-              Combined direct (42.8%) and Google organic (40.0%) account for
-              80.5% of all first-user acquisition. This cost-efficient mix
-              reduces paid dependency and signals strong brand recognition.
-              Maintain this ratio by not over-indexing on paid social in Q2.
-            </div>
-          </div>
+          <p class="ic-body">
+            An average engagement time of 14 minutes 34 seconds per active
+            student reflects genuine, focused learning — not passive browsing.
+            Students are watching, revising, and returning. That depth of
+            engagement is rare at this scale.
+          </p>
+        </div>
+        <div class="ic t-plan">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Next Wave</div>
+          <div class="ic-title">HSC 27 Is Already Surging</div>
+          <p class="ic-body">
+            Physics, Higher Math, and Chemistry courses for the HSC 27 batch
+            collectively drew hundreds of thousands of views this quarter —
+            before the peak season has even begun. The next cohort of students
+            is already here, and growing fast.
+          </p>
+        </div>
+        <div class="ic t-healthy">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Retention</div>
+          <div class="ic-title">Students Keep Coming Back</div>
+          <p class="ic-body">
+            WAU/MAU stickiness reached 50.5% by end of quarter — meaning one in
+            two monthly students is back every single week. DAU/MAU climbed from
+            under 6% in January to nearly 20% by March, showing the platform
+            builds habit the longer a batch runs.
+          </p>
+        </div>
+        <div class="ic t-invest">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Reach</div>
+          <div class="ic-title">Students from Every Corner of Bangladesh</div>
+          <p class="ic-body">
+            Dhaka leads with 165K students, but Chattogram, Rajshahi, Khulna,
+            Cumilla, Sylhet, Mymensingh, Bogura, and Rangpur collectively
+            represent a massive and growing share. Apars Classroom is not a
+            capital-city platform — it belongs to the entire country.
+          </p>
+        </div>
+        <div class="ic t-plan">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Scale</div>
+          <div class="ic-title">1.89 Billion Requests, Delivered Reliably</div>
+          <p class="ic-body">
+            Across three months, the platform's delivery infrastructure handled
+            1.89 billion requests and served over 1.13 petabytes of content —
+            with origin response times improving by 26% between January and
+            March. The infrastructure scaled with demand.
+          </p>
+        </div>
+        <div class="ic t-healthy">
+          <div class="ic-bar"></div>
+          <div class="ic-tag">Mobile-First</div>
+          <div class="ic-title">Built for the Student in Their Pocket</div>
+          <p class="ic-body">
+            72.8% of all students accessed the platform on Android — entirely
+            through the web browser, no app required. Apars Classroom delivers a
+            full learning experience to any student with a smartphone,
+            regardless of device tier or internet plan. In Q2 we are launching
+            our Android Application.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-
-    <div class="page">
-      <div class="footer">
-        <div>
-          <div class="footer-name">Md Maheyan Islam</div>
-          <div class="footer-role">
-            Chief Technology Officer · ASG SHOP™ · Kuala Lumpur, Malaysia
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <div
+        style="
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          width: 100%;
+        "
+      >
+        <div class="sig-wrap">
+          <div class="sig-photo">
+            <img
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAYABgAAD/4QCMRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABgAAAAAQAAAGAAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAOqgAwAEAAAAAQAAAUAAAAAA/8AAEQgBQADqAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQAD//aAAwDAQACEQMRAD8A/fymHrT6YetACUUUUAFFFFABRRRQAUUUUAFFFFABRXM6p408HaHerputa9YWF4wBEM91FFKQemEZg3P0rTTWtGlKLHf27mQAoBKh3A9Mc80AadFcf418f+C/hxo7eIPHWsQaJpqfeuLltsSgdSzYIAHqeKzfA3xa+F3xOhaf4d+LdK8SKg3MNPvIbllHqyxsWX8RQB6FRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAD16UtIvSloA//0P38ph60+mHrQAlFFFABRRRQAUUUUAFFISF5PHauYHjXwt/Zusay2pQpYaBNNBfTswEcEluAZVZjxlMgH3460Acf8VPjH4U+FEOkWurCXUde8S3IsdG0izAe91G6PJSJSQFRB80srkJGvLHoD+Mn7a//AAUV8fT6nL8H/gvdrpHkTtZ6rq2mylpZp0P+kW9jcsvyRw8o9yEDO+dgVRlvMfjl+0vqM/7RXx0+IgvWi1nw7pUvhHwgrNtax+0XsVjd3MKnkShPPkJHILDPAFfIdv4O0O08KR+JXnjMtno90sEOfn+0yHeGPqdm0fWuXEYlU7X6ndhMG6l/I3Lz433d94QWx1PVp7u+1NWeDR9JuJNP02zgBKrPqVxAwvNQu5sFwss/yqQ0jEsI1+aIBDLM0lmkl5IrEmYsSAfaRj29s1pfDXwvpOs3Nrpup3ItbAJFNevnDStN/q4FPbIyWPZR7169e6J4Ud9STSdWt4LbTUBdsHylJPKgj+6OgXPbJyaKmNjGXLY1o4KThz6Hk2p6zrNxbLFqesXnkhNgRr2bYF/ugF8Y9sVxGla1c+EtVh1fwxqE9ldW7Bo5rWZoZoyO8c0ZV1P6V0EiQX12xsHAjYkLcTKDLIo7ohyFHv8ApWTqdlpVuGBMt5cnoAxY599owBXfBqxyyR+s37MP/BV/xr4JntvCX7QkU3jDQGXEOs26KNVt1HadPlW5C9z8snfLniv1Z+HX7fP7OHxMuYk0TVNQsrKa6jsE1DUNNubXT/tkwBige6dPKjkkyNgkZd3Rcmv5F41lsZ45ZkKlSGCng/lXsngzx74s8JeEfEvhDSXX+zPG2mw2OpRyZKlba5juoHQdBKrIVVv4VdqcqfYy5bn9qdFfhp+zh+3J4S+L/wAU/h98DfFPhGWFr/SYNLbWzdF9TGsWsHFwk0JVo4pQjZG7cGwemQf2V+HWpX+r+DrC91K4+2SkzRrckAG5iileOKcgYGZY1V+Bg7sjjFZNWMztqKKKQBRRRQAUUUUAFFFFAD16UtIvSloA/9H9/KYetPph60AJRRRQAUUUUAFFFHA5NAHwv+3r8Z9f+BngHwL4x0KNp418X6Z9tgQ7WubSBJriSAHoDJ5YC54zivw58X/tc6lqHwm+Nnwxge61Dw7498TTa3p92gKyW+/UVmuILhThljmhVWH91wVIw2R+nfxV8YfDb4uaP8X/ANkv9ojxTB4E8Z2fiC51bw9qOqt5NrJbOwn0y4hlchCscf7mSPcCV3Yyc4/Gvw14j8LeG/GOq6H4rFldapbPJZ3F1YTJdWN7s+USq65SVWAGJF5I++M1y4qrKCvFXO3B0YTfLJ2PnHUJ7pLqK/1a4e9kW5+1pdSOZGnjlOZCzsSS4PJzyeTXpdrqbzfatLaQlYiGVc8FJFGCPb5cfgKPHFv4Jlv5ovDOLC2l5a1ueYCx6mMZBQ5/uMR39q8jGp3umTRebhZ7UFI23BkmhJ+4WHcdiazj+8Sdjaf7uTSZo6devpnhq6u0P79ZWjB9xhF/IVhX+syxwQ6ZatmKIAyHrvlPJJ9cE/nTLrULe4gvraBsR3LC4RTwVcH51Pv3HrWLYTx2twLiVPN8vLKp6Fu2fYda64K2rOSU+h2WmabqABvL+5FmkuNzPguR6c9B7V0yDTTGIoNUnmyOkSkL+aIB+VeYS35vpvtGpvJOeyKdqj+ePyrotIvtLbP/ABJGuFTqVbzSPwNE3LcqDRsDwZf3pae3mQLn+PeG/Minf8IZrGf31wrAf3SzH8jiu/8ADvirwsypALfMkZH7hn8jd6qVK/yNdJr/AI6067kSOezXS4IgAi7GOAP+mi5DfjzXN9aqJ25TqWHptX5jxyxj1Lw1rdlqOjJcpd2EomSdUYHzE+6Fx29c9enSv2//AGPv+ClfjPx58b7nwX8eb3Q/C/hK/s2TT8ItnDZXcJRYoPPY7SJVLcOQAQNuB8p/F7W/GunpA0WlMZ5m4D4wq+/PWuf0i2EemyXl87ILkluTwR6ngjn3rvg3JXkcVSCvZH9xEM0NxClxbyLLFKodHQhlZWGQQRwQR0NSV/Jj+zN+0p+078P9Rt/CXwo1q98R6Nprfbm8NtPHIt3bxZaaK0z+/U7MsUtzuGN2xgDX9RXwl+JWgfGH4beHfid4X3LpviK0juo0k/1kRbh4n/243DI3uDScbGLR6JRRRUiCiiigAooooAevSlpF6UtAH//S/fymHrT6YetACUUUUAFFFFABVHU9OttX0270m8Ba3vYZIJADglJVKtz9DV6igD+L747+BfE/wg+L+vfDb4pteXOqaBM0Nrd3M00wuLDcWtpY2difLdCCAOAcjgg15xPqWlagoijiN6w6AIfl/wCBHGK/rI+PHwM+C3x8+INt4I+Mfh5NSaTRHutJu0d7e8iktbgi6WCeMq+cSwkoSVI528Gv5JtbikivNRhtZZ4YY5ikMTSElA8zqiMcAkqigEnqazlE6Kc3sRXkq2kX2cXEkk0hwtuGEiqT0B3hq7T4XfBbxH8VbqSVHWy02F/Le4SLc0kndIkXG4jueg965GfTItPee4hGDCkiJ6llj3Fj6k5P5V+x37KfhzTNL+HGkzW0a7orK3w2P4p082RvqxPWvi+NeIamX4VSo/FJ2v2Pv+AuG6OYYqTxOsIK9u7bsvkfL9h+wVa3tsAbm+gcj/WTSxIfrsCE/hVpP+Ce0iCFv7fSQxyAsHBXzIz1UlejDsw/EGv08BA4pcZPFfjK46zRbVn+H+R+zz4Myp/8w8V9/wDmflp4k/YP1K2t5v7Lv4pZLh2kaZIWk8tf4Io4ty7VHd/mY8YxzXzl4p/Zc+KXgwm/0vZqZh5xCGhn/COQDd9AT9K/drHao7mytLyIwXUSzIeocBh+td2C8RsypSvOSkuzS/Q4MdwBlVZW9nyvvFv8ndfgfznXd7a6jv0rxLbtp2pwHaWdCjKw/vAjI9wePSuZkutW06Q2wu3CjoUkLIR6jnGK/dv4j/s2/Dv4hQs2oWEfngEKxB3L/uyLh1/Mj2r5H1P9gaxN0f7Ov7yKInoJIZBj2LqrfmK/Rcs8TcBOH79OD+9fL/hj86zHwrxsZ/7NNTXn7r+fT7mfnJp11YNcCXV/MuCOcFsJ+J5J+nFev/2Zrd14eHisiLTNNYiK2W4wrT8cvt7J2Xn1PNe3/G/9kzSfhj4Mh1/Tbme5mt3El0XkDAwZCvjCqAUyG46jNfJ2oarrVhBL4c1K4N/ZoCIC5JKjsUPbBGCvSvsspzmjmFNVsNLS9tT4rOMirZbV9jilq1dWeh9C/sp3/wAMoPjvoGmfFCya30/WruCzj1C0uXtrzR9RaQGzv7WaNgMLLtDhgylTkg4r+t7wF4H0r4faC/h/R/8AUSXV1eMAojXzryZp5iqLwqtI7MFHAzxX8UPgvwT4l8aXWoxeFIvNvNFsJ9WZASH8mzKs5TH8Shsgd8cc4r+3nw59v/4R7S/7U4vfssHn56+b5Y3/APj2a92ofOSNmiiisyQooooAKKKKAHr0paRelLQB/9P9/KYetPph60AJRRRQAUUUUAFFFFAHEeOPAmm+OLSzE9xNpup6TOLvTtQtSFubO4Cld6bgysrKxSSN1ZHQlWB7fy+/8FEv2Zdd/Zy+JSeI5L+1v9F+IU93fWptbd7Zba6glWWaIxs8gAJmLLtcgA4wAor+rmvyV/4LFfD+XxL+zdo/ja2j3yeD9bhklIH3be+Rrdz9PMMWaTQ4ux/O/oz2/irUNN02adrUXOowxyOuNyJcNt3AHg4LY54r9if2bfB3xA8AeHf+EX8WwxXFjbxKLK+icYlhBzGHjJ3K6qcHqMAc1+W37NXwz0n4peNrvw7qbywstukkE0DbZIZRMmJB1B2jnBBFfrv8Q/jb8PvgbpOnaZ411NrnUjAipbWse+5lVBt8wx5ARSR1ZgM9M1+O+IeIq4ivHLsNHmlu1bVdmn6XTufuPh1h6WFwkswxMlFPRO/TZpr1V11PbB708H0r5D0b9tr4FanKIr25v9Kz/Fc2jFB9TCZP5V794X+Kvwy8Zqg8L+J9P1F3xiNLhBLz/wBM2IfP4V+W4zh/HYfWtRkl6afefpeEz/BV3ajWi36r8jvyc0uSaDtPSoZ7m2s4HubyVIIYxlnkYIqj1JOAPxryUm3ZHqtpK7LCt3pCM814N4v/AGnPgd4LLR6l4ot724TrBYZu5M+mYsqPxYV87az/AMFBfBVvPs0XwrqF7EDjfNNFASPUKPM/UivosHwjmWIV6dB289PzsfPYzi3LaDtUrK/lr+Vz279qhn/4VNqFlaWz3d9qQaztoYxud5J1KgD2GdxPQAZNfh/f3ct2Ibd0JnSSUFRycu+AvueK/dfwF8U/AX7Q/hC8k8MSGPUbZP3tncAC5tnPKnjIKMRgOpwehweK/In4f+B38TftM+H/AABBEWF/4st7MpjJ2G9AfP0UHNfq3hn7Siq2DrQ5ZRabv56fofl/ifKlXhh8ZRnzRldabaa/qz9EP+CanwS8VeDP2uNS8H/ELSDutfCKX95BNGQIlvzaXNukqt0cEgMp7qRjFf0iVwnhv4b+EvCvirxL430uzH9veLZYZNRvHO6WVLaMRQRA/wAMUSDCqOMksckk13dfqjdz8eCiiikAUUUUAFFFFAD16UtIvSloA//U/fymHrT6YetACUUUUAFFFFABRRRQAV8Qftv+NtFn+HV38A/+Edl8Ua38RtNvkht0njtYrWC2CZvJZpA2PKmeLYqqSzccAE19v1+TX7fOn3WofF/wza27TJJceGLsRNAzLJvj1OzJ2FedwyCMe1eTnuNlhsJUrw3SPc4by2GMx1LDVNpOx+Tn7GfgvxP8P/2h9a8KeMNOay1iw0id/JkPyuwePYyuMhkbOQy5GK+lvEH7PPwn0GHWPix+0Fqc3iLVLpmnu5Xle3tIs/dihjQq21BhV3N0HQdK5zwZ4tu9Z/ar8JyauwOrDwzfabetjHmS20rSLJjtvQqxHYkjtX174x8B6D4u1fw3rfiCx/tu38M3q3w0m4mKWN6yjAW4UAhivVCQQG6ggkV+MZxnM3j6dSrUdONSMXJx30utHvbT/h7H7dleSRhgqlCFNVJUpSUVLa+j16X1/wCGufj98Q9a/Z7utYttB8HfDXxDa3eohDZmG6kR7lZTiNoreeOVnDn7uAN3avOfDXw/0Txrqkml+HdWn0jV4HdVtdWtjC/mRH50WWMkb0ONwKqR6V+mf7X3wp1X4j/F61+OvwPsdR0nxNJHpwWIsbSfSbrThtWa2mjZoJEdQo+8GRlyAQxx6j8BPgx4d0L4P+I9C+Mukzax418Uat/bjai06SSWd4q7FkjlO52d8u0zHAfeVwQAa+7xGf5dhsNL2GK962l5c135p33+R8JhMjzGviovFYNcl1dJctl1aatt03LXwA8PeO9C8CIPHupwajd3TpJAYGZxHCkSRKrOwGT8nIA4OepNeYftV/Drx5480u2ttB1q20/RJovs95DNvDu3mpKpUKCHH7sdSMc9jX1ToekxaDpdvpCSmUQ79rNwSCxPT2ziodc8N2HiRLa31NpPIhk3ssbbS2VIxnBx9a/EMPndWnjfrkbKTfbT5I/b6+T4eeG+qVLuC83d/PzPwi17Qvhl4E1SLRbt9T8YakziPybILZ27SBtpjWQrK7tu4wgznjrX0J8O/HXwq8LalqWjeOfgXJpQ0KRItUuLyOe9lsTJkKbpZ13RZx1KAV9o/tefAbRvipF4U1P4Q+HBo154U0waXbwJdiFYlSf7RHdRMApM4dn37879+7duHPUfsoeGtc+EkHjnxp8TtJuvGnj3x1DHYzjU5Flsxbx5Jku7iRmkneQkZCIcKoUHkkftdXOcoxFC1bEt6avmcX9yt91j8To5XnNDEc2HwkUr6JxTVvOTu/ncf4J+DHwph8RaN8WfhfbjQ5JoskWLYtLy2mXlJIslMdGDJjDAHmvjL4F/D/xan7RPi/476NrOm+H7XwRr+o+Tdalb/a4jdSNIo/deZEPkWQHcXGGIwCen6OfDfwF4f+G2hR+G/DkRgtPOkn8oO7RRvM25lhV2by4wT8qDgD3ya+APhCb/AMa6x4u8FWJCRv4j1rU2D8LPKrBIxnv5YBIH95gf4a+DyTOq9Onia1Gq3blSlLV8t33vr99j9BzHIMPia+Gw9emknzSkltey7W0+65/Qn+zd8VdU+MfwosfF3iCC3ttZgur3TdQS13fZzdafcPbu8QYlgkmwOqkkgNjJxmvd6+Jf2CbWS1+D2vhvuSeLvELR/wC6t2UP/jymvtqv3vC1HOlGb3aT/A/nXGU1CtOEdk2vxCiiitzmCiiigAooooAevSlpF6UtAH//1f38ph60+mHrQAlFFFABRRRQAUUUUAFfBn7amiNperfDf4smPNjot/caNqMnaG21pUWGVvRVu4YVJ7b81951y/jXwd4e+IXhLV/A/iu1F5pGuW0lpdRHjdHKuCQeoYdVYcggEciuLMcFHE0J4ee0k1953ZbjpYbEU8RDeLT+4/mlvEk8HftS/DuDUojBqJ1DVLS4LDBlju1PkyA/xIwYYPYgjrX6REn8K/Nz9orxJqXhux+HcevXit4y+HHiq50nUTMF+1D7MWEM0ifeKzwokob7rbsiv0O0fVLbW9JtNXsiTBeRJKoPUBwDg47jPPvX868W4KrTp0JVVZpSi/WMn+Dvp5H9L8N5pTxFfEODupOMv/AoR/VamoG5qTcMbicAVEqk9K57xlbaxceGr2HQ4jPdsExEDtaRA4MiKexZMgfWvjIRvJI+uauUvDl/P4m8R6hdWIae0s0FtDsBO9id0jgD6AfSuxOY2KSAqynBB4INfKvg79o6bwr431bQf7Dl0yJnaSEieFnPADqYx8yjI4DL261pR/tDap448Xal4Z03w1LeGSFgtyt1Dv8ANYbVzGPmUf7RxjFe3WyOurvl2V91a33/AIHF9fhKfxLlbst73W//AA59Mk4ppbI4qpZR3MdlbxXrh7hI0EjDoXAG4j8at7cCvDZ1aITzfKBlP8Az+XNfnD+y/MNN8P618XNTiaPS9FvNXuWcg77m4uG2R28Q6sWJA46sVUc5x9wfFPxInhP4ea5rZkMTxWzrGy/eWSQbVYeu0ncR6A14N/wT90K7+LGi/DPwdpmmXF3pnhTXrrXteu5Ld1sYltZZpLSDzXURyyyztGwRC20IWbGBX6Nwdk1TFYaUEvdlOKb7JKTb/G3zPgeLM+hgsQp3XMqc7Lu242/K/oftD+zP8PNR+F/wP8LeFNcXbrPkPe6kPS/1CRru5X32ySso9hXu9FFf0IkkrI/m6Um3dhRRRTEFFFFABRRRQA9elLSL0paAP//W/fymHrT6YetACUUUUAFFFFABRRRQAUUUUAfkd/wV0+FHhrU/gRa/F61022i8Q+GdWsTJdx2qG7ubWQtEYXnA3iNCwfByBt6DrXy9+zD8QtL1HwbY6De3ZF68hit4nbcSI4g7Y+p3tX7T/tHfDC7+M/wK8cfC7TpI4b7xHpdxa20kv3FuGXMRY84G8DJ7Cv5Nvhj4xvfAfjK00jWZZIp9Cvp7W7VchwYZDHLgdclSwH418dxrkX17C8q3jqvuPteB8++o4q8tpafifsP8Y/G9/wDDf4a614w0u3+03dlGvlgjKRl2C+Y4/uoDuI74x3r8x9W+J/7RXi+S1n1S51LS7PUYd1vJLvtLeWLBUMvlrznJLd+RjtX6haH4t8LeOPDbHVHtp0eGBry3bDxK0x+WMhshjuGMc849RXXapoelavYDTbyBWiTAQD5TGV4G0j7uK/FsmzuGXxdOdBOd93ul5H7nmWSfX6qnKu1TttH8bn5V/Dv4T29lqdpqnj7VWn0+N98iW8ToXA6KJZdgAJ6kDOOlY3iL4R6jY3cmpeFNd3W8bs0LTRyxyhQ25cyRB13DjkY9a+k9V/aosfCuo3nh/wAQeGr0y2crxjfIiuUU4BZWUDJ65HB61seC/wBpLTfiX4p07wZpOhX9qmoP5ckkbo7Ih4JOBhUH8TdQOnNfcyxuZQ5sVKPu27xtY8X6jw9NLCRfvX/v3v8A18j5Dt/i5+0R4Ogu9RW81KbSbNlhlvGR57aNnbdH87r1zkH1BweCBX61+ANa1LxL4J0PxBrNt9ivtQtIpp4eyyMOcf7J6j2IrXh0PSYdNGipaxm0YFfIZQyv3OQ2dx4yc15v4o+LXhfw/oT3enXSPMgZUj242PEJD5bqcFc+S6D0YYr4XOM2WZcsaVBRknuuq8z18tytZdKc5V3KLW0uh83ftkfEPT4vC40LSp/Mlt5J1ukzgHygjEfVTgfQkV+rf/BNTwk3hD9jfwLBKJ45tSF5fyxzja0bz3MmQBx8pxuGexr+b3UrTW/jf8T9P+F3hac/2j4s1mKytWlJIQXGBvkxkhVUgtjsDX9gHw78LHwP4A8NeC2lE7aDplnYGQDAc20KxFgP9ormv3XhPJ/qWEVLq9T8E4wzj67jHU6LQ7Giiivpj5UKKKKACiiigAooooAevSlpF6UtAH//1/38ph60+mHrQAlFFFABRRRQAUUUUAFFFFABX81v/BU34F6D4E+PmkeL/hppYtbrxNpV/rWrQxHiaaCcLNMi9mZZNzAdcE1+pPxV+MnxG+LPjrWvhZ8F9Zbwr4X8Lzmy17xJbokl7cXwAMlhpm8MkZhBAnuCGKsdiDcCa/Oz4ifD34fad+0T4G0LwxqVxqWrX2na5Hqd5fX0+pXcssaRPH5807vnHzfKuAOeBWGbe0w+Bq4y2kVf1PSyPD08RjqWGm7cztfsfm14O+LmtaRpiS6bqDWwgME5I5xJE3DEHrhlB59q+9fhP+0ppVt4d8PeHNafZciaRLu5lJcmJUMgfJOWkmkIGScDJ9BXzP8AHn9my+06/vtc8FWy2s0UDLdacg4l2/xw44yy847kDHJr5Dt/FN1psdvaX8UiSwqFZWBUlOCrc98f0r4NZbl+c4f2lL5907df6sfoFfF5lkWI9nW1XR9Gr9P6uftVrvif4T/FjVLPw/rNtBd2VoVv5JJsAuUkeKCPIwxD7WkIJ+4Fz14h8GeMvg/8MXl8J+H4Ire1tW+WdSHl/e3TwyxyOfm/dzAdSfkYMOhr8iLLxpNFdPdQXTI8ewqwb/lnwM/gc5FQP4vJubiS5uDsZn3ndksd2fx6En6ivOfh7eDpOq+Tt0v3Or/iIiUlVVJc/fqfo38Xf2nNJ1rwxcaf4akaK8t78PDcrlGWCICWOZCDlXVhsYdDz2NfBHiL4k6jMLnUL26aefUFedsnktO+7OBxnljXmUuu6rr0Umm6ZbyTzXAVNsaliAzYxgdyWC//AK6+z/g5+zkdJ1CHxB41VNT1WRUS2swN8cJIHUdGdeg7Dk816M8Pl+S0LzV30XV/5I5cH/aWfYm0NIreXRf5s+0v+CR/wd8Mav8AEPx38RvHempL4u8MNpz6YJW+a0XUIJzIwT++Yyqk/wAP1r+gKv55fgV4d+DFv8Zvid4Z+MNhBJq/n6K2n3sd1Pp99al7QlxbXlu8bRnJXILYYgda/S3QfG/jf9nfUtDj8beJbnxv8JfEd3Fp1trOp7Tq/h+9uG2W8OoTIAtzayuRGs7ASRuVDllYMPvMBz1MJSxMlZTSf3o/Pc3w8KOMrYeDvySa+5n3bRRRW554UUUUAFFFFABRRRQA9elLSL0paAP/0P38ph60+mHrQAlFFFABRRRQAUUVj6/4h0HwrpNxr/ifUbbSdMs1LzXV3KkEMajuzuQoH1NAGxXi/wC0P8T/APhTvwV8W/EKHa1/ptjIthGxH72/n/dWsYB6lpnUYHavmzxL+2pfeNPtGkfsreEJvHkqExnxDf79O8NQOOpFw4El2R/cgU5/v18p3Hw08cfED4seHPE37QPimTxzfW0s09vbIn2XRLC5t1DhbKzB+YxnGZ5SXJwOoNduFwM6rutjKrVUdz6C8NfDPWPhP+zVJPYv5t/pOl3c88vJln1F4nmnuWPcyXBY561+Q/wO1a88afGbwb4w09jJoujxSWLTkH/SLy8tHaYqT1EZVVJ7sa/pG8O6daa54CTSb5d9vewzQyD2dmBr8SfhJ8MZvAl9r/w4v28vXPhvr0lj5WAoexZjNbTD1E0EgIb1BHrXyPiLnlahllWlCOknyvyWtvx0PvPDbJ8PiMzhKtKziuaPm1b/AIc+gfF3hK38T225SIb2IHy5P/ZW9R/Kvi/x18I/C+tzzWHi/RYzdbDH5gGyTaTuDI646HkEep9SK++ieazdV0TTNct/s2pwLMvYnhlPqrDkV/MeBzGpQlzU5Nejsz+mZ06dSDp14KUX0aufkFrP7JOkXESt4e1ma1mUkMJkEiOv4EENjr2PoKsaN+yN4dgiU67rNxdSFwWEKiNQg/hBOTk92P4DPNfoxqvwnvI5C+i3Syxn+Cb5WH/AgCD+Qp+l/Ce5Zg+sXqxp3SEFmP8AwJsAfka+rfHWYcnL7Z/cr/fY8L/UbJef2vsVftrb7r2PnTwb8MfDfh6b+z/B+jpHPcbB8i7nPlj5cseeMk5J6kkmvrvwV4Ih8ORi+vsTag46jlYgey+/qa6bRtB0fw9CYdMgEe77znl2+rHn+lbJOa+TxmYVKz5pybfd7nux5IR9nRiox7JWPzK+O9vfeDfjh4l8cX0Zk8O6rHY212ygk2zLboI52A/5Zk7kY9uDX7L/ALNek2fx4/Y+svDPjf8A0uz8WaFFa3DtyT5sPliUE/xqVVweoYA9a+Cf2idNtdN+H/inxYyeZdvZRWlpGBky3UzmGOPb33mRQBX6xfs0+AH+GPwR8I+C5hibTNOtYJP9+KJUb82BNf0h4f5/WxeVKlVWlNqKffRfl+p/OHiPkWHwmYqpRleVROUl2d/1/Qb+yd4+1Pxz8F9KtfFFys/irwpJceH9bG7Li/0qVrV3cZyDMIxKM9Q2a+k6/Lj4t/s5TeE/i1dfF34d+JtQ+H3iTxVqtxnVNNxLFMWtopkW+s3PlXMQkSYMGAYAghq9M079qf4n/B+GG2/an8HH+xOFTxr4Wjlv9Gdem+8tQDc2R7tkOoPQgV9k6T5VLoz8+6tH33RXI+CfH3gn4k6BB4p8Aa7Z+IdJuBlLmxnSeM+xKE7WHdTgjuK66swCiiigAooooAevSlpF6UtAH//R/fymHrT6YetACUUV8+fGD9pv4U/Bi6h0DXL2bWfFd8P9C8PaPC1/q90T02W0WSin+/IVT3ppAfQdeQ/Fb49fB/4JWC3/AMT/ABTZ6I0v+ptnfzLy4J6LDbR7ppCTwNqGvmtov2xfjynmajdwfATwlP8A8u9r5ep+KJ4j/fmP+i2ZI/uh3X1r0j4Xfsr/AAd+FF83iDQ9JbUvE83M+vavK2p6xMx6sbq43FM+kYUe1K6W5ag2eZ3Xx+/aN+LsRHwM8AJ4G8PTcL4m8cbrdnQ/x2ukxHz5D3UysgPcVR0n9lDTfFerQeKvjVq2o/F3XoX8yOfxERBotq//AE56PFiAAdjIrn3r7cjsLWOTztm+X++5Lv8Amcn8quVSqJbItUjyLXfBVppPhyS4SQyS2ioEVFEcMcYIGyONQAqgHgDgV4R8Q9Bg0KX4c66ibJLy9vYH9Ak1q5jUDp/Bn8a+t/E0L3WhXVpEMyXAWNfqzAV4f+0hpy2fw20zWYBkeGNU066J9It/2eQ/TbJk16WBxkuaEW92cmJoq0ml0O1+Fmq+fYXWlOfmt3Ei/wC6/B/Ij9a+TP2xfh7d+ENas/2n/CdpJdf2Zbppviu0gUs9xpAbMV4qjlpbJySR1aJmH8Ir2rwNq66V4ktXLYhuT5L+mH6H8Divpa8sbXUrSfT7+FZ7a5RopY2GVdHG1lI9CDiuHiPLKdXno1VeM1r/AF36ndkeYVKEoV6LtKL0Py20zUdN1zTbbWdHuY7yxvI1lgmibckkbjKspHUEVPHcJJLLEpy0JAYemRkfpXEfFX4N+Mf2aBqfi/4exNfeBLS6La1pbxsw02K4O6PU7Xb8wt2Hy3Ua5Ebq0qjaSBzo8V3Vrq1pr89k8enahAiyTRMs9u6/ejmjkTIK4P5V/K3E3CtbLa7py1i/hff/AIJ/VXCnEVHNMP7SnpNbx6p/5dmexBqazHtUNvcRXMSTwMHjcAhgcgg9wamchRubgDrXyx9ByoQgDqaUN615mnjS1vvEMsVpHPeQWSlYkt4y5llbhmz0CqOASe5NZUN98Rfi14wuvhZ8PIk0X7FGsmv64zCZdEtX7fL8hvZFyIYckg/O2FFezk+RYjHV44ehHV/h5s87Os1o5fh3iMQ7JdOrfZGt4G0A/tB/tA6b4btf3vhD4bXK399JjMd5rS8QQA9GW0DGWTt5m1eoNfsbDFHBEkEQ2pGoUD2HAr5r/Zs+GXhr4eaHqNr4ZsjZadaSLp1okh3ymO2G6WSVzy8ss8jtI55Zsmvpiv6ky7KqWBw8MHR2ju+76s/lbNM2qY7EzxdXeWy7Lojyv4pWdvfN4QguF3K+vW6Y9pIZ0b9DWj4W0KfTY7/TfMMUsMmMkbopYnHy7kPBHBHGD2rM8fym48Y/D3R15aXVZ7th/sWdpKSf++nWvVcDO7HPTNeo6rUFHv8A5nlqKc2z468ZfshfD2912bxx8Om1D4VeL5Ms2r+EZvs0cz9c3VgR5E6k9Q0ZJ/vVj2nxR/a1+Df7v4g+GbT40eGoOG1bwuostdiQfxXGkzEJKwHXyHH0r7eqtcWdrd4NxEHZfut0Zfow5H4Vkp9ynTPLPhL+0v8ABf41vLp/gfxDGdbteLnR75GsdVtm7rLZzhJRjuQCvvXvFfMvxZ/Zy+F/xijjm8b6FFqV/a4NtqMTGz1e0Yfda3v4dsqkdgxI9a8VtbD9rH4AEv4R1Nvjl4Mthl9J1dktPFVpEP8An3vBiG9wOglAdugbNPR7GTgz9BKK8F+DP7SPwu+OIurDwrey2HiLTONR0HVImstWsX7ia1kw2Af403IezV71SJHr0paRelLQB//S/fymHrT65rxh4q0XwN4W1jxn4kuBa6VodpNe3UrcBIYELufrgcDuaAPlX9oz4teO7rxno37NvwNu4rDxr4ktZL/U9YkUSp4e0aM7Hu/L6NcStlLdTxnLHgA133wX/Z7+HHwNsZz4Vs3vNe1L59T13UH+06rqMx5aS4uXy5yeQi4QdhXyt+x7Ya34u1XxD8a/GcZi8T/Fjz9RkV8lrTTtuzTrRc9Figwcf3mJNffPhPUpNW8M6ZqFx/r5YE80ekqDbIP++ga1xVF07IujNM6Giiq1pdRXtutzAcxuTtPqASM/Q44rmS0ub3LNFFFBQVy3jjwzB408G634TuMBNWs5rcE/wu6kI3/AWwfwrqaKadndCaurH5qWfxH0zQfA9jrPieb7NfQA2ssA+ad7y2JikjROpbep+nUkVi+JfiJ+0F8ZE/4liXfh/RxHlLHTnMdxMqjl5phiRieu1MKPfrX3pD8FPhVD4qu/G3/CNWkmtX0jSyzyhpf3jfeZUclFLdTtUZPJraufAejDVoNe0lf7Ovrdw+YhiN/UMnTkcHGK+njnVBtSnTu1tfa54ssuq7RlZH5x/s9+OrT4f/FO60z4keIrjTdGvtLuImh1W5le1e582MAOJiyhihfrgEZrY+InwA1P4dx3HxI/ZmRPFngW5Z59Q8LWkyTNbbjukn0ZwSuOrNZsdp/5ZEH5a+6PiH8IPCPxFgZ9RgFrqIXCXcSjf7Bx0dfY8+hFfGXhT4F+M/A3xRutD0HWH8M6jewNe6dd25ZLa88ghZ4Wj5jfAKOUkQnBbHTNeXnOWYDNqU/bWV94taeqa/PoejlOZ4zLasZ0W7rqvya/Q8o8F+KvCfivQo9b8JzpJYzO6kBTG0cqEh45IiA0cin7yMAQeorpL61tdQhe0uyzRYy6glQwxnBxjI56d66b4vfA3xtZjVfjfoWm2ei+M9Lh+06/bxSpDovia0txl5iWOLS/jUErI5w33XYqcr414O8HXPx40C18c/Eu9uPh/wDBghHX7QzWur+JCRnyYlU+ZDaHgErmSbHyYT5q/nfF+FmKjjlRoO9N/a3t5eb7W38tT9/wninhZYJ16ytVX2e77rsu/bzNDwTo/jX4+6nP4N+CrDQvC2nzNbax4rWMGCEocPbaYp+W4uccGTmOLqSWwK/R74efBLwd8NvDdl4K8JWIstA09zO8RJknvrpuXubyZvmlkY8knOT6AAD5Wvv2grnTtHg8EfAnw7beEPDmjoLS3mubcBo0QcCCzUhEHPWQk56rnNedW3hz4mfGDV10a88QarrcsozL5t08FpEndmjg2Rqvtgk9BX75w5wIsvw9oWgure783/Wh+GcQ8ZVMwr89W8n0S2Xp/mHxQ+Nvxk0H4n+LfDfh3xMNJ03SNSkjgitbW3KFZAs2XLoxZiX+Yk9c9Olem/Cb9sO/j1C28O/GeOCKG6ZYodatk8qJXbhRdRZIQE/8tFO0HqAOa+ifht+zj8M/h5pog/sqDVb+T5pri5jEgLHrsR9wUfmx7mtHxP8As8fCDxUrC98PxWruCGa0Jt8565VfkP4rXv1MdgJU/YypvT7Ste/ex4UMLilL2il8mW7S4XxL8aJ54CJLPwlpKw71IK/a9UcSEA+ogiU/RxXsFcX4D+H/AIW+Gugr4c8JWzW9oHMjGSRpZJHIC7ndsk4UBR2AAAAFdpXzdRpvTY9enFpa7hRRRUGgmRnbnnrio5YY5gN45XoRwQfY1g+Jb1tJgttYXlLaVVlHrFJ8rfkcH8K31dXVZEIZWAII6EHoapwaSkTe7sfPXxx/Z48D/GC3ttdupZfDfjjScDR/E+mnyNSsZycR/vEwZYt2N8T5VhkADOag/Zj+NXifxzDr3wq+LkEWn/FL4fSpa6xFENsN9BIM22pWw4zDcqMkD7r5HHAr2LxHdZ1fw9pKn5ru7aUj/YtYnkP/AI9sr5O/at0fUvhnrfhr9r3wZbtJqXw+b7L4it4R82o+GLpwLpGA+81qxE8eemGqo9EZSje59/L0pazdG1bTte0mz1zR7hLuw1GGO4t5ozlJIZVDo6nuGUgitKgyP//T/fyvz4/b416XxHo/gn9nPTJSs3xJ1RX1TYeV0LSttzeZ9BIwjj99xFfoPX5deJbLV/G/7ZXjjxLrCEWXhS00vwxpIPIxdRpf3kg92aaNT7DFdmAo89RJ7LUyrT5Y3Po34c2cmieMNO0+WAWoNsfLjGAFjaPKAAdBgDA7V7D4OU2c2u6IePsOoyvGP+mV2BcLj2y7D8K4rxQqaV8U/D9392OaNIvyLR/1Fd3KP7O8cwzk4i1qzMJHbz7Ri6/iY3f/AL5rXMJc/LPurlYVct12ZJ401OXTfDs7wH99cEQpjrmTg4/DNdBp1otjp9tZLwII0T8hzXKeK4jeapoOnH7sl0ZGHtEM1117dwWFpLe3TbYoVLMfYVxyXuRit3/wx0J+82yfzF8wRZ+YjOPb1p9c54ae5vLNtZvBiW/O9VP8EQ4jX8ufqa6OsZxs7GsXdXCiiioKCiiigAry/wCLem6hN4U/4STQk36z4VmTVrMDrJ9nB8+H6TQGSPHqwPavUKjmaNIZHlGY1Vi2em0Dn9KqDs0RNXR8ZeKruP8AaP8AGN14cikSf4beFRYNc2758rW9ZvVW4gtrjaQWtbWNkkkiyBJIwVjtU16pqPwq8Iw2l74y8WyTeK9U0yGUxmc7IYjEpxBb28eEiTIChRnPck81ifsxeDtHsPgTpELQCSPXJbnUpd3VmmnYxnPXKxqgB7YGK+gZIbHSdLZEhAt4cEr1z82SSTkk55ya6nVcJctN26HOqalFSmjz7wH8JvC3hLQLKJtLtpdX8oPcXEsYkY3MnzyEbsgAOTgDHArtvDXhbSPCli1npUW1pmMk0rcyTSNyXc9z6DoOgrou9FYTrzlfmbdzWFKK2QUUUAZ4FZGwUVwvgTx3Z+PotbvdKtZIrDSdVutKhuWYFLxrIiOeWIDoiz+ZEM9TGSOCK7qgAoqnqGoWGk2M+p6ncR2lpbKXlllYKiKO5J6VxvhDx9pvi671C0toLm2NnO8UZu4TA0wRVZmVG+bC7wPmAb1UEEU1FvYmUrHTeILMahol9Z4yZImx/vAZH6iuc+H+pvqGhJbSnMlkfLye69V/Tj8K7vjvyK8v+H8TWeq67px/5YSqAPYMwH6V1U7OjJPpZmUn76ZpMft/xNROq6LpZb6SX0uB+OyA/nU9gll4mtPEnh/WYlu7J7m5s5oXGVe3njG5CPQhyKZ4OAvdR8R+IfvC9vzBGf8AplZKIBj28wSH8ayfA1z5viTxlFnITUFP5pj/ANlojC8JvtYhytKPnc8w/Y00zxR4H8DeJPgn4n3zJ8MtcudH0u5kOWuNHkjjvLBiT3SGcR/8Ax2r6/rM023gj86eONVkmYGRgAGfaABuPfA4Ge1adYXuKS1P/9T9/K+PPFVjZ2fxhne3iEbXV9aTSkdXcpEu4/8AAVA+gr7Dr41+JUstt8SL++jUkWj20jEdAAqYz+Nexk0bzkvJnFjpWin5nefGmGW2h0bxBD96yuNpP1w6/qtdf441iysPB/8Awm7qzw6N5WpgoMsIlx5pH/bJnz7VN4+05Nf8F3ywjefKFxHjnlPn4+ozXLeB7iDxb8M7zQLvEpS3nsZFPOUdCF/NTj8KwS56EG/suz9GdDfLVlbqrnT32oWNz460CzimV3ksru7jAOd0QMabx7fOPzrL8eXMuo6hpnhO1bm7kV5sf3M8Z/In8BXzL+z/AOLpNd+Ivh3w3fymXUfCvhnUdMnLfePk30Ahc/78Gw/XNfQ/hRzr3j/V9Zb5o7LMcZ+p2L+imtJYd0pNy+yvxu7BGrzx06s9fjjSKNYoxhEAUD0A4FPoorxj0QooooAKKKKACuV8dXp03wVr1+p2tBY3LA+h8s4/WuqrzH4zTmD4X+IiOr2xT/vogV0YSHNVhHzRjiHanJ+RU+A1qbL4K+B7Y9V0i1J/4Ggb+td74l/5F/UMdoWP5c1x3w5v7PSfhz4TsJEm/c6TYrlYZHX/AFCd1Uius1G8g1HQ9QEAfH2eT78bp/Cem4Chp+0vbqK65LeRvocop9QKdUNu263ib1RT+Yqaudmy2CvEPjh8T77wF4bm03wvbG98V6zEbXSYgRgX92wt7TcOpBlYuQOkcUrnhDXtc00NtDJc3LiKGJS7uxwqqoyST6AcmvlrwMF+J/xn1HxxfxEad4HiRLQSgLt1PUrcO2fe1sHjX/Ze6mB56AM9Kgh0P9n74NWWl2cb30Hhmxgs7eJf9df3rkRxovrLdXDjn+85J716tYm9ezt21GNIrxo0MyRMXjWUqN6oxALKGyASBkc4r5p0DWdQ+MPxvuLwKB4I+HUMT2iFf+P3W71CUuGOfu29o26Jcf8ALdZDztC9V8b/AIg3PhjSYPDOkzjTL7xA62j6tOVittLt5Q5lut8g2ySxxo7RxDOXC7sAjcCuRalrN1488THT/D7JN/Z7/wCiF18y3tyrFH1KdejsrKyWcR+8ytL9zDL1+v8Ah1PD3hqzm0BXMuht5iu5LyybzmV5G6szsS7k9SSa8M/4WzoPw01O9+FHwe8NXHjCXwrZ+dqpglLzi5IRVEkm0iRwnzzNn5QFiRS2ETrbrRfFX7RvwlsItWvZPCWjeKDcz3MFnu+3Ppb7xZRiZX2o0i+XLMV4KnyxwS1aUqnJJSInFNNHpWs/Fn4feF9Fs9Z8Wa5a6St8m6KKaQefKQ6RssUQzJIVd1U7VPUZrg7nx/aaRrHjLxDoCx32maRb/ab2+DZt1eKNj9niYf62ZnABC/LH/Ed2FPK/DX4WeC7HxpeReMNPh8R6/awXNtHf6hEkrmCfYs8SRkeWkboi4RV4UEZO5i3lXjvxxaSfC7Rfhrp2yO7vdcv9OuI41ChLDRrp5MbRwFKmJR2wa9Ohgm6rpx2dvuev6HHVxNocz3V/vPsj4ZW01v8AD7w6lz/r3sopZT6yzDzJD+LMa4z4TTi81bxffLys1/kH8X/pXbXeoJ4Y+Hwv2O02Wnx7f9/ywqj/AL6IrjvgnaLY+CptTuDt+2XEsrMf7sYC5/Q1EVahUn3aX6lN/vILsrnvVh/qj9avVm6VLHcWi3ELbo5QHU+qsAQfyrSrz0az3P/V/fyvlrWbzT1+MepaVqgDWmrRpaSA/wDTSJCp9juAwa+pa+GPi67x/EjU5IyVZDAQR1BEaEGvYyalzznHuv8AI48bPlSfmfVOmwrpOlWek6lKHI/0VW/56AAhM+5Ucj1r598E358DfEC88PXjbbW5kNuSegOcxN+IOPxrrNd8SyeJvhcmv2j7L2xmgaXHVJo2AJ/HOR9a8j+LOsxXnh+x+JlpEWjCCLUET70UkP3mAHJwnzD1A9a6MvwrfNCf2rp+TWxOKrLSUemvyPK/BU9p4G/apvJmAiOo6DqinsGktJQV/HAA/AV9ffDe5g0fwXqHiW94V3kkY+ojGAB9WyK/PrxZfxp8UPh94mEvnR6jJfWTTBsh/tUIkQ7u+4rX2B4g1uOy+HWheHbZhvu1a4mA/uCRtoP1bn8K9LMcLzyjH+Zq/ornLha/Km+17fM92+H1/ear4Wt9Uv2LzXck0hJ5wDI2APYDgV2tch4BhEHgvR0HGbdW/wC+st/Wuvr4/E29pK3dn0FH4FcKKKQlVBZ2CqOSTwAB1JNYmgtFeW/B/wAb6r8SfCD+Ob2CO303Vr27fRwisryaSkhjtZ5dxOXnVDMMAAI6jGQSfUqACvNPi9Yyan4Fu9KjOHvpYYAfeRwo/U16WQR1rn/Etob63sIeoW+tnP0R939K6MLU5KkZdjHERvBo5PQtV1nw1oOl+H7rw1qE76bawWxlt/s8kbmGMIWX96GwcZGQD6ituLXr/VQ1i3h7ULZJ1ZDJOIFVQwxk4mLY+gJrsetVb24NpZ3F2Bu8iN3we+0E1HOm9I6/MOVpavQfbRtFbRRN95EVT9QMVPVLTb+DVLC31C2OYrhA4/Ht9R0qPV9W07QdKvNc1icW1jp8Lzzyt0SONSzH34HQcnoKzknfU1T00OA+I+s2iQr4fuX22f2ebU9Vbsml2Q3yqT289gIhnqnmEfdrwrwHq0Nh8Gzca2zR2VvZ3HiXxfcjhpLu/B1CXT0Pd8OElx9yIJGPmf5fffD3hg674e1W78dWCvceMImF7aSj/V2MiMkVk+OuyJyJMHmR5COCK5Xx54d0VbHwb8HtBsorHSdV1COSe2hTbGum6Vi8mXA7SSrDE2fveYc8mkJo5G0+H/xVt/hJYeGfB9/D4c8TeKpbjVNe1fIMtldXoNw6wRlW3MHKWyE8RxJkchRXTah8CNH8b69b+Lfirdya9qMFjcWUVpFJJBYWi3LxOzW6qRIJQIgvnFt5yx+UEKvvZJJJPU1y/ifX5tHhtrLS4Vu9Y1RzDZW7HCs4G5pJCOViiX5pGHOMKPmZQQdjx/4v3Nno2gWfwp8A6VFLr/jIpZiys2jtZF0uLC3lzLJj93FHDmISEMQ8ihAzEKelX4cxajdaTN4+1W4vJ7aWKWysdPnn0/SrZ7XDxxpDC6NOFC9bhnDAcIg+WmfDHw1ZHU9V8ftK1/dan/okV9KP3lzDCx8ycdljllGI0X5RFHHjqSe58cWt1ceGbqewYpeWO26gYdQ8J3fqMg/WtKUFKSi+pE3ZOR5/4zY+HfHml+IV4iuCvmY/2Tsf/wAdIr8/PDejS6n+0B48Z5TMkOqJb20ZORH9u2SyMo7bsD6195+ONWtvFvw+sPEtrhXhmVZVHVGYFXX88Ee2K+Qfgnaw3P7SnjJLlglvarpmoys3CqsVs2WJ+qivrsubhRlOXxJW+654OLXNNJbN3+8+tPj14gSx0mx8K27fvLo+bIB2ii4Ufi38qv8Ai/UF8C/CWz0aI7Lu8t0tlA6hpF3St+AJH1IrwW21r/havxbhnTJtZrlFjU9raE5/VQSfc10HxJ8Rnxr47t9Os232VpOlrDjozM4DsPqeB7AUo4HkdKjL7K5pevQcsRzc8110R9r+HovI0e0g6eXFGv5IBW1VOyAWIqvQHA+gq5XyV76nrSWp/9b9/K+KfiPp39sfFm90pZlge6aGNHf7ocxLtB9ATgZ96+1q+EfjA7x/ErVJI2KspgII6giJMEV7mQpupK29v8jhx791X7lO1m1bwZPqnhjX4Ggg1KFopUPIDjmKVD0IDdx2zXL2etizs73Tb3DafqCBJkb7ocfcfnjIJwfUEivpLQdV8O/Fnw8ujeIAF1a2X7wwJMgY82M9wf4l/pivAPHHgPUvDM0mnapH59nchlSUD5JUIwR7NjqK9rCYmM5unVVp9fPzRxVqLjFSi7x/rQ/Pf4qX3iL4cSx6DGvn6Zpl/BrGmO2S8SQuS0Sn0wWUg9Oo619raH4js/E9mdU06Xz7Q7RE4OQVaNZOPpvxXzt40t7fWdK1DwN4oYf2no8bXWnXUn/LzAqk7ST1baCrDuRnqK2/2YJQ/wAKktl5+yaheQjPUKrjaD+BFe9WjopHnwfQ/Rv4O+MReWp8K38mZ7YFrcn+KPun1Xt7fSvdK+Co/wC0dBvLW+gYwzBUuIZF7g8gj17g/iK+w/BPjC08X6St0mI7yLCzxf3W9R/snt+VfCZzgeWXtobM+iy7FXXs5bo7Kvmb4/eKNf1MW3wV8GOINW8cI2mNcjPmW0M4DXc6EcL9nsxK5J/5aPAo5fj6H1nVbXQtJu9Zvs+RZxtIwUZZsdFUd2Y4VR3JAr5r+FDNqXinxp8YvFrLHb6S0miWbgl0UwMJNVli6lt95i2XHLLaoB1rwj032PUPHern4eeC9N8L+A7eKPWL8waJoFqVzHHLs2q7KP8Aljawo00n+xGR1Iq/8SfF134D8FPe2R+261ctBp9grKN1xfXBEaHYODjmRlHGFI4FeRfC3+1fHXxT8XfGPxVL9n07QEbw7o9s7gQWYjYS6lLk/L5pk8uCWTPDQugO0DPWeGdU0T4w+P5fF1gWutB8AXFxYafLyILrVZEC3VzH2dLeNvIifoWeYr0VqAueleA/Ddx4R8HaV4dvLybULqzh/f3FxK00ss8jGSVmduTl2bHYDAGBgV1rKrgBhnaQR9RS0UFWCqGqqX0u9QdWglA/FTV8Ak4FeMz3upfFe6udP0W5ksfBVq0sFzewOY59WmjJSSC2kXmO1RgVlmUhpGBSMhQztUHZpkz2Z5B4f+P/AIe8GeG/EMTxyaunhyCW8uGgIW2tUiGZEmuG+QODjESCSYk4EZJrqb/SfGPxZ8R2PhfxTqhstBsobfVdVstKWS2HmSESWNnJdSEXDSBl86XYsOAiKy/vK+NfHHiLTdC8e+D/AAFpenJc2WhSw6tNpcAEa3U0MhXTbLaBhUadHuJCRhUtyzcdf0z8B+HT4c8Pql1dDUNS1KR7+/uxnFxd3GGd1zkiNRtjiX+GNUXtXp5tRUarkupw4Go5Q5X0L3hnwf4b8HW9xbeG7IWi3kvnTsXklkmlwF3ySSs7u2ABlmJrn7O3Gp/FPUtUkXKaDpkFjCfSW+kNxcY99kVvXo2COT3qpBZWttPc3MEYWS7cSSt3ZlRUBP0VQPwryj0C1+leBxyXPj3V7uTT5WQatGIDOhwbLQwx+4R92fUGBZSORFtfqi59i8R6TNr3h7U9Dt7x9Pl1C2lt1uY1DPCZVK71U4BIzkCmeGvDun+FtJi0nT8sqYMkr4Mk0mAC7kADJAAAAAVQFUBQAATRr21tb2VtDZ2cSwW8CLHHGgwqIgwqqB0AAwBT5EWSN42GVYEEex61yGp+LYNB1+HStcAhtb9c21z/AAhxw0cnp2IPTnn1rptQultNOurwkbYoXfPsqk1q6Uly+exHtE07dD4Xh8RXOlR6j4YjYG21Fd4VvWFx8y+44B9jXy1/wlkugfFb4jQRSLBHqGm6VDPIThhEoZmUf7/APqOO9etePr06Ta6f4l5xpt3G0vvBP+6k/LcD+FfHmpI3jX45eKbbSpBJHLLbW4kU5TbDHhn44wME1+n4bDx5lJrTr6o+OnN7I+qvhD4pvoF1bxFbIYjcI1pZnoUU8SS/7xBIHp+Fe+fCDw/JrvjS0uSubfTT9pkPbK/cH4tj8jXjel6fa6VYQabZrtht0Cr6nHc+5PJr2LTfGqeE/DDaJ4ZONQv/AJ7u86bMjAji/wB0dW9ScetcuZRlJSVNay09EbYWSi057I+59HvrS+in+ySrL9nlaJypyFdQCVz6jPNa9eP/AALs3tPh5aO+d1zNNNk9TufGfxxXsFfn1emoTlBPZn0MJuSUn1P/1/38r5Y+I3wq8YeI/GN/rOlQRPbXHl7S0qqfljVTwfcV9T0w9a6sJi50Zc0DKrRjNWkfFdv8F/iRaTx3VrFFDNEdyulwqspHcEV2mpeFfjVrOmNpOrfZbq3cAHe0W7I6HdjIPuK+n6K655xVk05JXXkZLBwWibPza+J/7KvxC8ZaSrafbWq6laHdCzXCgMp+8hPYHqPcVzPwL/Zf+NvgK21/SfEVjaR2t3eC7tSl2knMiASAgdOVGK/Uuit3xDiHHl0+4z/s6ne+p85w/CnWtS8Ew6Tq8cdvqunPIbWQOGVo3O7YxHbJOPTrXNaD8NfiZ4d1GPU9MSGOVOCDMpV17qw7g19Y1y/jLxPD4Q8O3WtyQtdzJsitrZDh7m6mYRwQpn+KSRlXPQZyeAa5Y5rVScdGmavCxun1R4t8TPFN5YaRq2q3UHlW/gXS59e1FA4dDeW8TSWVsSOGG5TO3TG2LPDV5nob3/hH4F6brEFuZtM8JabbJpkTAg614gn2rHcsGAJha9k/dZH7x2MvKiMn6x8HeHZvD+hLZ6nMLzUrt3ub+bqst1Od0hUHog+5Gv8ACiqvauL8dRDxJ8QvBPg0/NbWks/iC7XPVdPCx2qt9bmdJB7xV5rR187ON1D4BnUvh14V+F0+oj/hH9LKvrUBTc+skIzyJI+fkWe5cyynaSegweR6H8MvAc3gHwLpXheQwvc2yPJcvANkT3Nw7TTmNcDCeY7bBgYXAxxXp9FKw/aMzPss3oPzpPsk/fH51qUUco/asyJrCSeGSB+FkUqdrbThhg4I5B9DXj2saX46+FXwq03S/hvp9l4mvPD4tLVYtRul0yI6dCwSR3mRHVXigGS2zDEE7ecV7xXz3+0Vc3WteG9K+EGkStFqHxJvV0iRozh4dLVTNqkwPbFojxqe0kietFg9oz5F+AXwN8beKrO8+P8A4isbY+IviExu4ysrCK10v7tlDbrL8yK0IWRiQGct82MBR9b+I/F+pfCP4cWzazDDPrckhsdNt3mCxzylWkVpZP4IYIleWd/4Io2brgH3+0tLWwtYbCxiWC3tkWKKNBhURBtVQB0AAwK+GtKgb9pj42atrZYT+AvBc0mkxsDujunhkVrqJDyD9onjUTHn/R4UT7ty+OutjJVIKEtkc9OmoyckezfADwn4j03wne+J/E2o3mpal4uvG1R2vXbekLRpHAFhYlYA8aCQwoAIy+zkqSfdPss3oPzq1eXtnp9u13fzx20ClQZJWCIC7BVBZsDliAPUkCvJdY+PPw00vxp4W+H1pqiazr3i+d4rO309kuQkccUsrzzurbI4gsL4JO5yCEVsNjksdHtGeofZZvQfnVeXy4ZobWWaNJrjd5SM4DPsGW2g8nA5OOgrlfGvxGsPCtxDoGl2r694pvkLWek2rATOM482Zz8tvbqfvzSfKOih3IQs8GeCb/Tb2Xxf40u49W8V30flyzRKVtrOEnd9lskblIgeWc/PKwDPwFVDlD2rHeO/BsvivQJLCNV+1RESQFjgBxxgn0YZFec23hn4qW/hq78MSwQTwzxiON2nG+JSfmUHuCOB6V9GUV2UcZKEeSyavfU56lJSlzdT4O8a/s//ABB8QeFdT0e1trcz3ULLGGnUDf1XJ7civm/4VfsgfHPwTqmr61qWkWUlxeu4iVb6PAX5QpJxxwDX7A0V6MOIcQlbT7jkeXU2fn1pPwA+LeDdaxDbec3SGO4Xy4x9erH1J/CugX4E/EQDBtrf/v8ArX3LRQ+IMQ9dPuGsvpnO+DtGk8P+GtO0aXG+0hRGwcjcAN365rpqRelLXiSld3Z3H//Q/fymHrT6YetACUUUUAFFFFABXklsD46+Ij6kxEmheC3eG3wcrPq8iFJpPQi1iYxL1/eSSA4KCrfjzxdqUN5B4C8EMkvivVU3hiN8em2hO1764HovIhQ8yyYUfKJGXsvDHhzS/COgWXhzRkK2limxS53O7Elnkdv4nkcl3bqzEk9aAN6vO/D9q938QfFevTAEW6WOlw8chIYzdSH/AIE1zg/7or0SmqiKWKqAWOTgdT0yaAHUUUUAFFFFABXzr4XuIPGHxm8XfEm/lSPRPAtu/hvT5ZGCxic7LrVrgs3ACssEGexhkzXp/wAT/G9v8N/h74g8c3Ked/Y9pJNFF3mnxthiHvJKVQe5FfPXxI0nRfhT+yle+AvFLrqF7rGl3dlcO8giF1qd9DNc3tw8hBCqH864c4JCqQFZsKQDtf2mfiLP4O+E15a+Etch07xf4sMGk+HCCkss1/qEqQRPDGT84j8zezDIVRuPofEvFX/CY/CnQdG/Zz/ZQ0uS3Pgm1sb/AFq9W2S4dbNpgZIYvPxFNf3iiWRtxz1bqwI0NI+GusXdt8C/Gvji2mv/ABPqOp2eo+IrqaMeZBcLpF3JBbKigC3toLplCRIAocKWzISx+6KAPj74m/BLxp+0tYaT/wAJ7qlz4L8P2WsWd/HolsyvczWloxkP2uaN9i3EzhNoQukCg4LSkOnpy/s2fBay8K2Hg7w74ai8NafpV8NTs20aSTTbi3vQrx+ck9syS7zHI6HLHKMVPHFe50UAcj4Q8B+E/AlrPa+F7BbVrt/NuZ3d57m5k/v3FxKzyzP23SOxA4HFddRRQAUUUUAFFFFABRRRQA9elLSL0paAP//R/fymHrT6TAoAZRT8CjAoAZXn/wASNA8feItCt7L4c+KY/COqR3cMsl3LYpqCPbLkSwmF3QZcEEMGGCB1GQfQ8CjAoA4LwH8P9H8A6fcQ2U0+o6lqMn2jUdSvGEl5fXGNvmTOAo4A2oiBY41AVFVRiu6p+BRgUAMop+BRgUAMop+BRgUAMop+BRgUAfPfxaQ+L/H/AMPvhanzW0t6/iPU1HINnohR4EYej30tucHqEavaNc8O+H/E1rFY+JNMttVt4Jo7mOO6hSdEnhbdHIquCA6NyrDkHpXjnwst5PFHxH+IPxQuvnga7j8OaXnotno+4XDKf+ml9JOD6iNPSvf8CgBlFPwKMCgBlFPwKMCgBlFPwKMCgBlFPwKMCgBlFPwKMCgBlFPwKMCgAXpS0YxRQB//0v38ooooAKKKKACiiigAooooAKKKKACiiigArkPE3jbRvDMsOnyiW/1W7UtbafZp513MAcFgmQFQHgySMsa/xMKseMr7XtO8NXtz4XtftmqkJHboRuVXldY/MZcgskQbzGAIJVSBzUPhLwbpfhK2mNuz3mo3pEl7f3BDXV3KBjdI4A4HREXCIPlRQvFAHlPw++HnxC0vwLpPhS+1pfDFtZQbXTTo4p76SWQl5ZJbidZIVaSRmZljibBJxK3WveLC1axsbeyaeS6aCNYzLMQZZCoxucgKCx6kgAZ7VbooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/2Q=="
+              alt="Md Maheyan Islam"
+            />
+          </div>
+          <div class="sig-divider"></div>
+          <div class="sig-body">
+            <div class="sig-name">Md Maheyan Islam</div>
+            <div class="sig-title">
+              Chief Technology Officer &nbsp;|&nbsp; ASG SHOP™
+            </div>
+            <div class="sig-links">
+              <div class="sig-row">
+                <span class="sig-icon"
+                  ><svg viewBox="0 0 16 16">
+                    <path
+                      d="M8 1a5 5 0 1 0 0 10A5 5 0 0 0 8 1zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zM3 13.5c0-.83.37-1.57.96-2.08A6.47 6.47 0 0 0 8 13c1.5 0 2.88-.51 3.99-1.35.57.5.95 1.22.95 2.05a.5.5 0 0 1-.5.5H3.5a.5.5 0 0 1-.5-.5z"
+                    /></svg
+                ></span>
+                <a href="tel:+8809647307425">+880-964-730-7425</a>
+              </div>
+              <div class="sig-row">
+                <span class="sig-icon"
+                  ><svg viewBox="0 0 16 16">
+                    <path
+                      d="M2 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4zm1.5.75L8 8.5l4.5-3.75v-.25h-9v.25zM3.5 6.5V11.5h9V6.5L8 10 3.5 6.5z"
+                    /></svg
+                ></span>
+                <a href="mailto:cto@asgshop.ai">cto@asgshop.ai</a>
+              </div>
+              <div class="sig-row">
+                <span class="sig-icon"
+                  ><svg viewBox="0 0 16 16">
+                    <path
+                      d="M8 1a5.5 5.5 0 0 0-3.9 9.39l3.4 3.4a.7.7 0 0 0 1 0l3.4-3.4A5.5 5.5 0 0 0 8 1zm0 1.4a4.1 4.1 0 0 1 2.9 7l-2.9 2.9L5.1 9.4A4.1 4.1 0 0 1 8 2.4zm0 1.6a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"
+                    /></svg
+                ></span>
+                <span>Dhaka, Bangladesh</span>
+              </div>
+              <div class="sig-row">
+                <span class="sig-icon"
+                  ><svg viewBox="0 0 16 16">
+                    <path
+                      d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM2.5 8a5.5 5.5 0 0 1 .42-2.1c.5.18 1.04.3 1.58.35V8H2.5zm0 .5h2v1.75c-.54.05-1.08.17-1.58.35A5.5 5.5 0 0 1 2.5 8.5zm2 2.27V13a5.52 5.52 0 0 1-1.77-1.73c.52-.17 1.06-.28 1.62-.3a.5.5 0 0 0 .15-.2zm0-5.04a7.27 7.27 0 0 1-1.62-.3A5.52 5.52 0 0 1 4.5 3V5.23c-.56-.02-1.1-.13-1.62-.3a.5.5 0 0 0-.15.2zM5 3c.38-.6.9-1.08 1.5-1.38V5H5V3zm0 3h1.5v2H5V6zm0 2.5h1.5v2H5v-2zm0 2.5h1.5v2.38A5.5 5.5 0 0 1 5 13v-2zm2 2.62V12h1.5v2.38a5.5 5.5 0 0 1-1.5.24zm1.5-3.12H7V8.5h1.5v2zm0-2.5H7V6h1.5v2zm0-2.5H7V1.62a5.5 5.5 0 0 1 1.5.24V5zm1 8.38V11h1.5v2A5.5 5.5 0 0 1 9.5 13.38zm1.5-2.88H9.5V8.5H11v2zm0-2.5H9.5V6H11v2zm0-2.5H9.5V1.62c.56.08 1.07.28 1.5.62v2.76zm.38 7.77V13a5.52 5.52 0 0 0 1.77-1.73 7.27 7.27 0 0 0-1.62.3.5.5 0 0 1-.15-.2zm1.62-1.8a5.5 5.5 0 0 0 .42-2.47h-2v-1.75c.54-.05 1.08-.17 1.58-.35.27.67.42 1.4.42 2.17v.5a5.5 5.5 0 0 1-.42 2.1z"
+                    /></svg
+                ></span>
+                <a href="https://www.asgshop.ai" target="_blank"
+                  >www.asgshop.ai</a
+                >
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer-links">
-          <a href="mailto:cto@asgshop.com.bd" class="footer-link"
-            >cto@asgshop.com.bd</a
-          >
-          <a href="https://www.asgshop.ai" class="footer-link">asgshop.ai</a>
-          <a href="https://aparsclassroom.com" class="footer-link"
-            >aparsclassroom.com</a
-          >
+        <div class="sig-footer-right">
+          <div class="sig-badge">ASG SHOP™ &nbsp;<span>Q1 · 2026</span></div>
+          <div class="sig-copyright">
+            © 2026 ASG SHOP™ · All rights reserved<br />Apars Classroom ·
+            aparsclassroom.com
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
 
     <script>
-      // ── DATA ────────────────────────────────────────────────────────────────────
-      const C = {
-        a1: "#2F81F7",
-        a2: "#3FB950",
-        a3: "#F78166",
-        a4: "#C397F5",
-        a5: "#FFA657",
-        a6: "#58C8FF",
-        txt: "#F0F5FA",
-        muted: "#8B96A4",
-        grid: "rgba(255,255,255,0.05)",
-        card: "#151D27",
-        bg: "#0A0E13",
-        border: "#232F3D",
-      };
+      // ═══ THEME TOGGLE ═══
+      const html = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+      const stored = localStorage.getItem("theme");
+      if (stored) html.setAttribute("data-theme", stored);
 
-      Chart.defaults.color = C.muted;
-      Chart.defaults.borderColor = C.border;
-      Chart.defaults.font.family = "'Instrument Sans', sans-serif";
+      function applyLogoTheme() {
+        const dark = html.getAttribute("data-theme") === "dark";
+        document
+          .querySelectorAll(".logo-light")
+          .forEach((el) => (el.style.display = dark ? "none" : "block"));
+        document
+          .querySelectorAll(".logo-dark")
+          .forEach((el) => (el.style.display = dark ? "block" : "none"));
+      }
+      applyLogoTheme();
 
-      const baseOpts = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: {
-            grid: { color: C.grid },
-            ticks: { color: C.muted, font: { size: 11 } },
-          },
-          y: {
-            grid: { color: C.grid },
-            ticks: { color: C.muted, font: { size: 11 } },
-          },
-        },
-      };
+      btn.addEventListener("click", () => {
+        const next =
+          html.getAttribute("data-theme") === "light" ? "dark" : "light";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        applyLogoTheme();
+        updateChartTheme();
+      });
 
-      // ── MAU TREND ────────────────────────────────────────────────────────────────
-      const mauFull = [
+      // ═══ CHART THEME HELPERS ═══
+      function isDark() {
+        return html.getAttribute("data-theme") === "dark";
+      }
+      function inkColor() {
+        return isDark() ? "#f0ede8" : "#1a1814";
+      }
+      function gridColor() {
+        return isDark() ? "rgba(240,237,232,0.06)" : "rgba(26,24,20,0.06)";
+      }
+      function mutedColor() {
+        return isDark() ? "#7a7570" : "#7a7570";
+      }
+
+      const charts = [];
+      function updateChartTheme() {
+        Chart.defaults.color = mutedColor();
+        Chart.defaults.borderColor = gridColor();
+        charts.forEach((c) => {
+          if (!c) return;
+          if (c.options.scales) {
+            Object.values(c.options.scales).forEach((s) => {
+              if (s.grid) s.grid.color = gridColor();
+              if (s.ticks) s.ticks.color = mutedColor();
+            });
+          }
+          // Update dataset colors that track ink
+          c.data.datasets.forEach((ds) => {
+            if (ds._trackInk) ds.backgroundColor = inkColor() + "BF";
+            if (ds._trackInkBorder) ds.borderColor = inkColor();
+          });
+          c.update();
+        });
+      }
+
+      // ═══ CHART DEFAULTS ═══
+      Chart.defaults.color = mutedColor();
+      Chart.defaults.borderColor = gridColor();
+      Chart.defaults.font.family = "'Chillax', sans-serif";
+      Chart.defaults.font.size = 11;
+
+      // ═══ DATA ═══
+      const mauData = [
         201638, 199653, 197628, 196308, 194916, 192670, 190972, 190301, 189796,
         189524, 188671, 186879, 187799, 188207, 188171, 187588, 187360, 189366,
         190732, 190121, 190903, 193395, 197079, 198638, 201092, 203028, 204438,
@@ -1289,63 +2278,7 @@
         217092, 216697, 215226, 212228, 210204, 207030, 203803, 199375, 196347,
         193717, 191894, 188900, 186966, 187056, 191153, 193780, 196433, 197098,
       ];
-      const mauLabels = mauFull.map((_, i) => {
-        if (i === 0) return "Jan 1";
-        if (i === 30) return "Feb 1";
-        if (i === 58) return "Mar 1";
-        if (i === 89) return "Mar 31";
-        return "";
-      });
-      new Chart(document.getElementById("mauChart"), {
-        type: "line",
-        data: {
-          labels: mauLabels,
-          datasets: [
-            {
-              data: mauFull,
-              borderColor: C.a1,
-              borderWidth: 2,
-              fill: true,
-              backgroundColor: (ctx) => {
-                const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300);
-                g.addColorStop(0, "rgba(47,129,247,0.2)");
-                g.addColorStop(1, "rgba(47,129,247,0)");
-                return g;
-              },
-              pointRadius: 0,
-              tension: 0.4,
-            },
-          ],
-        },
-        options: {
-          ...baseOpts,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: (ctx) => " " + ctx.parsed.y.toLocaleString() + " users",
-              },
-            },
-          },
-          scales: {
-            x: {
-              grid: { color: C.grid },
-              ticks: { color: C.muted, font: { size: 10 }, maxTicksLimit: 6 },
-            },
-            y: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 10 },
-                callback: (v) => (v / 1000).toFixed(0) + "K",
-              },
-            },
-          },
-        },
-      });
-
-      // ── STICKINESS ───────────────────────────────────────────────────────────────
-      const dauMau = [
+      const dauRatio = [
         5.72, 5.63, 5.87, 6.25, 6.33, 6.26, 6.23, 6.0, 5.61, 5.63, 5.43, 5.63,
         10.17, 12.62, 11.87, 11.54, 11.2, 12.75, 12.39, 12.15, 11.11, 12.04,
         11.83, 11.31, 11.59, 10.91, 10.38, 11.3, 11.97, 11.81, 11.25, 10.94,
@@ -1356,537 +2289,638 @@
         10.97, 9.94, 10.0, 9.62, 8.84, 6.4, 4.05, 6.83, 8.45, 10.04, 11.26,
         12.32, 15.27, 18.64, 17.95, 19.82, 19.08,
       ];
-      const wauMau = [
-        27.1, 27.2, 27.5, 27.9, 28.3, 28.6, 29.3, 29.4, 29.4, 29.3, 28.8, 28.4,
-        31.3, 34.5, 36.1, 37.2, 37.9, 39.4, 40.6, 41.2, 41.1, 41.8, 42.1, 43.0,
-        43.1, 42.7, 42.4, 42.9, 43.3, 43.5, 43.9, 43.3, 43.1, 43.0, 42.7, 41.1,
-        40.0, 39.4, 39.1, 39.6, 39.7, 38.5, 36.7, 36.0, 35.1, 34.3, 33.4, 33.2,
-        33.6, 35.2, 36.3, 36.6, 36.9, 37.4, 37.9, 38.0, 38.0, 38.0, 38.9, 40.0,
-        40.4, 40.7, 40.5, 39.8, 39.8, 39.5, 38.6, 37.6, 37.3, 37.2, 37.1, 36.4,
-        35.6, 35.0, 34.4, 33.7, 33.3, 32.6, 31.2, 29.6, 28.4, 27.7, 27.9, 29.0,
-        30.4, 34.1, 40.0, 44.0, 47.7, 50.5,
+      const retD = [
+        8428, 8199, 8462, 8825, 9000, 8909, 8474, 8110, 7557, 7431, 7168, 7418,
+        11063, 16475, 16748, 16906, 16702, 18997, 18814, 18743, 17155, 18010,
+        17606, 17794, 18052, 17203, 16525, 17263, 18218, 18749, 19223, 19381,
+        18657, 18207, 20841, 21591, 20810, 20964, 21667, 21721, 22184, 21968,
+        14402, 19155, 21317, 23267, 23553, 24154, 24149, 26863, 27225, 26994,
+        27228, 27235, 26880, 26460, 25386, 24656, 25435, 27223, 27993, 26783,
+        26262, 25171, 25623, 26215, 25157, 25526, 25137, 24252, 23487, 22349,
+        22097, 21365, 18986, 19024, 18026, 16317, 11469, 6950, 11473, 14323,
+        17003, 18921, 20555, 24825, 30575, 30191, 34164, 33482,
       ];
-      const stickyLabels = dauMau.map((_, i) => {
-        if (i === 0) return "Jan 1";
-        if (i === 30) return "Feb 1";
-        if (i === 58) return "Mar 1";
-        if (i === 89) return "Mar 31";
-        return "";
+      const newD = [
+        3374, 3294, 3476, 3670, 3669, 3543, 3816, 3675, 3467, 3468, 3322, 3414,
+        13996, 13642, 9087, 7610, 6710, 7618, 6819, 6587, 5783, 6973, 7592,
+        6536, 7262, 7020, 6452, 7998, 9400, 8818, 7669, 6996, 6393, 6863, 8490,
+        11148, 8338, 7608, 9386, 9730, 8531, 6534, 3486, 5552, 5977, 6704, 6852,
+        6310, 6507, 6780, 6707, 5981, 6894, 7243, 6529, 6438, 6303, 5929, 5903,
+        8193, 7589, 6468, 5632, 5021, 5251, 5099, 4647, 4786, 4567, 4102, 4033,
+        3729, 3369, 3746, 3279, 3347, 3106, 2757, 2034, 1408, 2436, 2757, 3523,
+        3850, 4018, 6449, 9794, 8360, 8987, 8001,
+      ];
+      const dayLabels = Array.from({ length: 90 }, (_, i) => {
+        const d = new Date(2026, 0, 1);
+        d.setDate(d.getDate() + i);
+        return d.getMonth() + 1 + "/" + d.getDate();
       });
-      new Chart(document.getElementById("stickyChart"), {
-        type: "line",
-        data: {
-          labels: stickyLabels,
-          datasets: [
-            {
-              label: "DAU/MAU",
-              data: dauMau,
-              borderColor: C.a1,
-              borderWidth: 2,
-              fill: true,
-              backgroundColor: "rgba(47,129,247,0.07)",
-              pointRadius: 0,
-              tension: 0.4,
-            },
-            {
-              label: "WAU/MAU",
-              data: wauMau,
-              borderColor: C.a2,
-              borderWidth: 2,
-              fill: true,
-              backgroundColor: "rgba(63,185,80,0.07)",
-              pointRadius: 0,
-              tension: 0.4,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: true,
-              labels: {
-                color: C.txt,
-                font: { size: 11 },
-                boxWidth: 12,
-                boxHeight: 12,
-                usePointStyle: true,
+      const q1d = Array.from({ length: 92 }, (_, i) => i + 1);
+
+      // ─ MAU ─
+      charts.push(
+        new Chart(document.getElementById("mauChart"), {
+          type: "line",
+          data: {
+            labels: dayLabels,
+            datasets: [
+              {
+                data: mauData,
+                borderColor: "#ff4d1c",
+                backgroundColor: "rgba(255,77,28,0.07)",
+                borderWidth: 2,
+                pointRadius: 0,
+                fill: true,
+                tension: 0.4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { maxTicksLimit: 10 }, grid: { display: false } },
+              y: {
+                ticks: { callback: (v) => (v / 1000).toFixed(0) + "K" },
+                grid: { color: gridColor() },
               },
             },
           },
-          scales: {
-            x: {
-              grid: { color: C.grid },
-              ticks: { color: C.muted, font: { size: 10 }, maxTicksLimit: 6 },
-            },
-            y: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 10 },
-                callback: (v) => v.toFixed(0) + "%",
+        }),
+      );
+
+      // ─ Stickiness ─
+      charts.push(
+        new Chart(document.getElementById("stickyChart"), {
+          type: "line",
+          data: {
+            labels: dayLabels,
+            datasets: [
+              {
+                data: dauRatio,
+                borderColor: "#1565c0",
+                backgroundColor: "rgba(21,101,192,0.07)",
+                borderWidth: 2,
+                pointRadius: 0,
+                fill: true,
+                tension: 0.4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { maxTicksLimit: 6 }, grid: { display: false } },
+              y: {
+                ticks: { callback: (v) => v.toFixed(0) + "%" },
+                grid: { color: gridColor() },
               },
             },
           },
-        },
+        }),
+      );
+
+      // ─ New vs returning ─
+      charts.push(
+        new Chart(document.getElementById("nrChart"), {
+          type: "bar",
+          data: {
+            labels: dayLabels,
+            datasets: [
+              {
+                label: "Returning",
+                data: retD,
+                backgroundColor: "rgba(26,24,20,0.72)",
+                borderWidth: 0,
+                _trackInk: true,
+              },
+              {
+                label: "New",
+                data: newD,
+                backgroundColor: "rgba(255,77,28,0.7)",
+                borderWidth: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: {
+                stacked: true,
+                ticks: { maxTicksLimit: 10 },
+                grid: { display: false },
+              },
+              y: {
+                stacked: true,
+                ticks: { callback: (v) => (v / 1000).toFixed(0) + "K" },
+                grid: { color: gridColor() },
+              },
+            },
+          },
+        }),
+      );
+
+      // ─ Pages bar ─
+      const pages = [
+        ["FRB-26 Final Rev.", 15778710],
+        ["HSC Academic Prog.", 5825055],
+        ["Admission Special", 2919949],
+        ["Shop | Apars", 588108],
+        ["HSC 27 Cycles", 415742],
+        ["FRB Full Syllabus", 347871],
+        ["Apars Classroom", 297904],
+        ["Live Streaming", 149275],
+      ];
+      const pEl = document.getElementById("pagesBar");
+      pages.forEach(([n, v], i) => {
+        const pct = Math.round((v / 15778710) * 100);
+        const col = i === 0 ? "#ff4d1c" : i < 3 ? "var(--ink)" : "var(--ink3)";
+        pEl.innerHTML += `<div class="br"><div class="br-l">${n}</div><div class="br-t"><div class="br-f" style="width:${pct}%;background:${col};"></div></div><div class="br-v">${v > 1e6 ? (v / 1e6).toFixed(1) + "M" : (v / 1000).toFixed(0) + "K"}</div></div>`;
       });
 
-      // ── TOP PAGES ────────────────────────────────────────────────────────────────
-      new Chart(document.getElementById("pagesChart"), {
-        type: "bar",
-        indexAxis: "y",
-        data: {
-          labels: [
-            "Live Streaming",
-            "Login",
-            "Apars Classroom",
-            "FRB-26 Full Syl.",
-            "Payment Dash",
-            "HSC 27 Cycles",
-            "Shop",
-            "Admission Special",
-            "HSC Academic",
-            "FRB-26 Final Rev.",
-          ],
-          datasets: [
-            {
-              data: [
-                149275, 262569, 297904, 347871, 352313, 415742, 588108, 2919949,
-                5825055, 15778710,
-              ],
-              backgroundColor: (ctx) => {
-                const v = ctx.raw;
-                return v === 15778710 ? C.a1 : v === 5825055 ? C.a2 : "#2a3d5c";
+      // ─ Traffic source donut ─
+      charts.push(
+        new Chart(document.getElementById("srcChart"), {
+          type: "doughnut",
+          data: {
+            labels: [
+              "Direct",
+              "Google organic",
+              "fb/paid",
+              "FB referral",
+              "apars.shop",
+              "YouTube",
+              "Other",
+            ],
+            datasets: [
+              {
+                data: [213415, 199788, 65026, 59931, 21657, 16128, 23580],
+                backgroundColor: [
+                  "#1a1814",
+                  "#1565c0",
+                  "#ff4d1c",
+                  "#ff7a50",
+                  "#00897b",
+                  "#c8860a",
+                  "#b0aca5",
+                ],
+                borderWidth: 0,
               },
-              borderRadius: 4,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: (ctx) => " " + ctx.parsed.x.toLocaleString() + " views",
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            cutout: "65%",
+          },
+        }),
+      );
+
+      // ─ OS donut ─
+      charts.push(
+        new Chart(document.getElementById("osChart"), {
+          type: "doughnut",
+          data: {
+            labels: ["Android", "Windows", "iOS", "Linux", "Mac"],
+            datasets: [
+              {
+                data: [363340, 83909, 37983, 14851, 4923],
+                backgroundColor: [
+                  "#1a1814",
+                  "#1565c0",
+                  "#00897b",
+                  "#7a7570",
+                  "#b0aca5",
+                ],
+                borderWidth: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            cutout: "62%",
+          },
+        }),
+      );
+
+      // ─ Q1 cache hit rate ─
+      const janCache = [
+        94.12, 94.56, 94.19, 94.16, 93.63, 93.58, 94.37, 94.38, 94.38, 94.47,
+        94.3, 93.77, 93.8, 94.17, 93.26, 93.03, 93.67, 93.24, 92.52, 91.88,
+        91.61, 91.45, 91.75, 91.12, 90.37, 89.31, 89.82, 90.05, 89.17, 89.4,
+        90.58, 90.9,
+      ];
+      const febCache = [
+        ...Array(3).fill(null),
+        91.49,
+        91.71,
+        91.64,
+        91.77,
+        91.7,
+        92.27,
+        91.6,
+        91.74,
+        92.29,
+        92.88,
+        93.78,
+        92.47,
+        91.89,
+        87.97,
+        92.44,
+        92.57,
+        93.08,
+        92.55,
+        93.74,
+        94.44,
+        94.14,
+        93.96,
+        94.15,
+        93.98,
+        94.22,
+        93.77,
+        93.77,
+        92.65,
+        null,
+        null,
+      ];
+      const marCache = [
+        ...Array(60).fill(null),
+        92.65,
+        95.53,
+        96.84,
+        96.84,
+        95.26,
+        93.1,
+        92.89,
+        92.06,
+        91.88,
+        91.55,
+        88.99,
+        89.39,
+        89.03,
+        89.69,
+        90.01,
+        88.67,
+        88.98,
+        89.45,
+        89.8,
+        89.27,
+        87.14,
+        80.5,
+        82.37,
+        86.15,
+        88.09,
+        87.7,
+        88.98,
+        87.19,
+        89.22,
+        89.53,
+        91.63,
+        92.34,
+      ];
+      charts.push(
+        new Chart(document.getElementById("q1CacheChart"), {
+          type: "line",
+          data: {
+            labels: q1d,
+            datasets: [
+              {
+                label: "Jan",
+                data: [...janCache, ...Array(60).fill(null)],
+                borderColor: "#1565c0",
+                backgroundColor: "transparent",
+                borderWidth: 1.5,
+                pointRadius: 0,
+                tension: 0.3,
+              },
+              {
+                label: "Feb",
+                data: [
+                  ...Array(31).fill(null),
+                  ...febCache,
+                  ...Array(29).fill(null),
+                ],
+                borderColor: "#00897b",
+                backgroundColor: "transparent",
+                borderWidth: 1.5,
+                pointRadius: 0,
+                tension: 0.3,
+              },
+              {
+                label: "Mar",
+                data: marCache,
+                borderColor: "#ff4d1c",
+                backgroundColor: "rgba(255,77,28,0.05)",
+                borderWidth: 2,
+                pointRadius: 0,
+                fill: true,
+                tension: 0.3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { display: false }, grid: { display: false } },
+              y: {
+                min: 78,
+                max: 97,
+                ticks: { callback: (v) => v + "%" },
+                grid: { color: gridColor() },
               },
             },
           },
-          scales: {
-            x: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 10 },
-                callback: (v) =>
-                  v >= 1e6
-                    ? (v / 1e6).toFixed(1) + "M"
-                    : (v / 1e3).toFixed(0) + "K",
+        }),
+      );
+
+      // ─ Q1 bandwidth ─
+      const jBW = [
+        13.14, 14.25, 14.19, 15.14, 14.88, 14.37, 15.14, 14.67, 13.12, 13.31,
+        14.03, 13.18, 13.63, 12.48, 12.41, 10.15, 11.07, 10.81, 10.24, 10.33,
+        8.97, 8.92, 7.65, 7.39, 8.07, 6.69, 7.09, 6.92, 6.83, 7.18, 8.01, 8.43,
+      ];
+      const fBW = [
+        ...Array(1).fill(null),
+        9.0,
+        8.06,
+        7.54,
+        9.26,
+        8.45,
+        10.53,
+        9.57,
+        9.54,
+        10.48,
+        11.51,
+        12.68,
+        7.74,
+        10.99,
+        11.78,
+        12.39,
+        12.26,
+        11.95,
+        12.04,
+        15.09,
+        15.92,
+        16.32,
+        15.18,
+        16.44,
+        15.95,
+        15.54,
+        14.81,
+        13.65,
+        12.19,
+        null,
+        null,
+        null,
+      ];
+      const mBW = [
+        ...Array(60).fill(null),
+        12.19,
+        29.12,
+        46.88,
+        44.51,
+        26.64,
+        13.19,
+        13.4,
+        13.07,
+        12.34,
+        13.27,
+        12.21,
+        11.81,
+        10.84,
+        10.08,
+        10.13,
+        9.1,
+        8.54,
+        9.27,
+        8.02,
+        7.54,
+        4.11,
+        2.58,
+        5.1,
+        6.59,
+        8.23,
+        9.71,
+        9.78,
+        9.27,
+        10.81,
+        12.17,
+        16.39,
+        18.45,
+      ];
+      charts.push(
+        new Chart(document.getElementById("q1BWChart"), {
+          type: "bar",
+          data: {
+            labels: q1d,
+            datasets: [
+              {
+                label: "Jan",
+                data: [...jBW, ...Array(60).fill(null)],
+                backgroundColor: "rgba(21,101,192,0.5)",
+                borderWidth: 0,
+              },
+              {
+                label: "Feb",
+                data: [
+                  ...Array(31).fill(null),
+                  ...fBW,
+                  ...Array(29).fill(null),
+                ],
+                backgroundColor: "rgba(0,137,123,0.5)",
+                borderWidth: 0,
+              },
+              {
+                label: "Mar",
+                data: mBW,
+                backgroundColor: mBW.map((v) =>
+                  v === null
+                    ? "transparent"
+                    : v > 30
+                      ? "#ff4d1c"
+                      : v < 5
+                        ? "rgba(255,77,28,0.4)"
+                        : "rgba(255,77,28,0.22)",
+                ),
+                borderWidth: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { display: false }, grid: { display: false } },
+              y: {
+                ticks: { callback: (v) => v + "TB" },
+                grid: { color: gridColor() },
               },
             },
-            y: {
-              grid: { display: false },
-              ticks: { color: C.txt, font: { size: 10 } },
+          },
+        }),
+      );
+
+      // ─ Q1 requests ─
+      const jR = [
+        23.2, 24.8, 24.8, 25.8, 25.6, 24.8, 25.9, 25.1, 22.9, 22.9, 23.7, 22.0,
+        22.7, 20.6, 20.8, 17.0, 18.6, 18.2, 17.0, 17.3, 15.2, 15.2, 13.1, 12.9,
+        13.9, 11.4, 12.1, 11.8, 11.7, 12.3, 13.7, 14.3,
+      ];
+      const fR = [
+        ...Array(1).fill(null),
+        15.3,
+        13.8,
+        12.7,
+        15.8,
+        14.6,
+        18.2,
+        16.3,
+        16.4,
+        18.2,
+        20.1,
+        21.9,
+        13.2,
+        19.0,
+        20.0,
+        20.8,
+        20.3,
+        20.0,
+        20.2,
+        25.1,
+        26.9,
+        27.8,
+        25.8,
+        27.9,
+        27.2,
+        26.6,
+        25.3,
+        23.4,
+        21.2,
+        null,
+        null,
+        null,
+      ];
+      const mR = [
+        ...Array(60).fill(null),
+        21.2,
+        36.9,
+        56.3,
+        55.9,
+        34.9,
+        22.9,
+        23.3,
+        22.3,
+        21.2,
+        23.2,
+        21.7,
+        21.3,
+        19.4,
+        18.2,
+        18.1,
+        16.4,
+        15.1,
+        16.6,
+        14.4,
+        13.5,
+        7.5,
+        4.7,
+        9.3,
+        11.9,
+        14.9,
+        17.5,
+        17.6,
+        16.7,
+        19.7,
+        22.0,
+        29.2,
+        32.7,
+      ];
+      charts.push(
+        new Chart(document.getElementById("q1ReqChart"), {
+          type: "bar",
+          data: {
+            labels: q1d,
+            datasets: [
+              {
+                label: "Jan",
+                data: [...jR, ...Array(60).fill(null)],
+                backgroundColor: "rgba(21,101,192,0.5)",
+                borderWidth: 0,
+              },
+              {
+                label: "Feb",
+                data: [...Array(31).fill(null), ...fR, ...Array(29).fill(null)],
+                backgroundColor: "rgba(0,137,123,0.5)",
+                borderWidth: 0,
+              },
+              {
+                label: "Mar",
+                data: mR,
+                backgroundColor: mR.map((v) =>
+                  v === null
+                    ? "transparent"
+                    : v > 40
+                      ? "#ff4d1c"
+                      : v < 6
+                        ? "rgba(200,134,10,0.85)"
+                        : "rgba(255,77,28,0.28)",
+                ),
+                borderWidth: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { display: false }, grid: { display: false } },
+              y: {
+                ticks: { callback: (v) => v + "M" },
+                grid: { color: gridColor() },
+              },
             },
           },
-        },
+        }),
+      );
+
+      // ─ Geo bars ─
+      const geo = [
+        ["Singapore", 1030],
+        ["Frankfurt, DE", 66],
+        ["Paris, FR", 31],
+        ["Chicago, IL", 6],
+        ["Los Angeles, CA", 1],
+        ["Miami, FL", 0.3],
+        ["Tokyo, JP", 0.1],
+      ];
+      const gEl = document.getElementById("geoBarEl");
+      geo.forEach(([n, v], i) => {
+        const col = i === 0 ? "#ff4d1c" : i < 2 ? "var(--ink)" : "var(--ink3)";
+        gEl.innerHTML += `<div class="br"><div class="br-l">${n}</div><div class="br-t"><div class="br-f" style="width:${Math.max(Math.round((v / 1030) * 100), 1)}%;background:${col};"></div></div><div class="br-v">${v >= 1 ? Math.round(v) + "TB" : Math.round(v * 1000) + "GB"}</div></div>`;
       });
 
-      // ── SUBJECTS ─────────────────────────────────────────────────────────────────
-      new Chart(document.getElementById("subjectChart"), {
-        type: "bar",
-        data: {
-          labels: [
-            "Physics HSC27",
-            "Physics HSC26",
-            "Chem Hemel 27",
-            "Chem Mottasin 27",
-            "ChemShifu 27",
-            "Higher Math 27",
-            "Higher Math 26",
-            "Biology 27",
-            "English 27",
-          ],
-          datasets: [
-            {
-              label: "HSC 27",
-              data: [390885, 0, 138778, 41122, 17698, 348649, 0, 27971, 22544],
-              backgroundColor: C.a1,
-              borderRadius: 4,
-              borderSkipped: false,
-            },
-            {
-              label: "HSC 26",
-              data: [0, 84546, 0, 0, 0, 0, 48289, 0, 0],
-              backgroundColor: "#1a4a7a",
-              borderRadius: 4,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: true,
-              labels: {
-                color: C.txt,
-                font: { size: 11 },
-                boxWidth: 12,
-                usePointStyle: true,
-              },
-            },
-          },
-          scales: {
-            x: {
-              grid: { color: C.grid },
-              ticks: { color: C.txt, font: { size: 10 } },
-            },
-            y: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 10 },
-                callback: (v) => (v / 1000).toFixed(0) + "K",
-              },
-            },
-          },
-        },
-      });
-
-      // ── TRAFFIC SOURCES ──────────────────────────────────────────────────────────
-      new Chart(document.getElementById("srcChart"), {
-        type: "doughnut",
-        data: {
-          labels: [
-            "Direct",
-            "Google Organic",
-            "FB Paid",
-            "FB Referral",
-            "apars.shop",
-            "YouTube",
-            "WebApp",
-            "Instagram",
-            "Bing",
-            "Other",
-          ],
-          datasets: [
-            {
-              data: [
-                213415, 199788, 65026, 59931, 21657, 16128, 15302, 4240, 4227,
-                8326,
-              ],
-              backgroundColor: [
-                C.a1,
-                C.a2,
-                C.a3,
-                C.a4,
-                C.a5,
-                C.a6,
-                "#56D364",
-                "#FF7B72",
-                "#A5D6FF",
-                C.muted,
-              ],
-              borderWidth: 2,
-              borderColor: "#151D27",
-              hoverOffset: 6,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          cutout: "62%",
-          plugins: {
-            legend: {
-              position: "bottom",
-              labels: {
-                color: C.txt,
-                font: { size: 10 },
-                boxWidth: 10,
-                padding: 10,
-              },
-            },
-            tooltip: {
-              callbacks: {
-                label: (ctx) =>
-                  " " + ctx.label + ": " + ctx.raw.toLocaleString(),
-              },
-            },
-          },
-        },
-      });
-
-      // ── OS ───────────────────────────────────────────────────────────────────────
-      new Chart(document.getElementById("osChart"), {
-        type: "bar",
-        data: {
-          labels: [
-            "Android",
-            "Windows",
-            "iOS",
-            "Linux",
-            "Macintosh",
-            "ChromeOS",
-            "Tizen",
-          ],
-          datasets: [
-            {
-              data: [363340, 83909, 37983, 14851, 4923, 952, 104],
-              backgroundColor: [C.a2, C.a1, C.a3, C.a4, C.a5, C.a6, C.muted],
-              borderRadius: 6,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: (ctx) => " " + ctx.raw.toLocaleString() + " users",
-              },
-            },
-          },
-          scales: {
-            x: {
-              grid: { display: false },
-              ticks: { color: C.txt, font: { size: 11 } },
-            },
-            y: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 10 },
-                callback: (v) => (v / 1000).toFixed(0) + "K",
-              },
-            },
-          },
-        },
-      });
-
-      // ── CITIES ───────────────────────────────────────────────────────────────────
-      new Chart(document.getElementById("cityChart"), {
-        type: "bar",
-        data: {
-          labels: [
-            "Dhaka",
-            "Chattogram",
-            "Rajshahi",
-            "Khulna",
-            "Cumilla",
-            "Sylhet",
-            "Mymensingh",
-          ],
-          datasets: [
-            {
-              data: [165000, 47000, 29000, 26000, 14000, 14000, 14000],
-              backgroundColor: (ctx) => (ctx.dataIndex === 0 ? C.a1 : C.a4),
-              borderRadius: 6,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: (ctx) => " " + (ctx.raw / 1000).toFixed(0) + "K users",
-              },
-            },
-          },
-          scales: {
-            x: {
-              grid: { display: false },
-              ticks: { color: C.txt, font: { size: 11 } },
-            },
-            y: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 10 },
-                callback: (v) => (v / 1000).toFixed(0) + "K",
-              },
-            },
-          },
-        },
-      });
-
-      // ── CDN ZONES ────────────────────────────────────────────────────────────────
-      new Chart(document.getElementById("cdnZoneChart"), {
-        type: "bar",
-        data: {
-          labels: ["Zone A", "Zone B", "Zone C (Jan)"],
-          datasets: [
-            {
-              data: [588.2, 696.6, 601.3],
-              backgroundColor: [C.a1, C.a2, C.a4],
-              borderRadius: 8,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: { label: (ctx) => " " + ctx.raw + "M requests" },
-            },
-          },
-          scales: {
-            x: {
-              grid: { display: false },
-              ticks: { color: C.txt, font: { size: 12 } },
-            },
-            y: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 11 },
-                callback: (v) => v + "M",
-              },
-            },
-          },
-        },
-      });
-
-      // ── CACHE ────────────────────────────────────────────────────────────────────
-      new Chart(document.getElementById("cacheChart"), {
-        type: "bar",
-        indexAxis: "y",
-        data: {
-          labels: ["Zone A", "Zone B", "Zone C (Jan)"],
-          datasets: [
-            {
-              data: [92.82, 91.63, 92.98],
-              backgroundColor: [C.a1, C.a2, C.a4],
-              borderRadius: 6,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: { label: (ctx) => " " + ctx.raw + "% cache hit" },
-            },
-          },
-          scales: {
-            x: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 11 },
-                callback: (v) => v + "%",
-              },
-              min: 88,
-              max: 94.5,
-            },
-            y: {
-              grid: { display: false },
-              ticks: { color: C.txt, font: { size: 12 } },
-            },
-          },
-        },
-      });
-
-      // ── DATA CENTERS ──────────────────────────────────────────────────────────────
-      new Chart(document.getElementById("dcChart"), {
-        type: "bar",
-        indexAxis: "y",
-        data: {
-          labels: [
-            "Other",
-            "Hong Kong",
-            "São Paulo",
-            "Dallas",
-            "Tokyo",
-            "Miami",
-            "Los Angeles",
-            "Frankfurt",
-            "Chicago",
-            "Paris",
-            "Singapore",
-          ],
-          datasets: [
-            {
-              data: [5, 2, 2, 2, 3, 4, 5, 6, 7, 8, 56],
-              backgroundColor: (ctx) => {
-                const clrs = [
-                  C.muted,
-                  C.muted,
-                  C.muted,
-                  C.muted,
-                  C.a4,
-                  C.a5,
-                  C.a3,
-                  C.a6,
-                  C.a6,
-                  C.a2,
-                  C.a1,
-                ];
-                return clrs[ctx.dataIndex];
-              },
-              borderRadius: 4,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: { label: (ctx) => " " + ctx.raw + "% of traffic" },
-            },
-          },
-          scales: {
-            x: {
-              grid: { color: C.grid },
-              ticks: {
-                color: C.muted,
-                font: { size: 11 },
-                callback: (v) => v + "%",
-              },
-            },
-            y: {
-              grid: { display: false },
-              ticks: { color: C.txt, font: { size: 11 } },
-            },
-          },
-        },
-      });
-
-      // ── SCROLL ANIMATIONS ────────────────────────────────────────────────────────
-      const observer = new IntersectionObserver(
+      // ═══ SCROLL REVEAL ═══
+      const ro = new IntersectionObserver(
         (entries) => {
-          entries.forEach((e, i) => {
-            if (e.isIntersecting) {
-              setTimeout(() => e.target.classList.add("visible"), i * 80);
-            }
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
           });
         },
         { threshold: 0.1 },
       );
-      document
-        .querySelectorAll(".fade-up")
-        .forEach((el) => observer.observe(el));
+      document.querySelectorAll(".reveal").forEach((el) => ro.observe(el));
     </script>
   </body>
 </html>
