@@ -440,7 +440,7 @@ Daily edge metrics (all zones):
 
 Monthly bandwidth (TB): Q2 429 / 355 / 273 → Q3 336 / 581 / 807.  
 Monthly requests (M): Q2 762.0 / 609.8 / 452.3 → Q3 514.1 / 831.6 / 1148.3.
-Q2 figures are sourced from the Q2 2026 Performance Report (https://stats.asgshop.ai/2026/q2/). Q3 edge figures include a second delivery zone reported for the first time this quarter.
+Q2 figures are sourced from the Q2 2026 Performance Report (https://stats.asgshop.ai/2026/q2/).
 
 ## 07 - Key Insights
 
