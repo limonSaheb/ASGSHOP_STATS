@@ -90,7 +90,7 @@ DATA = {
         ("FRB-26 Final Revision", 15.78, "12.4%"),
         ("HSC Academic Program", 5.83, "16.6%"),
         ("Admission Special", 2.92, "31.1%"),
-        ("Shop | Apar's Classroom", 0.588, "12.1%"),
+        ("Shop | Apars Classroom", 0.588, "12.1%"),
         ("HSC 27 Academic Cycles", 0.416, "6.6%"),
         ("FRB-26 Full Syllabus", 0.348, "34.8%"),
     ],

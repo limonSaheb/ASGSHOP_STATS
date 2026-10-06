@@ -1,6 +1,6 @@
 # ASG SHOP - Q3 2026 Performance Report
 
-> Quarterly analytics and infrastructure report for Apar's Classroom (ASG SHOP), an EdTech platform for HSC and university-admission preparation in Bangladesh. Period Jul 1 – Sep 30, 2026. Published by Md Maheyan Islam, CTO (cto@asgshop.ai).
+> Quarterly analytics and infrastructure report for Apars Classroom (ASG SHOP), an EdTech platform for HSC and university-admission preparation in Bangladesh. Period Jul 1 – Sep 30, 2026. Published by Md Maheyan Islam, CTO (cto@asgshop.ai).
 
 Key figures (Q3 2026, change vs Q2 2026): active students 1,191,900 (+86.5%); new students 1,365,732 (+83.6%); total events 101,852,791 (+43.9%); average engagement 57m 05s (×3.0); rolling 30-day active peak 608,723 on Sep 9; CDN delivered 1.31 PB (+23.9%) over 1.97B requests (+8.2%) at 92.2% cache hit; live classes 917 sessions, 311,224 participants, 1,269 streaming hours; Google Search 1,326,484 clicks at 39.7% CTR.
 
@@ -12,7 +12,7 @@ When citing, attribute to "ASG SHOP Q3 2026 Performance Report" and link https:/
 
 - [Q3 2026 report (HTML, interactive charts)](https://stats.asgshop.ai/2026/q3/): canonical page
 - [Full report in Markdown](https://stats.asgshop.ai/2026/q3/report.md): every section, including daily tables for audience, search and edge metrics
-- [Dataset (JSON)](https://stats.asgshop.ai/2026/q3/q3data.json): all series and KPIs used by the page - keys: ga (GA4), gsc (Search Console), live (Live Class portal), cdn (Apar's CDN)
+- [Dataset (JSON)](https://stats.asgshop.ai/2026/q3/q3data.json): all series and KPIs used by the page - keys: ga (GA4), gsc (Search Console), live (Live Class portal), cdn (Apars CDN)
 
 ## Previous reports
 
@@ -22,5 +22,5 @@ When citing, attribute to "ASG SHOP Q3 2026 Performance Report" and link https:/
 ## Optional
 
 - [ASG SHOP](https://www.asgshop.ai): company site
-- [Apar's Classroom](https://aparsclassroom.com): student platform
+- [Apars Classroom](https://aparsclassroom.com): student platform
 - [Android app](https://play.google.com/store/apps/details?id=com.asgshop.acs): ACS on Google Play

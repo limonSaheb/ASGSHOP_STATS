@@ -1,9 +1,9 @@
 # ASG SHOP - Q3 2026 Performance Report
 
-Quarterly analytics and infrastructure review for Apar's Classroom (ASG SHOP). Period: **Jul 1 – Sep 30, 2026**. Canonical page: https://stats.asgshop.ai/2026/q3/  
+Quarterly analytics and infrastructure review for Apars Classroom (ASG SHOP). Period: **Jul 1 – Sep 30, 2026**. Canonical page: https://stats.asgshop.ai/2026/q3/  
 Author: Md Maheyan Islam, Chief Technology Officer, ASG SHOP (cto@asgshop.ai). Previous reports: Q2 https://stats.asgshop.ai/2026/q2/ · Q1 https://stats.asgshop.ai/2026/q1/
 
-Sources: Pulse Engine (Google Analytics 4), Google Search Console, Apar's CDN edge statistics, Apar's Media Portal usage reports. Machine-readable dataset: q3data.json. Index for language models: llms.txt.
+Sources: Pulse Engine (Google Analytics 4), Google Search Console, Apars CDN edge statistics, Apars Media Portal usage reports. Machine-readable dataset: q3data.json. Index for language models: llms.txt.
 
 ## Summary
 
@@ -136,13 +136,13 @@ The Admission 2026 cycle arrived in mid-August and reset every ceiling on the pl
 | 3 | MainActivity | 3,992,828 | 139,694 | 34,699,322 | 12.0% |
 | 4 | ACS HSC 26 Final Revision Batch || FRB-26 | 2,797,758 | 57,255 | 4,054,137 | 13.8% |
 | 5 | ACS Exam System | 1,570,229 | 98,840 | 2,598,180 | 11.4% |
-| 6 | Shop | Apar's Classroom | 690,418 | 180,950 | 1,619,742 | 9.9% |
+| 6 | Shop | Apars Classroom | 690,418 | 180,950 | 1,619,742 | 9.9% |
 | 7 | Apars Media Live Streaming | 625,722 | 385,631 | 2,573,277 | 53.1% |
 | 8 | ACS Varsity + GST Special Private Programme 2026 | ASG Shop | 573,631 | 160,970 | 1,402,544 | 35.7% |
 | 9 | Apars Classroom | 430,104 | 74,857 | 1,213,445 | 32.1% |
 | 10 | Payment Dashboard | ASG Shop | 372,014 | 87,812 | 807,458 | 10.8% |
 | 11 | Login | ASG Shop | 369,395 | 171,445 | 1,079,498 | 4.5% |
-| 12 | HSC 27 Academic Cycles | Apar's Classroom | ASG Shop | 273,907 | 53,820 | 648,322 | 7.9% |
+| 12 | HSC 27 Academic Cycles | Apars Classroom | ASG Shop | 273,907 | 53,820 | 648,322 | 7.9% |
 
 ## 03 - Acquisition & Audience
 
@@ -301,10 +301,10 @@ Daily search clicks and impressions:
 | 2026-09-29 | 15,518 | 34,135 |
 | 2026-09-30 | 14,845 | 34,382 |
 
-## 04 - Live Classes (Apar's Media Portal)
+## 04 - Live Classes (Apars Media Portal)
 
 - Sessions: 917; streaming hours: 1,269; participants: 311,224 (~339 per session); recordings: 934; active programmes: 38.
-- Live delivery: 187.0 TB and 306M requests, served through the same Apar's CDN edge as the on-demand catalogue (already included in the CDN totals below; ≈14% of Q3 edge traffic).
+- Live delivery: 187.0 TB and 306M requests, served through the same Apars CDN edge as the on-demand catalogue (already included in the CDN totals below; ≈14% of Q3 edge traffic).
 
 | Month | Sessions | Streaming hours | Participants | Recordings | Live delivery (TB) | Active programmes |
 |---|---|---|---|---|---|---|
@@ -327,7 +327,7 @@ Top live programmes (Q3, by participants):
 | 9 | chem27aloron | 46 | 61 | 5,411 | 118 | 2.6 |
 | 10 | iba26 | 34 | 70 | 5,342 | 157 | 5.1 |
 
-## 05 - CDN & Infrastructure (Apar's CDN)
+## 05 - CDN & Infrastructure (Apars CDN)
 
 - Total delivered: 1.313 PB across 1.970 billion requests. Origin traffic 136.5 TB (10.4% of delivery). Mean daily cache hit rate 92.2%. Singapore PoP carries ≈99.4% of traffic.
 - Daily delivery stepped from ~8 TB to ~20 TB from Aug 16 (Aug 15: 8.9 TB → Aug 16: 16.4 TB) and held for the rest of the quarter. Peak day 24.5 TB on Sep 15; peak requests 36.2M on Sep 29.
@@ -471,4 +471,4 @@ Dhaka grew 80% to 353K, yet its share barely moved; Chattogram (110K), Rajshahi 
 
 ---
 Md Maheyan Islam · Chief Technology Officer · ASG SHOP™ · cto@asgshop.ai · Kuala Lumpur, Malaysia · https://www.asgshop.ai  
-© 2026 ASG SHOP™ · Apar's Classroom · aparsclassroom.com
+© 2026 ASG SHOP™ · Apars Classroom · aparsclassroom.com
