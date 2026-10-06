@@ -476,6 +476,10 @@ Dhaka grew 80% to 353K, yet its share barely moved; Chattogram (110K), Rajshahi 
 
 1.31 PB delivered - 24% more than Q2 - for an audience 86% larger. Cache hit rate held at 92.2%, reaching 96% at the August peak; September alone delivered 648 TB, a monthly record.
 
+## 08 - Recognition
+
+In July 2026, TIME and Statista named Apars Classroom in the World's Top EdTech Companies 2026 ranking - a select group of 350 companies worldwide, recognised for strong financial performance and meaningful impact on the global education ecosystem. The evaluation covered financial strength (revenue, funding, market position), industry impact (SDG alignment, product effectiveness), innovation (intellectual-property portfolio) and market relevance (visibility, user engagement). Inclusion was confirmed in a letter dated 22 July 2026 signed by Jessica Sibley (CEO, TIME) and Marc Berg (CEO, Statista); the certificate and letter are shown at https://stats.asgshop.ai/2026/q3/#awards
+
 ---
 
 Md Maheyan Islam · Chief Technology Officer · ASG SHOP™ · cto@asgshop.ai · Kuala Lumpur, Malaysia · https://www.asgshop.ai  
