@@ -115,6 +115,8 @@ section{padding:72px 0 10px;border-top:1px solid var(--line);margin-top:48px}
 .chart.tall{height:360px}.chart.short{height:220px}
 canvas{width:100%!important}
 table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:14px}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px;scrollbar-width:thin}.tbl table{margin-top:0}
+html{scroll-padding-top:72px}
 th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:500;padding:8px 8px;border-bottom:1px solid var(--line2)}
 td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
@@ -212,9 +214,10 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:56px 0 40px}
 .agents .files{display:flex;gap:8px;flex-wrap:wrap}
 .agents .files a{font-family:var(--mono);font-size:12px;text-decoration:none;border:1px solid var(--line2);border-radius:999px;padding:6px 11px;color:var(--text);background:var(--panel)}
 .agents .files a:hover{border-color:var(--accent)}
-@media (max-width:640px){.agents{grid-template-columns:1fr}}
-@media (max-width:980px){.awards{grid-template-columns:1fr}.carousel{max-width:520px}.kpis{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(2,1fr)}.qoq{grid-template-columns:repeat(3,1fr)}.cities{grid-template-columns:1fr}}
-@media (max-width:640px){.shot{flex-basis:168px}.kpis,.g3,.g2,.g4,.month,.insights,.qoq{grid-template-columns:1fr}.callout{grid-template-columns:1fr}.callout .big{text-align:left}.sig{grid-template-columns:1fr}nav .links{display:none}header{padding-top:48px}.chart{height:260px}}
+@media (max-width:980px){.awards{grid-template-columns:1fr}.carousel{max-width:520px}.kpis{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(2,1fr)}.qoq{grid-template-columns:repeat(3,1fr)}.cities{grid-template-columns:1fr}
+  nav .wrap{flex-wrap:wrap;height:auto;padding:8px 0 0;gap:10px}.links{order:3;flex:0 0 100%;margin:0;padding:0 0 8px;gap:2px;scrollbar-width:none}.links a{padding:6px 9px}.links::-webkit-scrollbar{display:none}.brand{flex:1}html{scroll-padding-top:112px}}
+@media (max-width:640px){.shot{flex-basis:168px}.g3,.g2,.g4,.month,.insights,.agents,.sig{grid-template-columns:1fr}.kpis,.qoq{grid-template-columns:repeat(2,1fr);gap:10px}.kpi{padding:14px 14px 12px}.kpi .v{font-size:26px}.qoq .card{padding:14px 12px}.callout{grid-template-columns:1fr;padding:18px}.callout .big{text-align:left;font-size:44px}header{padding:40px 0 28px}h1{font-size:clamp(38px,11vw,48px)}.lede{font-size:16px}section{padding:48px 0 6px;margin-top:32px}.sec-lede{font-size:15px}.card{padding:16px 14px}.chart{height:250px}.chart.tall{height:290px}.chart.short{height:200px}.bdmap{height:400px}.citylist li{font-size:13px}.insight{padding:18px}.insight h3{font-size:19px}.stat .v{font-size:28px}.hero{font-size:38px}footer{margin-top:56px;padding:40px 0 32px}.sig img{height:80px}.copy{flex-direction:column}body{overflow-x:clip}}
+@media (max-width:420px){.brand span{display:none}nav .wrap{gap:8px}.btn{padding:7px 9px;font-size:12px}.award .facts li{grid-template-columns:84px 1fr;gap:10px}.maplegend{gap:10px}}
 @media print{nav{position:static}.chart{height:280px}}
 </style>
 </head>
@@ -291,7 +294,7 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="card">
       <h3>Top Pages - Detail</h3>
       <p class="sub">Views, active students &amp; bounce rate</p>
-      <table id="t-pages"><thead><tr><th>#</th><th>Page</th><th class="n">Views</th><th class="n">Students</th><th class="n">Bounce</th></tr></thead><tbody></tbody></table>
+      <div class="tbl"><table id="t-pages"><thead><tr><th>#</th><th>Page</th><th class="n">Views</th><th class="n">Students</th><th class="n">Bounce</th></tr></thead><tbody></tbody></table></div>
     </div>
   </div>
   <div class="grid g3">
@@ -339,7 +342,7 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="card">
       <h3>Top Search Queries</h3>
       <p class="sub">Branded intent dominates - students search for the programme by name</p>
-      <table id="t-queries"><thead><tr><th>Query</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">Pos.</th></tr></thead><tbody></tbody></table>
+      <div class="tbl"><table id="t-queries"><thead><tr><th>Query</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">Pos.</th></tr></thead><tbody></tbody></table></div>
     </div>
     <div class="card">
       <h3>Search by Device</h3>
@@ -370,7 +373,7 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="card" style="grid-column:1/-1">
       <h3>Top Live Programmes - Q3</h3>
       <p class="sub">Ranked by participants · Varsity 2026 averaged <b>~1,600 students per session</b></p>
-      <table id="t-live"><thead><tr><th>#</th><th>Programme</th><th class="n">Sessions</th><th class="n">Hours</th><th class="n">Participants</th><th class="n">Avg / session</th><th class="n">Delivered</th></tr></thead><tbody></tbody></table>
+      <div class="tbl"><table id="t-live"><thead><tr><th>#</th><th>Programme</th><th class="n">Sessions</th><th class="n">Hours</th><th class="n">Participants</th><th class="n">Avg / session</th><th class="n">Delivered</th></tr></thead><tbody></tbody></table></div>
     </div>
   </div>
 </div></section>
@@ -431,7 +434,7 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="card" style="grid-column:1/-1">
       <h3>Audience &amp; Delivery - Detail</h3>
       <p class="sub">Q2 figures sourced from the <a href="https://stats.asgshop.ai/2026/q2/">Q2 2026 Performance Report</a></p>
-      <table id="t-qoq"><thead><tr><th>Metric</th><th class="n">Q2</th><th class="n">Q3</th><th class="n">Δ</th></tr></thead><tbody></tbody></table>
+      <div class="tbl"><table id="t-qoq"><thead><tr><th>Metric</th><th class="n">Q2</th><th class="n">Q3</th><th class="n">Δ</th></tr></thead><tbody></tbody></table></div>
     </div>
   </div>
 </div></section>
@@ -547,7 +550,7 @@ function base(t){return {responsive:true,maintainAspectRatio:false,interaction:{
 function mk(id,cfg){const el=document.getElementById(id);const c=new Chart(el,cfg);charts.push(c);return c}
 function labelsFrom(days){return days.map(fmt.date)}
 function tickDay(days){return {callback:(v,i)=>{const d=days[i];return d&&d.endsWith('-01')?new Date(d+'T00:00:00').toLocaleDateString('en-US',{month:'short'}):(d&&(d.endsWith('-15'))?fmt.date(d):'')},autoSkip:false,maxRotation:0}}
-function anno(days,marks,t){return {id:'anno',afterDraw(ch){const {ctx,chartArea:{top,bottom},scales:{x}}=ch;marks.forEach(m=>{const i=days.indexOf(m.d);if(i<0)return;const px=x.getPixelForValue(i);ctx.save();ctx.strokeStyle=hexa(m.c||t.warn,.8);ctx.setLineDash([4,4]);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(px,top);ctx.lineTo(px,bottom);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=m.c||t.warn;ctx.font='600 11px '+Chart.defaults.font.family;ctx.textAlign=px>ch.width*0.7?'right':'left';ctx.fillText(m.t,px+(px>ch.width*0.7?-6:6),top+12);ctx.restore()})}}}
+function anno(days,marks,t){return {id:'anno',afterDraw(ch){const {ctx,chartArea:{top,bottom},scales:{x}}=ch;let lastX=-1e9,row=0;marks.forEach(m=>{const i=days.indexOf(m.d);if(i<0)return;const px=x.getPixelForValue(i),right=px>ch.width*(ch.width<560?.45:.7);row=Math.abs(px-lastX)<150?row+1:0;lastX=px;ctx.save();ctx.strokeStyle=hexa(m.c||t.warn,.8);ctx.setLineDash([4,4]);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(px,top);ctx.lineTo(px,bottom);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=m.c||t.warn;ctx.font='600 11px '+Chart.defaults.font.family;ctx.textAlign=right?'right':'left';ctx.fillText(m.t,px+(right?-6:6),top+12+row*14);ctx.restore()})}}}
 
 // ---------- hero kpis
 const g=D.ga, c=D.cdn, L=D.live, S=D.gsc;
@@ -592,7 +595,7 @@ mk('c-dau',{type:'bar',data:{labels:labelsFrom(g.trend_days),datasets:[{data:g.d
 const pages=g.pages.filter(p=>!/SignInHub|Login/.test(p.title)).slice(0,10);
 const short=s=>s.replace(' | ASG Shop','').replace(" | Apars Classroom",'').replace('ACS ','').replace('MainActivity','Android App (MainActivity)').replace('HSC 26 Final Revision Batch || FRB-26','FRB-26 Final Revision').replace('Varsity + GST Special Private Programme 2026','Varsity + GST Special 2026').replace('Admission Special Private Programme','Admission Special Programme').replace('Engineering Private Batch 2026 (Full Syllabus)','Engineering Private Batch 2026');
 mk('c-pages',{type:'bar',data:{labels:pages.map(p=>short(p.title)),datasets:[{data:pages.map(p=>p.views),backgroundColor:pages.map((p,i)=>i===0?t0.accent:hexa(t0.accent,.55)),borderRadius:4}]},
-  options:{...base(t0),indexAxis:'y',scales:{x:{grid:{color:t0.grid},ticks:{color:t0.dim,callback:v=>fmt.k(v)},border:{display:false}},y:{grid:{display:false},ticks:{color:css('--text'),font:{size:11.5},autoSkip:false},border:{display:false}}}}});
+  options:{...base(t0),indexAxis:'y',scales:{x:{grid:{color:t0.grid},ticks:{color:t0.dim,callback:v=>fmt.k(v)},border:{display:false}},y:{grid:{display:false},ticks:{color:css('--text'),font:{size:11.5},autoSkip:false,callback:function(v){const l=this.getLabelForValue(v);return this.chart.width<520&&l.length>17?l.slice(0,16)+'…':l}},border:{display:false}}}}});
 document.querySelector('#t-pages tbody').innerHTML=pages.map((p,i)=>`<tr><td class="dim">${i+1}</td><td>${short(p.title)}</td><td class="n">${fmt.k(p.views)}</td><td class="n">${fmt.k(p.users)}</td><td class="n">${p.bounce.toFixed(1)}%</td></tr>`).join('');
 
 // ---------- 03 acquisition
