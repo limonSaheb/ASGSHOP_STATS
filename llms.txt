@@ -2,11 +2,9 @@
 
 > Quarterly analytics and infrastructure report for Apars Classroom (ASG SHOP), an EdTech platform for HSC and university-admission preparation in Bangladesh. Period Jul 1 – Sep 30, 2026. Published by Md Maheyan Islam, CTO (cto@asgshop.ai).
 
-Key figures (Q3 2026, change vs Q2 2026): active students 1,191,900 (+86.5%); new students 1,365,732 (+83.6%); total events 101,852,791 (+43.9%); average engagement 57m 05s (×3.0); rolling 30-day active peak 608,723 on Sep 9; CDN delivered 1.31 PB (+23.9%) over 1.97B requests (+8.2%) at 92.2% cache hit; live classes 917 sessions, 311,224 participants, 1,269 streaming hours; Google Search 1,326,484 clicks at 39.7% CTR.
+Key figures (Q3 2026, change vs Q2 2026): active students 1,191,900 (+86.5%); new students 1,365,732 (+83.6%); total events 101,852,791 (+43.9%); average engagement 57m 05s (×3.0); rolling 30-day active peak 608,723 on Sep 9; CDN delivered 1.72 PB (+62.7%) over 2.49B requests (+37.0%) at 91.7% cache hit; live classes 917 sessions, 311,224 participants, 1,269 streaming hours; Google Search 1,326,484 clicks at 39.7% CTR.
 
-Defining event: the Admission 2026 cycle launched on Aug 16, 2026 - daily CDN delivery stepped from ~8 TB to ~20 TB and the 30-day audience rose from 409K to 609K within a month.
-
-Secondary CDN (Jul–Sep 2026): 411.4 TB delivered over 524.0M requests at 90.0% mean daily cache hit; origin traffic 49.8 TB (12.1%); Singapore PoP 99.4%. Reported separately from the primary Apars CDN figures.
+Defining event: the Admission 2026 cycle launched on Aug 16, 2026 - daily CDN delivery stepped from ~11 TB to ~26 TB and the 30-day audience rose from 409K to 609K within a month.
 
 Recognition: in July 2026 TIME and Statista named Apars Classroom in the World's Top EdTech Companies 2026 ranking (350 companies worldwide); see https://stats.asgshop.ai/2026/q3/#awards
 
