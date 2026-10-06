@@ -7,7 +7,7 @@ Sources: Pulse Engine (Google Analytics 4), Google Search Console, Apars CDN edg
 
 ## Summary
 
-The Admission 2026 cycle arrived in mid-August and reset every ceiling on the platform: active students nearly doubled quarter over quarter, live classes crossed 300,000 participants, and the edge delivered its heaviest quarter yet. September 2026 was the largest delivery month in the platform's history (648 TB).
+The Admission 2026 cycle arrived in mid-August and reset every ceiling on the platform: active students nearly doubled quarter over quarter, live classes crossed 300,000 participants, and the edge delivered its heaviest quarter yet. September 2026 was the largest delivery month in the platform's history (807 TB).
 
 ## Headline KPIs (Q3 2026 vs Q2 2026)
 
@@ -17,8 +17,8 @@ The Admission 2026 cycle arrived in mid-August and reset every ceiling on the pl
 | New students                          | 744K          | 1,365,732        | +83.6%      |
 | Total events                          | 70.8M         | 101,852,791      | +43.9%      |
 | Avg engagement per active student     | 18m 56s       | 57m 05s (3425 s) | ×3.0        |
-| CDN bandwidth delivered               | 1.06 PB       | 1.313 PB         | +23.9%      |
-| CDN requests                          | 1.82B         | 1.970B           | +8.2%       |
+| CDN bandwidth delivered               | 1.06 PB       | 1.725 PB         | +62.7%      |
+| CDN requests                          | 1.82B         | 2.494B           | +37.0%       |
 | Rolling 30-day active students (peak) | 299K (Jun 30) | 608,723 (Sep 9)  | +103.6%     |
 | Live class sessions / participants    | -             | 917 / 311,224    | new section |
 
@@ -304,7 +304,7 @@ Daily search clicks and impressions:
 ## 04 - Live Classes (Apars Media Portal)
 
 - Sessions: 917; streaming hours: 1,269; participants: 311,224 (~339 per session); recordings: 934; active programmes: 38.
-- Live delivery: 187.0 TB and 306M requests, served through the same Apars CDN edge as the on-demand catalogue (already included in the CDN totals below; ≈14% of Q3 edge traffic).
+- Live delivery: 187.0 TB and 306M requests, served through the same Apars CDN edge as the on-demand catalogue (already included in the CDN totals below; ≈11% of Q3 edge traffic).
 
 | Month     | Sessions | Streaming hours | Participants | Recordings | Live delivery (TB) | Active programmes |
 | --------- | -------- | --------------- | ------------ | ---------- | ------------------ | ----------------- |
@@ -329,117 +329,117 @@ Top live programmes (Q3, by participants):
 
 ## 05 - CDN & Infrastructure (Apars CDN)
 
-- Total delivered: 1.313 PB across 1.970 billion requests. Origin traffic 136.5 TB (10.4% of delivery). Mean daily cache hit rate 92.2%. Singapore PoP carries ≈99.4% of traffic.
-- Daily delivery stepped from ~8 TB to ~20 TB from Aug 16 (Aug 15: 8.9 TB → Aug 16: 16.4 TB) and held for the rest of the quarter. Peak day 24.5 TB on Sep 15; peak requests 36.2M on Sep 29.
-- Sep 29–30: scheduled quarterly storage migration — content moved to refreshed origin storage and edge caches were repopulated (origin pulls ~2M → 13.8M/day, origin egress 7.8 TB, cache hit rate 61.9%); delivered bandwidth and requests to students were unaffected.
+- Total delivered: 1.725 PB across 2.494 billion requests. Origin traffic 186.3 TB (10.8% of delivery). Mean daily cache hit rate 91.7%. Singapore PoP carries ≈99.4% of traffic.
+- Daily delivery stepped from ~11 TB to ~26 TB from Aug 16 (Aug 15: 13.6 TB → Aug 16: 21.0 TB) and held for the rest of the quarter. Peak day 30.4 TB on Sep 15; peak requests 43.0M on Sep 22.
+- Sep 29–30: scheduled quarterly storage migration — content moved to refreshed origin storage and edge caches were repopulated (origin egress ~2.7 TB → ~10 TB/day, cache hit rate 61.9% and 64.3%); delivered bandwidth and requests to students were unaffected.
 
-| Month     | Bandwidth (TB) | Requests (M) | Cache hit rate | Avg origin response (ms) | Origin traffic (TB) | Origin share | Peak day         |
-| --------- | -------------- | ------------ | -------------- | ------------------------ | ------------------- | ------------ | ---------------- |
-| July      | 229.3          | 373.3        | 91.36%         | 213                      | 25.2                | 11.0%        | 10.6 TB (Jul 28) |
-| August    | 435.8          | 650.5        | 93.54%         | 225                      | 37.7                | 8.7%         | 22.7 TB (Aug 23) |
-| September | 648.1          | 946.2        | 91.76%         | 262                      | 73.5                | 11.3%        | 24.5 TB (Sep 15) |
+| Month | Bandwidth (TB) | Requests (M) | Cache hit rate | Avg origin response (ms) | Origin traffic (TB) | Origin share | Peak day |
+|---|---|---|---|---|---|---|---|
+| July | 336.5 | 514.1 | 90.52% | 209 | 38.7 | 11.5% | 14.8 TB (Jul 28) |
+| August | 580.6 | 831.6 | 93.13% | 223 | 53.1 | 9.1% | 27.4 TB (Aug 26) |
+| September | 807.5 | 1148.3 | 91.52% | 261 | 94.5 | 11.7% | 30.4 TB (Sep 15) |
 
 Daily edge metrics:
 
-| Date       | Bandwidth (TB) | Requests (M) | Origin (TB) | Cache hit % | Origin resp. (ms) | 5xx  |
-| ---------- | -------------- | ------------ | ----------- | ----------- | ----------------- | ---- |
-| 2026-07-01 | 7.66           | 12.48        | 0.838       | 90.99       | 207               | 69   |
-| 2026-07-02 | 5.51           | 9.20         | 0.652       | 89.46       | 203               | 294  |
-| 2026-07-03 | 6.19           | 10.27        | 0.753       | 89.35       | 197               | 4300 |
-| 2026-07-04 | 5.54           | 9.14         | 0.766       | 86.40       | 177               | 35   |
-| 2026-07-05 | 8.06           | 13.21        | 0.652       | 93.10       | 282               | 570  |
-| 2026-07-06 | 5.65           | 9.45         | 0.689       | 89.81       | 340               | 273  |
-| 2026-07-07 | 7.26           | 12.40        | 0.610       | 92.61       | 334               | 127  |
-| 2026-07-08 | 6.26           | 10.36        | 0.852       | 89.64       | 391               | 744  |
-| 2026-07-09 | 7.69           | 12.92        | 0.749       | 92.93       | 352               | 34   |
-| 2026-07-10 | 6.88           | 11.39        | 0.760       | 91.28       | 352               | 79   |
-| 2026-07-11 | 6.04           | 10.10        | 0.732       | 90.13       | 291               | 133  |
-| 2026-07-12 | 8.54           | 14.81        | 0.830       | 92.41       | 159               | 6    |
-| 2026-07-13 | 7.19           | 11.88        | 0.810       | 91.30       | 159               | 0    |
-| 2026-07-14 | 9.13           | 15.66        | 0.682       | 93.78       | 170               | 38   |
-| 2026-07-15 | 6.40           | 10.62        | 0.762       | 91.10       | 177               | 69   |
-| 2026-07-16 | 6.75           | 11.17        | 0.670       | 92.22       | 174               | 9    |
-| 2026-07-17 | 7.17           | 11.76        | 0.696       | 92.50       | 167               | 522  |
-| 2026-07-18 | 7.92           | 12.86        | 0.848       | 91.91       | 197               | 84   |
-| 2026-07-19 | 6.22           | 10.82        | 0.923       | 88.66       | 171               | 24   |
-| 2026-07-20 | 6.37           | 10.42        | 0.856       | 90.24       | 195               | 12   |
-| 2026-07-21 | 7.88           | 13.13        | 0.979       | 90.69       | 173               | 27   |
-| 2026-07-22 | 7.16           | 11.31        | 1.091       | 89.64       | 164               | 19   |
-| 2026-07-23 | 9.31           | 14.80        | 1.298       | 90.17       | 180               | 45   |
-| 2026-07-24 | 8.00           | 12.22        | 0.805       | 92.64       | 149               | 33   |
-| 2026-07-25 | 7.82           | 11.98        | 0.730       | 92.71       | 174               | 0    |
-| 2026-07-26 | 9.20           | 14.08        | 0.792       | 93.23       | 155               | 39   |
-| 2026-07-27 | 8.88           | 14.02        | 0.842       | 92.79       | 154               | 38   |
-| 2026-07-28 | 10.60          | 16.53        | 0.875       | 94.11       | 231               | 170  |
-| 2026-07-29 | 7.40           | 11.64        | 0.911       | 91.73       | 201               | 285  |
-| 2026-07-30 | 7.27           | 11.21        | 0.983       | 91.72       | 169               | 1    |
-| 2026-07-31 | 7.35           | 11.50        | 0.791       | 92.99       | 156               | 1    |
-| 2026-08-01 | 7.99           | 12.64        | 0.861       | 93.01       | 158               | 1    |
-| 2026-08-02 | 8.78           | 13.85        | 0.965       | 93.00       | 235               | 145  |
-| 2026-08-03 | 9.45           | 14.83        | 0.964       | 93.54       | 298               | 5    |
-| 2026-08-04 | 7.28           | 11.02        | 1.053       | 91.32       | 330               | 10   |
-| 2026-08-05 | 7.13           | 10.94        | 1.129       | 89.95       | 320               | 217  |
-| 2026-08-06 | 7.77           | 12.24        | 0.899       | 91.49       | 284               | 3    |
-| 2026-08-07 | 7.30           | 11.39        | 0.939       | 91.07       | 298               | 16   |
-| 2026-08-08 | 6.69           | 10.37        | 0.911       | 90.42       | 237               | 83   |
-| 2026-08-09 | 6.61           | 10.05        | 0.994       | 90.66       | 178               | 330  |
-| 2026-08-10 | 5.46           | 8.31         | 0.909       | 89.75       | 171               | 491  |
-| 2026-08-11 | 7.37           | 11.00        | 1.200       | 90.43       | 218               | 478  |
-| 2026-08-12 | 7.53           | 11.08        | 1.232       | 90.52       | 182               | 0    |
-| 2026-08-13 | 8.25           | 12.60        | 1.091       | 91.79       | 166               | 14   |
-| 2026-08-14 | 7.71           | 11.90        | 0.921       | 91.69       | 136               | 0    |
-| 2026-08-15 | 8.92           | 14.08        | 0.985       | 92.63       | 150               | 23   |
-| 2026-08-16 | 16.44          | 24.01        | 1.327       | 94.70       | 203               | 3    |
-| 2026-08-17 | 17.73          | 27.02        | 1.211       | 95.41       | 216               | 4    |
-| 2026-08-18 | 21.07          | 32.09        | 1.296       | 95.85       | 202               | 18   |
-| 2026-08-19 | 18.28          | 28.29        | 1.239       | 95.80       | 209               | 2    |
-| 2026-08-20 | 20.65          | 30.80        | 1.221       | 96.08       | 200               | 1337 |
-| 2026-08-21 | 17.68          | 26.33        | 1.204       | 95.69       | 220               | 530  |
-| 2026-08-22 | 19.86          | 28.99        | 1.277       | 95.48       | 227               | 1    |
-| 2026-08-23 | 22.70          | 33.26        | 1.371       | 95.69       | 220               | 1020 |
-| 2026-08-24 | 21.11          | 31.33        | 1.508       | 95.58       | 237               | 27   |
-| 2026-08-25 | 22.13          | 33.13        | 1.495       | 95.62       | 230               | 1    |
-| 2026-08-26 | 21.94          | 33.89        | 1.479       | 95.46       | 232               | 716  |
-| 2026-08-27 | 20.40          | 28.39        | 1.576       | 95.71       | 246               | 0    |
-| 2026-08-28 | 19.20          | 28.89        | 1.433       | 95.53       | 246               | 3    |
-| 2026-08-29 | 20.38          | 29.28        | 1.532       | 95.58       | 234               | 63   |
-| 2026-08-30 | 21.24          | 28.98        | 1.768       | 95.08       | 239               | 82   |
-| 2026-08-31 | 20.72          | 29.49        | 1.749       | 95.18       | 245               | 1    |
-| 2026-09-01 | 21.15          | 31.46        | 1.774       | 95.09       | 255               | 427  |
-| 2026-09-02 | 22.01          | 32.49        | 1.753       | 95.35       | 222               | 251  |
-| 2026-09-03 | 21.05          | 29.97        | 1.748       | 95.32       | 244               | 132  |
-| 2026-09-04 | 18.50          | 26.45        | 1.496       | 95.23       | 244               | 10   |
-| 2026-09-05 | 18.85          | 26.68        | 1.668       | 94.63       | 240               | 81   |
-| 2026-09-06 | 23.05          | 31.99        | 2.203       | 95.12       | 335               | 52   |
-| 2026-09-07 | 20.61          | 29.91        | 2.113       | 95.05       | 368               | 676  |
-| 2026-09-08 | 21.51          | 30.48        | 2.003       | 94.94       | 348               | 585  |
-| 2026-09-09 | 22.19          | 32.05        | 2.302       | 92.68       | 330               | 9    |
-| 2026-09-10 | 22.20          | 29.07        | 2.237       | 93.68       | 354               | 4    |
-| 2026-09-11 | 22.20          | 32.43        | 2.188       | 93.65       | 295               | 0    |
-| 2026-09-12 | 22.39          | 32.36        | 1.996       | 93.79       | 240               | 1    |
-| 2026-09-13 | 24.38          | 33.12        | 2.338       | 93.51       | 227               | 1    |
-| 2026-09-14 | 23.85          | 33.72        | 2.002       | 94.47       | 245               | 5    |
-| 2026-09-15 | 24.54          | 34.73        | 2.308       | 93.03       | 246               | 1035 |
-| 2026-09-16 | 21.53          | 30.82        | 2.070       | 93.46       | 252               | 18   |
-| 2026-09-17 | 20.75          | 28.55        | 2.022       | 93.03       | 251               | 135  |
-| 2026-09-18 | 21.26          | 31.47        | 1.865       | 93.55       | 255               | 6    |
-| 2026-09-19 | 22.39          | 30.94        | 2.116       | 93.06       | 269               | 2    |
-| 2026-09-20 | 21.17          | 31.37        | 2.126       | 92.81       | 254               | 2    |
-| 2026-09-21 | 21.45          | 31.91        | 2.216       | 93.11       | 258               | 621  |
-| 2026-09-22 | 23.65          | 35.98        | 2.305       | 93.11       | 250               | 7    |
-| 2026-09-23 | 22.91          | 34.22        | 2.438       | 92.76       | 259               | 24   |
-| 2026-09-24 | 21.25          | 31.36        | 2.386       | 92.17       | 278               | 95   |
-| 2026-09-25 | 20.47          | 30.26        | 2.220       | 92.73       | 264               | 176  |
-| 2026-09-26 | 21.71          | 32.62        | 2.447       | 91.89       | 232               | 0    |
-| 2026-09-27 | 21.68          | 32.09        | 2.564       | 92.44       | 234               | 0    |
-| 2026-09-28 | 20.27          | 29.66        | 2.180       | 93.10       | 278               | 4    |
-| 2026-09-29 | 20.66          | 36.24        | 7.764       | 61.92       | 175               | 6    |
-| 2026-09-30 | 18.45          | 31.82        | 6.697       | 68.21       | 157               | 59   |
+| Date | Bandwidth (TB) | Requests (M) | Origin (TB) | Cache hit % | Origin resp. (ms) | 5xx |
+|---|---|---|---|---|---|---|
+| 2026-07-01 | 9.98 | 15.58 | 1.368 | 88.50 | 201 | 122 |
+| 2026-07-02 | 8.04 | 12.46 | 1.072 | 88.09 | 215 | 433 |
+| 2026-07-03 | 8.64 | 13.52 | 1.211 | 87.33 | 215 | 6882 |
+| 2026-07-04 | 7.80 | 12.09 | 1.149 | 85.70 | 186 | 41 |
+| 2026-07-05 | 10.37 | 16.19 | 1.005 | 91.56 | 257 | 570 |
+| 2026-07-06 | 9.77 | 15.92 | 1.047 | 91.07 | 309 | 274 |
+| 2026-07-07 | 9.63 | 15.34 | 0.944 | 91.50 | 302 | 131 |
+| 2026-07-08 | 9.60 | 14.56 | 1.287 | 88.75 | 355 | 13309 |
+| 2026-07-09 | 11.78 | 18.29 | 1.173 | 92.25 | 350 | 56 |
+| 2026-07-10 | 10.23 | 15.73 | 1.209 | 90.28 | 320 | 92 |
+| 2026-07-11 | 9.53 | 14.65 | 1.142 | 90.07 | 266 | 133 |
+| 2026-07-12 | 11.60 | 18.98 | 1.163 | 91.72 | 158 | 6 |
+| 2026-07-13 | 10.65 | 16.42 | 1.179 | 90.88 | 158 | 0 |
+| 2026-07-14 | 11.92 | 19.35 | 1.000 | 92.84 | 169 | 49 |
+| 2026-07-15 | 10.10 | 15.85 | 1.119 | 91.11 | 177 | 69 |
+| 2026-07-16 | 9.70 | 14.78 | 1.016 | 91.36 | 176 | 9 |
+| 2026-07-17 | 10.73 | 16.54 | 1.085 | 91.41 | 167 | 522 |
+| 2026-07-18 | 11.70 | 17.64 | 1.330 | 90.87 | 204 | 202 |
+| 2026-07-19 | 9.37 | 14.97 | 1.312 | 88.29 | 171 | 24 |
+| 2026-07-20 | 9.52 | 14.55 | 1.275 | 89.28 | 203 | 15 |
+| 2026-07-21 | 12.08 | 18.84 | 1.540 | 89.67 | 170 | 32 |
+| 2026-07-22 | 11.63 | 17.46 | 1.681 | 88.91 | 182 | 24 |
+| 2026-07-23 | 13.07 | 19.60 | 1.868 | 89.45 | 186 | 90 |
+| 2026-07-24 | 11.48 | 16.56 | 1.305 | 91.48 | 152 | 1456 |
+| 2026-07-25 | 11.69 | 17.07 | 1.133 | 91.96 | 184 | 0 |
+| 2026-07-26 | 13.06 | 18.87 | 1.281 | 92.16 | 154 | 53 |
+| 2026-07-27 | 12.62 | 18.71 | 1.228 | 92.14 | 167 | 39 |
+| 2026-07-28 | 14.76 | 21.76 | 1.370 | 93.28 | 226 | 175 |
+| 2026-07-29 | 12.50 | 18.49 | 1.404 | 91.62 | 192 | 466 |
+| 2026-07-30 | 11.33 | 16.37 | 1.503 | 90.86 | 159 | 1 |
+| 2026-07-31 | 11.62 | 16.90 | 1.325 | 91.82 | 151 | 3 |
+| 2026-08-01 | 12.91 | 18.92 | 1.416 | 92.28 | 143 | 1 |
+| 2026-08-02 | 13.12 | 19.34 | 1.432 | 92.45 | 224 | 145 |
+| 2026-08-03 | 14.69 | 21.75 | 1.496 | 92.81 | 276 | 8 |
+| 2026-08-04 | 11.74 | 16.55 | 1.543 | 91.24 | 309 | 10 |
+| 2026-08-05 | 11.84 | 16.83 | 1.648 | 90.31 | 317 | 241 |
+| 2026-08-06 | 11.36 | 16.64 | 1.344 | 90.99 | 286 | 3 |
+| 2026-08-07 | 11.69 | 17.05 | 1.437 | 90.72 | 301 | 33 |
+| 2026-08-08 | 11.56 | 16.68 | 1.401 | 90.76 | 239 | 84 |
+| 2026-08-09 | 10.39 | 14.68 | 1.472 | 90.37 | 194 | 350 |
+| 2026-08-10 | 8.62 | 12.19 | 1.385 | 89.42 | 172 | 496 |
+| 2026-08-11 | 11.12 | 15.49 | 1.743 | 89.79 | 210 | 478 |
+| 2026-08-12 | 12.62 | 17.56 | 1.814 | 90.78 | 185 | 0 |
+| 2026-08-13 | 12.46 | 17.85 | 1.607 | 91.38 | 181 | 19 |
+| 2026-08-14 | 11.58 | 16.73 | 1.350 | 91.22 | 135 | 0 |
+| 2026-08-15 | 13.57 | 20.13 | 1.433 | 92.45 | 156 | 28 |
+| 2026-08-16 | 20.97 | 29.64 | 1.821 | 93.92 | 213 | 5 |
+| 2026-08-17 | 23.08 | 33.75 | 1.731 | 94.68 | 217 | 5 |
+| 2026-08-18 | 25.93 | 38.16 | 1.783 | 95.16 | 210 | 21 |
+| 2026-08-19 | 23.70 | 35.30 | 1.753 | 95.11 | 206 | 2 |
+| 2026-08-20 | 25.34 | 36.50 | 1.746 | 95.40 | 202 | 1337 |
+| 2026-08-21 | 22.72 | 32.61 | 1.739 | 94.89 | 222 | 539 |
+| 2026-08-22 | 25.64 | 36.24 | 2.183 | 93.70 | 232 | 1 |
+| 2026-08-23 | 27.23 | 38.81 | 2.060 | 94.41 | 217 | 1044 |
+| 2026-08-24 | 26.77 | 38.43 | 2.024 | 95.06 | 233 | 29 |
+| 2026-08-25 | 27.16 | 39.38 | 1.911 | 95.37 | 226 | 279 |
+| 2026-08-26 | 27.39 | 40.72 | 1.818 | 95.44 | 224 | 716 |
+| 2026-08-27 | 24.44 | 33.26 | 1.915 | 95.58 | 241 | 0 |
+| 2026-08-28 | 23.63 | 34.38 | 1.760 | 95.49 | 239 | 3 |
+| 2026-08-29 | 25.39 | 35.48 | 1.912 | 95.51 | 230 | 63 |
+| 2026-08-30 | 25.88 | 34.52 | 2.181 | 95.11 | 232 | 130 |
+| 2026-08-31 | 26.04 | 36.05 | 2.221 | 95.16 | 243 | 1 |
+| 2026-09-01 | 25.98 | 37.43 | 2.165 | 95.01 | 249 | 484 |
+| 2026-09-02 | 27.16 | 39.03 | 2.203 | 95.16 | 222 | 253 |
+| 2026-09-03 | 25.79 | 35.89 | 2.180 | 95.15 | 238 | 133 |
+| 2026-09-04 | 23.57 | 32.81 | 1.905 | 94.99 | 242 | 10 |
+| 2026-09-05 | 24.14 | 33.31 | 2.054 | 94.64 | 234 | 81 |
+| 2026-09-06 | 27.80 | 37.90 | 2.727 | 94.94 | 331 | 52 |
+| 2026-09-07 | 26.23 | 36.77 | 2.842 | 94.71 | 366 | 676 |
+| 2026-09-08 | 26.31 | 36.52 | 2.560 | 94.63 | 352 | 674 |
+| 2026-09-09 | 28.03 | 39.03 | 2.980 | 92.72 | 328 | 11 |
+| 2026-09-10 | 26.73 | 34.67 | 2.702 | 93.57 | 352 | 5 |
+| 2026-09-11 | 27.20 | 38.56 | 2.715 | 93.61 | 292 | 0 |
+| 2026-09-12 | 27.35 | 38.55 | 2.448 | 93.74 | 237 | 1 |
+| 2026-09-13 | 29.13 | 38.91 | 2.832 | 93.47 | 227 | 1 |
+| 2026-09-14 | 30.29 | 42.02 | 2.547 | 94.45 | 245 | 9 |
+| 2026-09-15 | 30.43 | 41.87 | 2.814 | 93.24 | 242 | 1035 |
+| 2026-09-16 | 26.67 | 37.14 | 2.467 | 93.61 | 247 | 18 |
+| 2026-09-17 | 25.66 | 34.63 | 2.434 | 93.17 | 248 | 136 |
+| 2026-09-18 | 26.72 | 38.52 | 2.312 | 93.62 | 254 | 8 |
+| 2026-09-19 | 27.58 | 37.59 | 2.548 | 93.27 | 267 | 22 |
+| 2026-09-20 | 25.77 | 37.19 | 2.591 | 92.85 | 256 | 2 |
+| 2026-09-21 | 26.93 | 39.10 | 2.684 | 93.25 | 258 | 624 |
+| 2026-09-22 | 29.24 | 42.96 | 3.330 | 91.85 | 255 | 7 |
+| 2026-09-23 | 29.33 | 42.34 | 3.447 | 92.08 | 256 | 35 |
+| 2026-09-24 | 25.88 | 37.15 | 3.004 | 91.89 | 276 | 98 |
+| 2026-09-25 | 26.44 | 37.73 | 3.016 | 92.55 | 264 | 176 |
+| 2026-09-26 | 27.51 | 39.82 | 3.119 | 91.93 | 236 | 0 |
+| 2026-09-27 | 26.68 | 38.27 | 3.122 | 92.39 | 236 | 0 |
+| 2026-09-28 | 26.51 | 37.47 | 2.923 | 92.95 | 277 | 4 |
+| 2026-09-29 | 25.56 | 42.96 | 9.812 | 61.87 | 177 | 7 |
+| 2026-09-30 | 24.84 | 42.20 | 10.009 | 64.26 | 159 | 60 |
 
 ## 06 - Quarter over Quarter (Q2 → Q3)
 
-Monthly bandwidth (TB): Q2 429 / 355 / 273 → Q3 229 / 436 / 648.  
-Monthly requests (M): Q2 762.0 / 609.8 / 452.3 → Q3 373.3 / 650.5 / 946.2.
+Monthly bandwidth (TB): Q2 429 / 355 / 273 → Q3 336 / 581 / 807.  
+Monthly requests (M): Q2 762.0 / 609.8 / 452.3 → Q3 514.1 / 831.6 / 1148.3.
 Q2 figures are sourced from the Q2 2026 Performance Report (https://stats.asgshop.ai/2026/q2/).
 
 ## 07 - Key Insights
@@ -472,9 +472,17 @@ Paid channels fell to 11.6% of arrivals (from 12.8%) while new students rose 84%
 
 Dhaka grew 80% to 353K, yet its share barely moved; Chattogram (110K), Rajshahi (81K), Khulna (55K) and the rest of the top nine grew in step.
 
-### Scale: 1.97 billion requests, 92.2% from cache
+### Scale: 2.49 billion requests, 91.7% from cache
 
-1.31 PB delivered - 24% more than Q2 - for an audience 86% larger. Cache hit rate held at 92.2%, reaching 96% at the August peak; September alone delivered 648 TB, a monthly record.
+1.72 PB delivered - 63% more than Q2 - for an audience 86% larger. Cache hit rate held at 91.7%, reaching 95.6% in late August; September alone delivered 807 TB, a monthly record.
+
+## 08 - Recognition
+
+In July 2026, TIME and Statista named Apars Classroom in the World's Top EdTech Companies 2026 ranking - a select group of 350 companies worldwide, recognised for strong financial performance and meaningful impact on the global education ecosystem. The evaluation covered financial strength (revenue, funding, market position), industry impact (SDG alignment, product effectiveness), innovation (intellectual-property portfolio) and market relevance (visibility, user engagement). Inclusion was confirmed in a letter dated 22 July 2026 signed by Jessica Sibley (CEO, TIME) and Marc Berg (CEO, Statista); the certificate and letter are shown at https://stats.asgshop.ai/2026/q3/#awards
+
+## 09 - Feature to Watch: Community
+
+Launched in Q3 2026 inside the Apars Classroom app, Community adds a social layer around every programme: a feed of questions, polls and discussions, programme groups, stories, anonymous posts, and a shared Notes library of hand-written notes, sheets and question banks. Post types are discussion, anonymous, question, poll and note; posts carry replies, likes, saves and shares. Notes are uploaded as a PDF or up to four photos, tagged academic, admission or abroad, SSC or HSC, by group and subject, and the library is searchable with a most-saved shelf and a personal shelf. Engagement metrics (posts and replies per day, group membership, notes shared and saved) will be reported from Q4 2026. Screenshots: https://stats.asgshop.ai/2026/q3/#community
 
 ---
 
