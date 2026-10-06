@@ -6,7 +6,7 @@ Key figures (Q3 2026, change vs Q2 2026): active students 1,191,900 (+86.5%); ne
 
 Defining event: the Admission 2026 cycle launched on Aug 16, 2026 - daily CDN delivery stepped from ~8 TB to ~20 TB and the 30-day audience rose from 409K to 609K within a month.
 
-Secondary CDN (July 2026 so far): 107.2 TB delivered over 140.7M requests at 87.9% mean daily cache hit; origin traffic 13.5 TB (12.6%); Singapore PoP 99.5%. Reported separately from the primary Apars CDN figures.
+Secondary CDN (Jul–Sep 2026): 411.4 TB delivered over 524.0M requests at 90.0% mean daily cache hit; origin traffic 49.8 TB (12.1%); Singapore PoP 99.4%. Reported separately from the primary Apars CDN figures.
 
 Recognition: in July 2026 TIME and Statista named Apars Classroom in the World's Top EdTech Companies 2026 ranking (350 companies worldwide); see https://stats.asgshop.ai/2026/q3/#awards
 
