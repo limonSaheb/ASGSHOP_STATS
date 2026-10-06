@@ -329,7 +329,7 @@ Top live programmes (Q3, by participants):
 
 ## 05 - CDN & Infrastructure (Apars CDN)
 
-- Total delivered: 1.725 PB across 2.494 billion requests, all delivery zones combined. Origin traffic 186.3 TB (10.8% of delivery). Mean daily cache hit rate 91.7%. Singapore PoP carries ≈99.4% of traffic.
+- Total delivered: 1.725 PB across 2.494 billion requests. Origin traffic 186.3 TB (10.8% of delivery). Mean daily cache hit rate 91.7%. Singapore PoP carries ≈99.4% of traffic.
 - Daily delivery stepped from ~11 TB to ~26 TB from Aug 16 (Aug 15: 13.6 TB → Aug 16: 21.0 TB) and held for the rest of the quarter. Peak day 30.4 TB on Sep 15; peak requests 43.0M on Sep 22.
 - Sep 29–30: a large share of the catalogue was re-fetched from origin (origin egress ~2.7 TB → ~10 TB/day, cache hit rate 61.9% and 64.3%); delivered bandwidth and requests were unaffected.
 
@@ -339,7 +339,7 @@ Top live programmes (Q3, by participants):
 | August | 580.6 | 831.6 | 93.13% | 223 | 53.1 | 9.1% | 27.4 TB (Aug 26) |
 | September | 807.5 | 1148.3 | 91.52% | 261 | 94.5 | 11.7% | 30.4 TB (Sep 15) |
 
-Daily edge metrics (all zones):
+Daily edge metrics:
 
 | Date | Bandwidth (TB) | Requests (M) | Origin (TB) | Cache hit % | Origin resp. (ms) | 5xx |
 |---|---|---|---|---|---|---|

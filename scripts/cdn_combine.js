@@ -58,7 +58,7 @@ for(const f of ['2026/q3/index.html','index.html']){const p=path.join(ROOT,f),li
 // 3. markdown tables of section 05 (report.md, llms-full.txt); any "Secondary CDN" subsection is removed
 const dm=s=>new Date(s+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
 const tbl=['| Month | Bandwidth (TB) | Requests (M) | Cache hit rate | Avg origin response (ms) | Origin traffic (TB) | Origin share | Peak day |','|---|---|---|---|---|---|---|---|',
-  ...months.map(m=>`| ${m.label} | ${m.bw_tb.toFixed(1)} | ${m.rq_m.toFixed(1)} | ${m.chr.toFixed(2)}% | ${m.ort.toFixed(0)} | ${m.og_tb.toFixed(1)} | ${m.og_pct.toFixed(1)}% | ${m.peak_bw.toFixed(1)} TB (${dm(m.peak_bw_day)}) |`),'','Daily edge metrics (all zones):','',
+  ...months.map(m=>`| ${m.label} | ${m.bw_tb.toFixed(1)} | ${m.rq_m.toFixed(1)} | ${m.chr.toFixed(2)}% | ${m.ort.toFixed(0)} | ${m.og_tb.toFixed(1)} | ${m.og_pct.toFixed(1)}% | ${m.peak_bw.toFixed(1)} TB (${dm(m.peak_bw_day)}) |`),'','Daily edge metrics:','',
   '| Date | Bandwidth (TB) | Requests (M) | Origin (TB) | Cache hit % | Origin resp. (ms) | 5xx |','|---|---|---|---|---|---|---|',
   ...days.map((d,i)=>`| ${d} | ${bw[i].toFixed(2)} | ${rq[i].toFixed(2)} | ${og[i].toFixed(3)} | ${chr[i].toFixed(2)} | ${ort[i].toFixed(0)} | ${e5[i]} |`)].join('\n');
 for(const f of ['2026/q3/report.md','2026/q3/llms-full.txt','llms-full.txt']){const p=path.join(ROOT,f);let s=fs.readFileSync(p,'utf8');
