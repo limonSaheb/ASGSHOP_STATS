@@ -1,6 +1,7 @@
 // Renders the Q3 Open Graph image: node scripts/og/render-q3-og.js, then downscale og@2x.png to 1200x630 as 2026/q3/og.png.
 const fs=require('fs'),path=require('path');const {chromium}=require('/opt/node22/lib/node_modules/playwright');
 const S=path.dirname(__filename);const D=require(path.join(S,'../../2026/q3/q3data.json'));
+const TIMEsvg=fs.readFileSync(path.join(S,'time.svg'),'utf8').trim(),STsvg=fs.readFileSync(path.join(S,'statista.svg'),'utf8').trim();
 const logo='data:image/png;base64,'+fs.readFileSync(path.join(S,'logo.png')).toString('base64');
 // sparkline of rolling 30-day active students
 const m=D.ga.mau,W=470,H=170,mn=Math.min(...m),mx=Math.max(...m);
@@ -31,7 +32,7 @@ h1 em{font-style:normal;color:#3ddc97}
 .chart .pk{position:absolute;font-family:'JetBrains Mono',monospace;font-size:13px;color:#eef3f1;font-weight:600}
 .foot{position:absolute;left:60px;right:60px;bottom:44px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;color:#8b9a95}
 .pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(61,220,151,.35);background:rgba(61,220,151,.1);color:#9af2cc;border-radius:999px;padding:8px 16px;font-weight:500;letter-spacing:.02em}
-.pill i{width:8px;height:8px;border-radius:50%;background:#3ddc97;display:inline-block}
+.pill svg{height:18px;width:auto;display:block;color:#eef3f1}.pill em{font-style:normal;color:#8b9a95;margin:0 2px}
 </style></head><body><div class="wrap">
 <div class="brand"><img src="${logo}" alt=""> ASG SHOP <span>Q3 · 2026 · Performance Report</span></div>
 <h1>Q3 2026 <em>Performance</em><br>Report</h1>
@@ -47,7 +48,7 @@ h1 em{font-style:normal;color:#3ddc97}
 <div class="kpi"><div class="v">311K</div><div class="l">Live class participants</div><div class="d flat">917 sessions · new</div></div>
 <div class="kpi"><div class="v">57m 05s</div><div class="l">Avg engagement</div><div class="d">▲ 3.0× vs Q2</div></div>
 </div>
-<div class="foot"><span class="pill"><i></i>TIME × Statista · World's Top EdTech Companies 2026</span><span>stats.asgshop.ai/2026/q3</span></div>
+<div class="foot"><span class="pill">${TIMEsvg}<em>×</em>${STsvg}<em>·</em>World's Top EdTech Companies 2026</span><span>stats.asgshop.ai/2026/q3</span></div>
 </div></body></html>`;
 fs.writeFileSync(path.join(S,'og.html'),html);
 (async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1200,height:630},deviceScaleFactor:2});

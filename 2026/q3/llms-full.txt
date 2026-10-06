@@ -447,7 +447,7 @@ Q2 figures are sourced from the Q2 2026 Performance Report (https://stats.asgsho
 ### Milestone: 609K monthly students - double the previous high
 Rolling 30-day active students peaked at 608,723 on Sep 9, against 299K at the end of Q2. The quarter closed at 532K, still 78% above where it began.
 
-### Signal: Aug 16: the admission cycle landed
+### Signal: Admission Courses Landed
 Search clicks peaked on Aug 15, delivered bandwidth jumped 84% on Aug 16 and settled at nearly three times its July level, and the 30-day audience added 147K students in the following fortnight.
 
 ### Live: 311K live participants, 917 sessions
