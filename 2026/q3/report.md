@@ -480,6 +480,10 @@ Dhaka grew 80% to 353K, yet its share barely moved; Chattogram (110K), Rajshahi 
 
 In July 2026, TIME and Statista named Apars Classroom in the World's Top EdTech Companies 2026 ranking - a select group of 350 companies worldwide, recognised for strong financial performance and meaningful impact on the global education ecosystem. The evaluation covered financial strength (revenue, funding, market position), industry impact (SDG alignment, product effectiveness), innovation (intellectual-property portfolio) and market relevance (visibility, user engagement). Inclusion was confirmed in a letter dated 22 July 2026 signed by Jessica Sibley (CEO, TIME) and Marc Berg (CEO, Statista); the certificate and letter are shown at https://stats.asgshop.ai/2026/q3/#awards
 
+## 09 - Feature to Watch: Community
+
+Launched in Q3 2026 inside the Apars Classroom app, Community adds a social layer around every programme: a feed of questions, polls and discussions, programme groups, stories, anonymous posts, and a shared Notes library of hand-written notes, sheets and question banks. Post types are discussion, anonymous, question, poll and note; posts carry replies, likes, saves and shares. Notes are uploaded as a PDF or up to four photos, tagged academic, admission or abroad, SSC or HSC, by group and subject, and the library is searchable with a most-saved shelf and a personal shelf. Engagement metrics (posts and replies per day, group membership, notes shared and saved) will be reported from Q4 2026. Screenshots: https://stats.asgshop.ai/2026/q3/#community
+
 ---
 
 Md Maheyan Islam · Chief Technology Officer · ASG SHOP™ · cto@asgshop.ai · Kuala Lumpur, Malaysia · https://www.asgshop.ai  
