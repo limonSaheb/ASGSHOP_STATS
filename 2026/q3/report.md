@@ -448,7 +448,7 @@ Q2 figures are sourced from the Q2 2026 Performance Report (https://stats.asgsho
 
 Rolling 30-day active students peaked at 608,723 on Sep 9, against 299K at the end of Q2. The quarter closed at 532K, still 78% above where it began.
 
-### Signal: Aug 16: the admission cycle landed
+### Signal: Admission Courses Landed
 
 Search clicks peaked on Aug 15, delivered bandwidth jumped 84% on Aug 16 and settled at nearly three times its July level, and the 30-day audience added 147K students in the following fortnight.
 
@@ -482,7 +482,7 @@ In July 2026, TIME and Statista named Apars Classroom in the World's Top EdTech 
 
 ## 09 - Feature to Watch: Community
 
-Launched in Q3 2026 inside the Apars Classroom app, Community adds a social layer around every programme: a feed of questions, polls and discussions, programme groups, stories, anonymous posts, and a shared Notes library of hand-written notes, sheets and question banks. Post types are discussion, anonymous, question, poll and note; posts carry replies, likes, saves and shares. Notes are uploaded as a PDF or up to four photos, tagged academic, admission or abroad, SSC or HSC, by group and subject, and the library is searchable with a most-saved shelf and a personal shelf. Engagement metrics (posts and replies per day, group membership, notes shared and saved) will be reported from Q4 2026. Screenshots: https://stats.asgshop.ai/2026/q3/#community
+Launched in Q3 2026 inside the ACS App, Community adds a social layer around every programme: a feed of questions, polls and discussions, programme groups, stories, anonymous posts, and a shared Notes library of hand-written notes, sheets and question banks. Post types are discussion, anonymous, question, poll and note; posts carry replies, likes, saves and shares. Notes are uploaded as a PDF or up to four photos, tagged academic, admission or abroad, SSC or HSC, by group and subject, and the library is searchable with a most-saved shelf and a personal shelf. Engagement metrics (posts and replies per day, group membership, notes shared and saved) will be reported from Q4 2026. Screenshots: https://stats.asgshop.ai/2026/q3/#community
 
 ---
 
