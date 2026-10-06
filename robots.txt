@@ -1,4 +1,4 @@
-# stats.asgshop.ai — public performance reports
+# stats.asgshop.ai - public performance reports
 User-agent: *
 Allow: /
 
