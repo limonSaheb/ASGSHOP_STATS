@@ -167,7 +167,7 @@ tr:last-child td{border-bottom:0}
 .carousel .dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:var(--line2);cursor:pointer;transition:transform .15s,background .15s}
 .carousel .dots button[aria-selected=true]{background:var(--accent);transform:scale(1.3)}
 .shots-wrap{position:relative;margin-top:28px}
-.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 8px;scrollbar-width:none;outline:none}
+.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:4px;padding:4px 4px 8px;scrollbar-width:none;outline:none}
 .shots::-webkit-scrollbar{display:none}
 .shots:focus-visible{box-shadow:0 0 0 2px var(--accent);border-radius:12px}
 .shot{flex:0 0 212px;scroll-snap-align:start;margin:0}
@@ -737,11 +737,23 @@ buildCharts();
   addEventListener('resize',()=>go(i,true));
   sync();
 })();
-// ---------- community screenshots
-(()=>{const s=document.getElementById('community-shots');if(!s)return;const step=()=>s.querySelector('.shot').getBoundingClientRect().width+16;
+// ---------- community screenshots (endless loop: a copy of the set on each side, re-centred whenever the scroll drifts into a copy)
+(()=>{const s=document.getElementById('community-shots');if(!s)return;const originals=[...s.children],n=originals.length;
+  const clone=f=>{const c=f.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('img').forEach(i=>i.removeAttribute('loading'));return c};
+  originals.forEach(f=>s.appendChild(clone(f)));[...originals].reverse().forEach(f=>s.insertBefore(clone(f),s.firstChild));
+  const gap=()=>parseFloat(getComputedStyle(s).columnGap)||16,step=()=>originals[0].getBoundingClientRect().width+gap(),setW=()=>step()*n;
+  let cur=0,touching=false,t;
+  const recentre=()=>{if(touching)return;const w=setW(),p=s.scrollLeft;if(p<w)s.scrollLeft=p+w;else if(p>=2*w)s.scrollLeft=p-w;cur=Math.round((s.scrollLeft-w)/step())%n;if(cur<0)cur+=n};
+  const settle=()=>{clearTimeout(t);t=setTimeout(recentre,120)};
+  s.scrollLeft=setW();
+  s.addEventListener('scroll',settle,{passive:true});
+  s.addEventListener('scrollend',recentre);
+  s.addEventListener('touchstart',()=>{touching=true},{passive:true});
+  ['touchend','touchcancel'].forEach(ev=>s.addEventListener(ev,()=>{touching=false;settle()},{passive:true}));
   s.parentNode.querySelector('.prev').addEventListener('click',()=>s.scrollBy({left:-step(),behavior:'smooth'}));
   s.parentNode.querySelector('.next').addEventListener('click',()=>s.scrollBy({left:step(),behavior:'smooth'}));
   s.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();s.scrollBy({left:(e.key==='ArrowRight'?1:-1)*step(),behavior:'smooth'})}});
+  addEventListener('resize',()=>{s.scrollLeft=setW()+cur*step()});
 })();
 function themeShots(t){document.querySelectorAll('.shot img[data-light]').forEach(i=>{const src=t==='light'?i.dataset.light:i.dataset.dark;if(i.getAttribute('src')!==src)i.setAttribute('src',src)})}
 // ---------- theme toggle
