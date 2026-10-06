@@ -331,7 +331,7 @@ Top live programmes (Q3, by participants):
 
 - Total delivered: 1.313 PB across 1.970 billion requests. Origin traffic 136.5 TB (10.4% of delivery). Mean daily cache hit rate 92.2%. Singapore PoP carries ≈99.4% of traffic.
 - Daily delivery stepped from ~8 TB to ~20 TB from Aug 16 (Aug 15: 8.9 TB → Aug 16: 16.4 TB) and held for the rest of the quarter. Peak day 24.5 TB on Sep 15; peak requests 36.2M on Sep 29.
-- Sep 29–30: a large share of the catalogue was re-fetched from origin (origin pulls ~2M → 13.8M/day, origin egress 7.8 TB, cache hit rate 61.9%); delivered bandwidth and requests were unaffected.
+- Sep 29–30: scheduled quarterly storage migration — content moved to refreshed origin storage and edge caches were repopulated (origin pulls ~2M → 13.8M/day, origin egress 7.8 TB, cache hit rate 61.9%); delivered bandwidth and requests to students were unaffected.
 
 | Month     | Bandwidth (TB) | Requests (M) | Cache hit rate | Avg origin response (ms) | Origin traffic (TB) | Origin share | Peak day         |
 | --------- | -------------- | ------------ | -------------- | ------------------------ | ------------------- | ------------ | ---------------- |
