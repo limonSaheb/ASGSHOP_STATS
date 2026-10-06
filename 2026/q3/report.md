@@ -482,7 +482,7 @@ In July 2026, TIME and Statista named Apars Classroom in the World's Top EdTech 
 
 ## 09 - Feature to Watch: Community
 
-Launched in Q3 2026 inside the Apars Classroom app, Community adds a social layer around every programme: a feed of questions, polls and discussions, programme groups, stories, anonymous posts, and a shared Notes library of hand-written notes, sheets and question banks. Post types are discussion, anonymous, question, poll and note; posts carry replies, likes, saves and shares. Notes are uploaded as a PDF or up to four photos, tagged academic, admission or abroad, SSC or HSC, by group and subject, and the library is searchable with a most-saved shelf and a personal shelf. Engagement metrics (posts and replies per day, group membership, notes shared and saved) will be reported from Q4 2026. Screenshots: https://stats.asgshop.ai/2026/q3/#community
+Launched in Q3 2026 inside the ACS App, Community adds a social layer around every programme: a feed of questions, polls and discussions, programme groups, stories, anonymous posts, and a shared Notes library of hand-written notes, sheets and question banks. Post types are discussion, anonymous, question, poll and note; posts carry replies, likes, saves and shares. Notes are uploaded as a PDF or up to four photos, tagged academic, admission or abroad, SSC or HSC, by group and subject, and the library is searchable with a most-saved shelf and a personal shelf. Engagement metrics (posts and replies per day, group membership, notes shared and saved) will be reported from Q4 2026. Screenshots: https://stats.asgshop.ai/2026/q3/#community
 
 ---
 
