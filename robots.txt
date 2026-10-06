@@ -1,0 +1,7 @@
+# stats.asgshop.ai — public performance reports
+User-agent: *
+Allow: /
+
+# Machine-readable copies of each report
+# /2026/q3/llms.txt · /2026/q3/report.md · /2026/q3/q3data.json
+Sitemap: https://stats.asgshop.ai/sitemap.xml
